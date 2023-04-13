@@ -1,11 +1,11 @@
-const form = document.querySelector(".formControl");
-const nameInput = document.getElementById("name-input");
-
-console.log(document.getElementsByClassName("form"));
+const form = document.querySelector(".form");
+const input = form.querySelector("#name-input");
 
 form?.addEventListener("submit", function (e) {
   e.preventDefault();
-  const name = nameInput.value;
+  const name = input.value;
   localStorage.setItem("name", name);
-  window.location.href = "main.html";
+  window.location.href = "../Main/home.html";
+  console.log(name);
 });
+

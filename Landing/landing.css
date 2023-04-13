@@ -20,8 +20,8 @@
 }
 
 *::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 5px;
+  height: 5px;
   background: #fff;
 }
 
@@ -66,8 +66,8 @@ body {
   font-size: 2rem;
 }
 
-.item.input {
-  height: 92%;
+.item.body {
+  min-height: 92%;
   flex-grow: 1;
 }
 
@@ -86,16 +86,6 @@ button {
   background-color: var(--primaryColor);
   color: var(--secondaryColor);
 }
-
-/* bootstrap */
-/* $grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-  xxl: 1400px,
-); */
 
 /* media query --------------------------------- */
 
