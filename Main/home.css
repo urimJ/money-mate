@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
+
+/* global Style ---------------------------------*/
+* {
+  box-sizing: border-box;
+  font-family: "GmarketSansMedium";
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "GmarketSansMedium";
+  src: url("../Static/fonts/GmarketSansTTFMedium.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GmarketSansBold";
+  src: url("../Static/fonts/GmarketSansTTFBold.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GmarketSansLight";
+  src: url("../Static/fonts/GmarketSansTTFLight.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@property --primaryColor {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #1f4174;
+}
+
+@property --secondaryColor {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: white;
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background: #fff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: --primaryColor;
+  border-radius: 10px;
+}
