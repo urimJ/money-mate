@@ -106,6 +106,7 @@
   grid-template-rows: 1fr;
 }
 
+/* nav ------------------------------------ */
 .nav-container {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -113,16 +114,18 @@
   color: var(--secondaryColor);
 }
 
-.accounts-container {
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
-  padding: 10px;
+nav {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav-item.header {
   display: flex;
   justify-content: center;
-  margin-top: 2vh;
+  /* margin-top: 2vh; */
 }
 
 .nav-item.header span {
@@ -137,4 +140,29 @@
   border-top: none;
   border-bottom: none;
   padding: 10px;
+  cursor: pointer;
+}
+
+.nav-item.news {
+  width: 90%;
+  height: 40%;
+  border: 1px solid var(--secondaryColor);
+}
+
+.nav-item.calendar {
+  width: 90%;
+  height: 40%;
+  border: 1px solid var(--secondaryColor);
+}
+
+/* accounts ------------------------------- */
+.accounts-container {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  padding: 15px;
+}
+
+.accounts-title {
+  font-size: 1.5rem;
+  font-family: "GmarketSansBold";
 }
