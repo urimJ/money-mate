@@ -1,13 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
 
-/* global Style ---------------------------------*/
-* {
-  box-sizing: border-box;
-  font-family: "GmarketSansMedium";
-  margin: 0;
-  padding: 0;
-}
-
 @font-face {
   font-family: "GmarketSansMedium";
   src: url("../Static/fonts/GmarketSansTTFMedium.ttf");
@@ -41,6 +33,14 @@
   initial-value: white;
 }
 
+/* global Style ---------------------------------*/
+* {
+  box-sizing: border-box;
+  font-family: "GmarketSansMedium";
+  margin: 0;
+  padding: 0;
+}
+
 *::-webkit-scrollbar {
   width: 5px;
   height: 5px;
@@ -50,4 +50,91 @@
 *::-webkit-scrollbar-thumb {
   background: --primaryColor;
   border-radius: 10px;
+}
+
+/* Global Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeIn {
+  animation: fadeIn;
+  animation-duration: 0.8s;
+}
+
+.fadeOut {
+  animation: fadeOut;
+  animation-duration: 0.8s;
+}
+
+/* html ----------------------------------- */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+}
+
+.nav-container {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  background-color: var(--primaryColor);
+  color: var(--secondaryColor);
+}
+
+.accounts-container {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  padding: 10px;
+}
+
+.nav-item.header {
+  display: flex;
+  justify-content: center;
+  margin-top: 2vh;
+}
+
+.nav-item.header span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  font-family: "Kaushan Script", cursive;
+  font-size: 2rem;
+  color: var(--secondaryColor);
+  border: 7px solid var(--secondaryColor);
+  border-top: none;
+  border-bottom: none;
+  padding: 10px;
 }
