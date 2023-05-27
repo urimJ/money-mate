@@ -1,9 +1,13 @@
-import { useState } from "react";
+import GlobalStyle from "../GlobalStyle";
+import Router from "../Router";
 
 function App() {
   return (
     <>
-      <p>Hello</p>
+      
+        <GlobalStyle />
+        <Router/>
+      
     </>
   );
 }
