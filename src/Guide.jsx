@@ -3,10 +3,14 @@ import {
   GuideContainer,
   GuideContent,
   GuideHeader,
+  GuideNextButton,
 } from './components/GuideStyle';
+import { useNavigate } from 'react-router-dom';
 
 const Guide = () => {
+  const navigate = useNavigate();
   const userName = localStorage.getItem('username');
+  const handleClick = () => navigate(`/accounts/${userName}`);
   return (
     <>
       <GuideContainer>
@@ -26,7 +30,10 @@ const Guide = () => {
           {/* 안녕하세요, {userName}님 <br />
           Money Mate는 사용자의 지출, 소비를 기록할 수 있는 서비스를 제공합니다. */}
         </GuideHeader>
-        <GuideContent></GuideContent>
+        <br />
+        <GuideContent>Content</GuideContent>
+        <br />
+        <GuideNextButton onClick={handleClick}>다음</GuideNextButton>
       </GuideContainer>
     </>
   );

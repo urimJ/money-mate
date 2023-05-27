@@ -60,7 +60,7 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
-  *::-webkit-scrollbar {
+  /* *::-webkit-scrollbar {
     width: 10px;
     height: 10px;
     background: ${bgColor};
@@ -68,7 +68,7 @@ const GlobalStyle = createGlobalStyle`
 
   *::-webkit-scrollbar-thumb {
     background: ${primaryColor};
-  }
+  } */
 
   *::selection {
     color: ${bgColor};

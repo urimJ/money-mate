@@ -9,11 +9,22 @@ import {
 // import Typewriter from 'typewriter-effect';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Landing = () => {
+  // State 관리-------------------------------------------
   const navigate = useNavigate();
   const [userName, setUserName] = useState('');
+  const auth = localStorage.getItem('username');
 
+  // ComponentDidMount------------------------------------
+  useEffect(() => {
+    if (auth) {
+      navigate('/guide', { replace: true });
+    }
+  }, []);
+
+  // Function---------------------------------------------
   const handleChange = (e) => setUserName(e.target.value);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,7 +34,7 @@ const Landing = () => {
 
   return (
     <>
-      <LandingContainer>
+      <LandingContainer className="fadeIn">
         <LandingSection>
           <LandingTitle>
             종합 가계부,{' '}

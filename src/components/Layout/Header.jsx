@@ -1,9 +1,13 @@
-import { HeaderSection } from '../LayoutStyle';
+import { HeaderSection, HeaderText } from '../LayoutStyle';
 
 const Header = () => {
   return (
     <>
-      <HeaderSection>Money Mate</HeaderSection>
+      <HeaderSection>
+        <HeaderText onClick={() => window.location.replace('/')}>
+          Money Mate
+        </HeaderText>
+      </HeaderSection>
     </>
   );
 };

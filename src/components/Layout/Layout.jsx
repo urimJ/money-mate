@@ -1,6 +1,7 @@
 import Router from '../../../Router';
 import { Container } from '../LayoutStyle';
 import Header from './Header';
+import Logout from './Logout';
 
 const Layout = () => {
   return (
@@ -8,6 +9,7 @@ const Layout = () => {
       <Container>
         <Header />
         <Router />
+        <Logout />
       </Container>
     </>
   );

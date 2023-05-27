@@ -1,7 +1,10 @@
+import { AccountsContainer } from './components/AccountsStyle';
+
 const Accounts = () => {
+  const userName = localStorage.getItem('username');
   return (
     <>
-      <p>Accounts Total 페이지</p>
+      <AccountsContainer>{userName}님의 가계부</AccountsContainer>
     </>
   );
 };
