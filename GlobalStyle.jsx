@@ -63,15 +63,15 @@ const GlobalStyle = createGlobalStyle`
   *::-webkit-scrollbar {
     width: 10px;
     height: 10px;
-    background: ${primaryColor};
-  }
-
-  *::-webkit-scrollbar-thumb {
     background: ${bgColor};
   }
 
+  *::-webkit-scrollbar-thumb {
+    background: ${primaryColor};
+  }
+
   *::selection {
-    color: black;
+    color: ${bgColor};
     background: ${primaryColor};
   }
   // 추가2. 가져온 폰트를 body태그 안에 있으면 다 적용
@@ -102,6 +102,32 @@ const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: "AppleSDGothicNeoB";
     src: url("./src/fonts/AppleSDGothicNeoB.ttf");
+  }
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}   
+  }
+  @keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}   
+  }
+
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}   
+  }
+  @-webkit-keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}   
+  }
+  .fadeIn{
+    animation: fadeIn;
+    animation-duration: 0.8s;
+  }
+
+  .fadeOut{
+    animation: fadeOut;
+    animation-duration: 0.8s;
   }
 `;
 

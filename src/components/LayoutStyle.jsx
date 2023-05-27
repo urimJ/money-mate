@@ -9,7 +9,7 @@ export const Container = styled.div`
 
 export const HeaderSection = styled.section`
   width: 100%;
-  height: 80px;
+  height: 8vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,4 +19,5 @@ export const HeaderSection = styled.section`
   font-size: 36px;
   border: none;
   box-shadow: 0px 10px 55px -4px rgba(65, 120, 203, 0.75);
+  z-index: 1;
 `;

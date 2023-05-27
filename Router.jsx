@@ -1,9 +1,9 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Landing from "./src/Landing";
-import Guide from "./src/Guide";
-import Accounts from "./src/Accounts";
-import Calendar from "./src/Calendar";
-import Statistics from "./src/Statistics";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Landing from './src/Landing';
+import Guide from './src/Guide';
+import Accounts from './src/Accounts';
+import Calendar from './src/Calendar';
+import Statistics from './src/Statistics';
 
 function Router() {
   return (
@@ -11,10 +11,10 @@ function Router() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/guide" element={<Guide />} />
-        <Route path="/accounts" element={<Accounts />} />
+        <Route path="/accounts/:username" element={<Accounts />} />
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/statisitcs" element={<Statistics />} />
-        </Routes>
+      </Routes>
     </BrowserRouter>
   );
 }
