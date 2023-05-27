@@ -1,11 +1,11 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 // 배경색, 글꼴 색
-export const bgColor = "white";
-export const textColor = "black";
-export const primaryBoldColor = "#1F4174";
-export const primaryColor = "#4178CB";
-export const secondaryColor = "#fff";
+export const bgColor = 'white';
+export const textColor = 'black';
+export const primaryBoldColor = '#1F4174';
+export const primaryColor = '#4178CB';
+export const secondaryColor = '#fff';
 // export const pointColor = "#603900";
 
 const GlobalStyle = createGlobalStyle`
@@ -87,6 +87,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   /* Animation declaration, Font-face Setting */
+  @font-face {
+    font-family: 'Kaushan Script';
+    src: url("./src/fonts/KaushanScript-Regular.ttf");
+  }
   @font-face {
     font-family: "AppleSDGothicNeoM";
     src: url("./src/fonts/AppleSDGothicNeoM.ttf");
