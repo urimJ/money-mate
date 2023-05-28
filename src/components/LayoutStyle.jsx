@@ -49,4 +49,5 @@ export const LogoutButton = styled.button`
     box-shadow: 0px 10px 55px -4px rgba(65, 120, 203, 0.75);
     font-size: 16px;
   }
+  /* display: ${(props) => (props.auth ? '' : 'none')}; */
 `;
