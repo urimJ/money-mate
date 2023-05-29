@@ -1,4 +1,4 @@
-import { AccountsBtnInput, AccountsBtnSearch, AccountsContHeader, AccountsContainer, AccountsGroupFromTo, AccountsGroupInput, AccountsSorting, AccountsTitle, AccountsContBody, AccountsTable, AccountsTableWidthFixed, AccountsAmountColorIncome } from './components/AccountsStyle';
+import { AccountsBtnInput, AccountsBtnSearch, AccountsContHeader, AccountsContainer, AccountsGroupFromTo, AccountsGroupInput, AccountsSorting, AccountsTitle, AccountsContBody, AccountsTable, AccountsTableWidthFixed, AccountsAmountColorIncome, AccountsAmountColorSpending, AccountsContHeaderGroup } from './components/AccountsStyle';
 
 import { useState } from 'react'
 
@@ -76,7 +76,7 @@ const Accounts = () => {
                       <tr>
                           <AccountsTableWidthFixed className = "widthFixed">2023-05-17</AccountsTableWidthFixed>
                           <td>박수련장인 베개</td>
-                          <AccountsAmountColorIncome className = "colorAmount income">50,000</AccountsAmountColorIncome>
+                          <AccountsAmountColorSpending className = "colorAmount income">50,000</AccountsAmountColorSpending>
                           <td>생활용품</td>
                           <td>카카오뱅크카드</td>
                       </tr>
