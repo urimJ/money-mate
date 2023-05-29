@@ -8,8 +8,8 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
 
-import SelectVariants from './SelectVariant'
-import DatePicker from './DatePicker'
+import SelectVariants from './SelectVariants'
+import DatePicker from './DatePickers'
 
 const FormDialog = () => {
   const [open, setOpen] = React.useState(false);

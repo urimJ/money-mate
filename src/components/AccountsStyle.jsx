@@ -12,7 +12,7 @@ export const AccountsTitle = styled.p`
   font-size: 36px;
   font-weight: bold;
   color: ${primaryColor};
-  margin: 0px 0px 0px 160px;
+  margin: 0px 0px 10px 160px;
   padding: 80px 0px 0px 0px;
 `
 
@@ -47,4 +47,26 @@ export const AccountsBtnInput = styled.button`
   margin : 0px 0px 20px 20px;
   background-color: rgb(65,120,203);
   color: white;
+`
+export const AccountsContBody = styled.div`
+  height: 750px;
+  margin: 0px 160px;
+  background-color: rgb(33, 236, 169);
+  border: 3px solid rgb(65, 120, 203);
+`
+export const AccountsTable = styled.table`
+  border: 1px solid rgb(65,120,203);
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 23px;
+  padding: 0 30px;
+  text-align: center;
+`
+export const AccountsTableWidthFixed = styled.tr`
+  width: 180px;
+`
+export const AccountsAmountColorSpending = styled.td`
+  color: rgb(248,77,77);
+`
+export const AccountsAmountColorIncome = styled.td`
+  color: rgb(45,103,251);
 `

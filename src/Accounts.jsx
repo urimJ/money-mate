@@ -1,8 +1,8 @@
-import { AccountsBtnInput, AccountsBtnSearch, AccountsContHeader, AccountsContainer, AccountsGroupFromTo, AccountsGroupInput, AccountsSorting, AccountsTitle } from './components/AccountsStyle';
+import { AccountsBtnInput, AccountsBtnSearch, AccountsContHeader, AccountsContainer, AccountsGroupFromTo, AccountsGroupInput, AccountsSorting, AccountsTitle, AccountsContBody, AccountsTable, AccountsTableWidthFixed, AccountsAmountColorIncome } from './components/AccountsStyle';
 
 import { useState } from 'react'
 
-import DatePicker from './components/Accounts/DatePicker'
+import DatePicker from './components/Accounts/DatePickers'
 import FormDialog from './components/Accounts/FormDialog';
 
 const Accounts = () => {
@@ -61,11 +61,11 @@ const Accounts = () => {
             <FormDialog />
           </AccountsGroupInput>
           </AccountsContHeader>
-          <div className = "contBody">
-              <table className = "tableWidth">
+          <AccountsContBody className = "contBody">
+              <AccountsTable className = "tableWidth">
                   <thead>
                       <tr>
-                          <th className = "widthFixed">날짜</th>
+                          <AccountsTableWidthFixed className = "widthFixed">날짜</AccountsTableWidthFixed>
                           <th>내용</th>
                           <th>금액</th>
                           <th>그룹A</th>
@@ -74,20 +74,18 @@ const Accounts = () => {
                   </thead>
                   <tbody>
                       <tr>
-                          <td className = "widthFixed">2023-05-17</td>
+                          <AccountsTableWidthFixed className = "widthFixed">2023-05-17</AccountsTableWidthFixed>
                           <td>박수련장인 베개</td>
-                          <td className = "colorAmount income">50,000</td>
+                          <AccountsAmountColorIncome className = "colorAmount income">50,000</AccountsAmountColorIncome>
                           <td>생활용품</td>
                           <td>카카오뱅크카드</td>
                       </tr>
-                      
-
                   </tbody>
-              </table>
-          </div>
+              </AccountsTable>
+          </AccountsContBody>
       </AccountsContainer>
     </>
   );
 };
 
-export default Accounts;v
+export default Accounts;
