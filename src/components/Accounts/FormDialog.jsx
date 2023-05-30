@@ -7,9 +7,9 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-
 import SelectVariants from './SelectVariants'
 import DatePicker from './DatePickers'
+import { ButtonInput } from './FromDialogStyle';
 
 const FormDialog = () => {
   const [open, setOpen] = React.useState(false);
@@ -24,9 +24,9 @@ const FormDialog = () => {
 
   return (
     <div>
-      <Button className = "btnInput" onClick={handleClickOpen}>
+      <ButtonInput className = "btnInput" onClick={handleClickOpen}>
         입력
-      </Button>
+      </ButtonInput>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle></DialogTitle>
         <DialogContent>

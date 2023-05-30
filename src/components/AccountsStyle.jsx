@@ -8,12 +8,12 @@ export const AccountsContainer = styled.div`
 `;
 
 export const AccountsTitle = styled.p`
-  font-family: 'Nanum Gothic', sans-serif;
-  font-size: 36px;
+  /* font-family: 'Nanum Gothic', sans-serif; */
+  font-size: 30px; //36px->30px
   font-weight: bold;
   color: ${primaryColor};
   margin: 0px 20px 10px 160px;
-  padding: 80px 0px 0px 0px;
+  padding: 30px 0px 0px 0px; //80px->60px
 `
 
 export const AccountsContHeader = styled.div`
@@ -44,18 +44,26 @@ export const AccountsBtnSearch = styled.button`
   margin : 0px 0px 0px 20px;
   background-color: rgb(65,120,203);
   color: white;
+  width: 114px;
+  height: 50px;
+  border: 0px solid ${primaryColor};
+  border-radius: 10px;
 `
 export const AccountsBtnInput = styled.button`
   margin : 0px 0px 20px 20px;
   background-color: rgb(65,120,203);
   color: white;
+  width: 114px;
+  height: 50px;
+  border: 0px solid ${primaryColor};
+  border-radius: 10px;
 `
 export const AccountsContBody = styled.div`
   
   margin: 0px 160px;
   background-color: rgb(33, 236, 169);
   border: 3px solid rgb(65, 120, 203);
-  height: 350px;
+  height: 450px;
 `
 export const AccountsTable = styled.table`
   border: 1px solid rgb(65,120,203);
