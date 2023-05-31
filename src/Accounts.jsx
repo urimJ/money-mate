@@ -1,4 +1,4 @@
-import { AccountsBtnInput, AccountsBtnSearch, AccountsContHeader, AccountsContainer, AccountsGroupFromTo, AccountsGroupInput, AccountsSorting, AccountsTitle, AccountsContBody, AccountsTable, AccountsTableWidthFixed, AccountsAmountColorIncome, AccountsAmountColorSpending, AccountsContHeaderGroup } from './components/AccountsStyle';
+import { AccountsBtnInput, AccountsBtnSearch, AccountsContHeader, AccountsContainer, AccountsGroupFromTo, AccountsGroupInput, AccountsSorting, AccountsTitle, AccountsContBody, AccountsTable, AccountsTableWidthFixed, AccountsAmountColorIncome, AccountsAmountColorSpending } from './components/AccountsStyle';
 
 import { useState } from 'react'
 
@@ -42,6 +42,7 @@ const Accounts = () => {
               value={startDate}
               onChange={(value)=>{
                 setStartDate(value)
+                console.log(userName, value);
               }}
             />
             <AccountsSorting className = "sorting">부터</AccountsSorting>
@@ -55,10 +56,10 @@ const Accounts = () => {
             />
             <AccountsSorting className = "sorting">까지</AccountsSorting>
             <AccountsBtnSearch className = "btnSearch">보기</AccountsBtnSearch>
+            <FormDialog />
           </AccountsGroupFromTo>
           <AccountsGroupInput className = "groupInput">
-            <AccountsBtnInput className = "btnInput">입력</AccountsBtnInput>
-            <FormDialog />
+            
           </AccountsGroupInput>
           </AccountsContHeader>
           <AccountsContBody className = "contBody">
