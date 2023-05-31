@@ -4,7 +4,7 @@ import { bgColor, primaryColor } from '../../../GlobalStyle';
 // FormDialog와 관련된 styled component
 export const ButtonInput = styled.button`
     margin : 0px 0px 20px 20px;
-    background-color: rgb(65,120,203);
+    background-color: ${primaryColor};
     color: white;
     width: 114px;
     height: 50px;

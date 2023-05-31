@@ -61,7 +61,7 @@ export const AccountsBtnInput = styled.button`
 export const AccountsContBody = styled.div`
   
   margin: 0px 160px;
-  background-color: rgb(33, 236, 169);
+  
   border: 3px solid rgb(65, 120, 203);
   height: 450px;
 `
