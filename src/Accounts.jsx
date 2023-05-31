@@ -1,4 +1,4 @@
-import { AccountsBtnInput, AccountsBtnSearch, AccountsContHeader, AccountsContainer, AccountsGroupFromTo, AccountsGroupInput, AccountsSorting, AccountsTitle, AccountsContBody, AccountsTable, AccountsTableWidthFixed, AccountsAmountColorIncome, AccountsAmountColorSpending } from './components/AccountsStyle';
+import { AccountsBtnInput, AccountsBtnSearch, AccountsContHeader, AccountsContainer, AccountsGroupFromTo, AccountsGroupInput, AccountsSorting, AccountsTitle, AccountsContBody, AccountsTable, AccountsAmountColorIncome, AccountsAmountColorSpending, AccountsTableHeadTh } from './components/AccountsStyle';
 
 import { useState } from 'react'
 
@@ -66,16 +66,16 @@ const Accounts = () => {
               <AccountsTable className = "tableWidth">
                   <thead>
                       <tr>
-                          <AccountsTableWidthFixed className = "widthFixed">날짜</AccountsTableWidthFixed>
-                          <th>내용</th>
-                          <th>금액</th>
-                          <th>그룹A</th>
-                          <th>그룹B</th>
+                          <AccountsTableHeadTh className = "widthFixed">날짜</AccountsTableHeadTh>
+                          <AccountsTableHeadTh>내용</AccountsTableHeadTh>
+                          <AccountsTableHeadTh>금액</AccountsTableHeadTh>
+                          <AccountsTableHeadTh>그룹A</AccountsTableHeadTh>
+                          <AccountsTableHeadTh>그룹B</AccountsTableHeadTh>
                       </tr>
                   </thead>
                   <tbody>
                       <tr>
-                          <AccountsTableWidthFixed className = "widthFixed">2023-05-17</AccountsTableWidthFixed>
+                          <td className = "widthFixed">2023-05-17</td>
                           <td>박수련장인 베개</td>
                           <AccountsAmountColorSpending className = "colorAmount income">50,000</AccountsAmountColorSpending>
                           <td>생활용품</td>
