@@ -13,6 +13,10 @@ import {
   AccountsAmountColorIncome,
   AccountsAmountColorSpending,
   SideNavBar,
+  NavItem1,
+  NavItem2,
+  NavItem3,
+  SideNavBarButton,
 } from './components/AccountsStyle';
 import { useState } from 'react';
 import DatePicker from './components/Accounts/DatePickers';
@@ -21,29 +25,41 @@ import FormDialog from './components/Accounts/FormDialog';
 const Accounts = () => {
   // State 관리-------------------------------------
   const userName = localStorage.getItem('username');
-  const navToggle = useState(false);
+
+  // Navigation 관리--------------------------------
+  const [navToggle, setNavToggle] = useState(false);
+  const handleNavButton = () => {
+    setNavToggle(!navToggle);
+  };
 
   //
-  const [count, setCount] = useState(0);
-  //datepicker
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
+  // const [count, setCount] = useState(0);
+  // //datepicker
+  // const [startDate, setStartDate] = useState();
+  // const [endDate, setEndDate] = useState();
 
-  //list
-  const [date, setDate] = useState();
-  const [content, setContent] = useState('');
-  const [amount, setAmount] = useState();
-  const [g, setG] = useState('');
+  // //list
+  // const [date, setDate] = useState();
+  // const [content, setContent] = useState('');
+  // const [amount, setAmount] = useState();
+  // const [g, setG] = useState('');
 
-  const [list, setList] = useState();
-  const group = [];
-  const lists = [{ date: '', content: '', amount: '', group: '' }, {}];
+  // const [list, setList] = useState();
+  // const group = [];
+  // const lists = [{ date: '', content: '', amount: '', group: '' }, {}];
 
   return (
     <>
       <AccountsContainer>
-        <SideNavBar>&gt;&gt;</SideNavBar>
-        <AccountsContHeader className="contHeader">
+        {/* Navigation Bar----------------------------------- */}
+        <SideNavBarButton onClick={handleNavButton} navToggle={navToggle}>
+          <NavItem1>{navToggle ? '' : `>`} </NavItem1>
+          <NavItem2>{navToggle ? '' : `>`}</NavItem2>
+          <NavItem3>{navToggle ? 'X' : `>`}</NavItem3>
+        </SideNavBarButton>
+        <SideNavBar navToggle={navToggle} />
+        {/* 콘솔창 불타서 일단 임시 주석처리 */}
+        {/* <AccountsContHeader className="contHeader">
           <AccountsTitle className="title">{userName}님의 가계부</AccountsTitle>
           <AccountsGroupFromTo className="groupFromTo">
             <DatePicker
@@ -98,7 +114,7 @@ const Accounts = () => {
               </tr>
             </tbody>
           </AccountsTable>
-        </AccountsContBody>
+        </AccountsContBody> */}
       </AccountsContainer>
     </>
   );

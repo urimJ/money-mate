@@ -1,13 +1,101 @@
-import styled from 'styled-components';
-import { bgColor, primaryColor, textColor } from '../../GlobalStyle';
+import styled, { keyframes } from 'styled-components';
+import { primaryBoldColor, primaryColor } from '../../GlobalStyle';
 
 // Accounts 페이지와 관련된 styled component
+export const blink = keyframes`
+  from {
+    opacity: 0.25;
+  } to {
+    opacity: 1;
+  }
+`;
+
 export const AccountsContainer = styled.div`
   width: 100%;
   height: 90vh;
   position: relative;
 `;
 
+export const SideNavBar = styled.section`
+  width: 500px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  left: ${(props) => (props.navToggle ? '0' : '-500px')};
+  background-color: ${primaryColor};
+  transition: all 0.4s;
+  z-index: 1;
+  @media all and (max-width: 1280px) {
+    width: 300px;
+    left: ${(props) => (props.navToggle ? '0' : '-300px')};
+  }
+`;
+
+export const SideNavBarButton = styled.section`
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: ${(props) => (props.navToggle ? '440px' : '5px')};
+  top: 5px;
+  color: ${(props) => (props.navToggle ? '#fff' : { primaryColor })};
+  border: none;
+  background-color: transparent;
+  transition: all 0.5s;
+  cursor: pointer;
+  z-index: 2;
+  @media all and (max-width: 1280px) {
+    left: ${(props) => (props.navToggle ? '240px' : '5px')};
+  }
+`;
+
+export const NavItem1 = styled.section`
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  transition: all 0.5s;
+  animation: ${blink} 1s 0s infinite alternate;
+`;
+
+export const NavItem2 = styled.section`
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(0, -50%);
+  transition: all 0.5s;
+  animation: ${blink} 1s 0.25s infinite alternate;
+`;
+
+export const NavItem3 = styled.section`
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(0, -50%);
+  transition: all 0.5s;
+  animation: ${blink} 1s 0.5s infinite alternate;
+`;
+
+// Yurim------------------------------------------
 export const AccountsTitle = styled.p`
   font-family: 'Nanum Gothic', sans-serif;
   font-size: 36px;
@@ -22,37 +110,6 @@ export const AccountsContHeader = styled.div`
   flex-direction: column;
   justify-content: flex-start;
 `;
-
-export const SideNavBar = styled.section`
-  @keyframes automove {
-    from {
-      left: -50px;
-    }
-    to {
-      left: 0px;
-    }
-  }
-  width: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  left: 5px;
-  top: 5px;
-  color: ${primaryColor};
-  border: none;
-  border-radius: 0 15px 15px 0;
-  background-color: transparent;
-  transition: all 0.5s;
-  animation: automove 1s ease infinite alternate;
-  cursor: pointer;
-  &:hover {
-    animation: none;
-  }
-`;
-
-// Yurim------------------------------------------
 
 export const AccountsGroupFromTo = styled.div`
   display: flex;
