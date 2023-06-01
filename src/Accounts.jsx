@@ -21,6 +21,9 @@ import {
   FirstNavigator,
   SecondNavigator,
   ThirdNavigator,
+  NavNewsSection,
+  NavNewsHeader,
+  AccountsSection,
 } from './components/AccountsStyle';
 import { useCallback, useState } from 'react';
 import DatePicker from './components/Accounts/DatePickers';
@@ -74,7 +77,18 @@ const Accounts = () => {
           <ThirdNavigator currentPage={currentPage} onClick={handleNavigator2}>
             차트
           </ThirdNavigator>
+          <NavNewsHeader>경제 뉴스</NavNewsHeader>
+          <NavNewsSection>뉴스 API</NavNewsSection>
         </SideNavBar>
+        <AccountsSection navToggle={navToggle}>
+          {currentPage === 0
+            ? '가계부 페이지'
+            : currentPage === 1
+            ? '달력 페이지'
+            : currentPage === 2
+            ? '차트 페이지'
+            : ''}
+        </AccountsSection>
         {/* 콘솔창 불타서 일단 임시 주석처리 */}
         {/* <AccountsContHeader className="contHeader">
           <AccountsTitle className="title">{userName}님의 가계부</AccountsTitle>

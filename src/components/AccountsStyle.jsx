@@ -164,9 +164,49 @@ export const ThirdNavigator = styled.button`
   cursor: pointer;
 `;
 
+export const NavNewsHeader = styled.p`
+  position: absolute;
+  top: 45%;
+  color: ${bgColor};
+`;
+
 export const NavNewsSection = styled.section`
-  width: 95%;
-  height: 50%;
+  width: 90%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%, 0);
+  background-color: ${bgColor};
+  border-radius: 10px;
+  @media all and (max-height: 900px) {
+    height: 400px;
+  }
+  @media all and (max-height: 800px) {
+    height: 300px;
+  }
+`;
+
+// Accounts--------------------------------------
+export const AccountsSection = styled.section`
+  width: ${(props) => (props.navToggle ? `calc(100vw - 500px)` : '100vw')};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  height: 100vh;
+  transition: all 0.5s;
+
+  /* 레이아웃 스케치용 border */
+  border: 5px solid brown;
+
+  @media all and (max-width: 1280px) {
+    width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
+  }
 `;
 
 // Yurim------------------------------------------
