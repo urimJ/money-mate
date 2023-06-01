@@ -42,7 +42,7 @@ const Accounts = () => {
   return (
     <>
       <AccountsContainer>
-        <SideNavBar>&gt;</SideNavBar>
+        <SideNavBar>&gt;&gt;</SideNavBar>
         <AccountsContHeader className="contHeader">
           <AccountsTitle className="title">{userName}님의 가계부</AccountsTitle>
           <AccountsGroupFromTo className="groupFromTo">

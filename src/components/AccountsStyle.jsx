@@ -26,23 +26,24 @@ export const AccountsContHeader = styled.div`
 export const SideNavBar = styled.section`
   @keyframes automove {
     from {
-      left: -20px;
+      left: -50px;
     }
     to {
       left: 0px;
     }
   }
-  width: 20px;
-  height: 100vh;
+  width: 50px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  left: 0;
-  color: #fff;
+  left: 5px;
+  top: 5px;
+  color: ${primaryColor};
   border: none;
   border-radius: 0 15px 15px 0;
-  background-color: ${primaryColor};
+  background-color: transparent;
   transition: all 0.5s;
   animation: automove 1s ease infinite alternate;
   cursor: pointer;
