@@ -4,7 +4,8 @@ import Layout from './components/Layout/Layout';
 import { Context } from './context/Context';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const auth = localStorage.getItem('username');
+  const [isLoggedIn, setIsLoggedIn] = useState(auth);
   const [darkTheme, setDarkTheme] = useState(false);
   console.log(isLoggedIn);
   return (
