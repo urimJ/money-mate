@@ -1,6 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { primaryBoldColor, primaryColor } from '../../GlobalStyle';
-import { bgColor } from '../../GlobalStyle';
+import { bgColor, primaryColor } from '../../GlobalStyle';
 
 // Accounts 페이지와 관련된 styled component
 export const blink = keyframes`
@@ -118,11 +117,14 @@ export const FirstNavigator = styled.button`
   top: 100px;
   right: 0;
   color: ${(props) =>
-    props.currentPage === 0 ? { primaryColor } : { bgColor }};
+    props.currentPage === 0 ? `${primaryColor}` : `${bgColor}`};
   background-color: ${(props) =>
-    props.currentPage === 0 ? { bgColor } : { primaryColor }};
-  border: ${(props) => (props.currentPage === 0 ? 'none' : { bgColor })};
-  border-radius: 5px 0 0 5px;
+    props.currentPage === 0 ? `${bgColor}` : `${primaryColor}`};
+  border: ${(props) =>
+    props.currentPage === 0 ? 'none' : `1px solid ${bgColor}`};
+  border-right: none;
+  border-radius: 10px 0 0 10px;
+  transition: all 0.5s;
   cursor: pointer;
 `;
 
@@ -132,11 +134,15 @@ export const SecondNavigator = styled.button`
   position: absolute;
   top: 180px;
   right: 0;
-  color: ${bgColor};
-  background-color: ${primaryColor};
-  border: 1px solid ${bgColor};
+  color: ${(props) =>
+    props.currentPage === 1 ? `${primaryColor}` : `${bgColor}`};
+  background-color: ${(props) =>
+    props.currentPage === 1 ? `${bgColor}` : `${primaryColor}`};
+  border: ${(props) =>
+    props.currentPage === 1 ? 'none' : `1px solid ${bgColor}`};
   border-right: none;
-  border-radius: 5px 0 0 5px;
+  border-radius: 10px 0 0 10px;
+  transition: all 0.5s;
   cursor: pointer;
 `;
 
@@ -146,11 +152,15 @@ export const ThirdNavigator = styled.button`
   position: absolute;
   top: 260px;
   right: 0;
-  color: ${bgColor};
-  background-color: ${primaryColor};
-  border: 1px solid ${bgColor};
+  color: ${(props) =>
+    props.currentPage === 2 ? `${primaryColor}` : `${bgColor}`};
+  background-color: ${(props) =>
+    props.currentPage === 2 ? `${bgColor}` : `${primaryColor}`};
+  border: ${(props) =>
+    props.currentPage === 2 ? 'none' : `1px solid ${bgColor}`};
   border-right: none;
-  border-radius: 5px 0 0 5px;
+  border-radius: 10px 0 0 10px;
+  transition: all 0.5s;
   cursor: pointer;
 `;
 
