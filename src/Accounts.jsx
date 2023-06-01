@@ -1,7 +1,5 @@
-import { AccountsBtnInput, AccountsBtnSearch, AccountsContHeader, AccountsContainer, AccountsGroupFromTo, AccountsGroupInput, AccountsSorting, AccountsTitle, AccountsContBody, AccountsTable, AccountsTableWidthFixed, AccountsAmountColorIncome, AccountsAmountColorSpending } from './components/AccountsStyle';
-
+import { AccountsBtnInput, AccountsBtnSearch, AccountsContHeader, AccountsContainer, AccountsGroupFromTo, AccountsGroupInput, AccountsSorting, AccountsTitle, AccountsContBody, AccountsTable, AccountsTableWidthFixed, AccountsAmountColorIncome, AccountsAmountColorSpending, SideNavBar } from './components/AccountsStyle';
 import { useState } from 'react'
-
 import DatePicker from './components/Accounts/DatePickers'
 import FormDialog from './components/Accounts/FormDialog';
 
@@ -29,6 +27,7 @@ const Accounts = () => {
   return (
     <>
       <AccountsContainer>
+        <SideNavBar>&gt;</SideNavBar>
         <AccountsContHeader className = "contHeader">
           <AccountsTitle className = "title">{userName}님의 가계부</AccountsTitle>
           <AccountsGroupFromTo className = "groupFromTo">

@@ -1,10 +1,11 @@
 import styled from 'styled-components';
-import { bgColor, primaryColor } from '../../GlobalStyle';
+import { bgColor, primaryColor, textColor } from '../../GlobalStyle';
 
 // Accounts 페이지와 관련된 styled component
 export const AccountsContainer = styled.div`
   width: 100%;
   height: 90vh;
+  position: relative;
 `;
 
 export const AccountsTitle = styled.p`
@@ -22,6 +23,34 @@ export const AccountsContHeader = styled.div`
   justify-content: flex-start;
 `
 
+export const SideNavBar = styled.section`
+  @keyframes automove {
+    from {
+      left: -20px;
+    } to {
+      left: 0px;
+    }
+  }
+  width: 20px;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  color: #fff;
+  border: none;
+  border-radius: 0 15px 15px 0;
+  background-color: ${primaryColor};
+  transition: all 0.5s;
+  animation: automove 2s ease infinite alternate;
+  cursor: pointer;
+  &:hover {
+    animation: none;
+  }
+`
+
+// Yurim------------------------------------------
 
 export const AccountsGroupFromTo = styled.div`
   display: flex;
@@ -30,6 +59,7 @@ export const AccountsGroupFromTo = styled.div`
   align-items: baseline;
   margin: 0px 160px 20px 0px;
 `
+
 export const AccountsGroupInput = styled.div`
   display: flex;
   flex-direction: row;
@@ -37,19 +67,23 @@ export const AccountsGroupInput = styled.div`
   align-items: baseline;
   margin: 0px 160px 20px 0px;
 `
+
 export const AccountsSorting = styled.p`
   margin: 0px 15px 0px 10px;
 `
+
 export const AccountsBtnSearch = styled.button`
   margin : 0px 0px 0px 20px;
   background-color: rgb(65,120,203);
   color: white;
 `
+
 export const AccountsBtnInput = styled.button`
   margin : 0px 0px 20px 20px;
   background-color: rgb(65,120,203);
   color: white;
 `
+
 export const AccountsContBody = styled.div`
   
   margin: 0px 160px;
@@ -57,6 +91,7 @@ export const AccountsContBody = styled.div`
   border: 3px solid rgb(65, 120, 203);
   height: 350px;
 `
+
 export const AccountsTable = styled.table`
   border: 1px solid rgb(65,120,203);
   font-family: 'Nanum Gothic', sans-serif;
@@ -68,13 +103,15 @@ export const AccountsTable = styled.table`
   border-spacing: 5px;
   border-collapse: separate;
 `
+
 export const AccountsTableWidthFixed = styled.tr`
-  width: 180px;
-  
+  width: 180px;  
 `
+
 export const AccountsAmountColorSpending = styled.td`
   color: rgb(248,77,77);
 `
+
 export const AccountsAmountColorIncome = styled.td`
   color: rgb(45,103,251);
 `
