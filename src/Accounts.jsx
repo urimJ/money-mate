@@ -17,8 +17,12 @@ import {
   NavItem2,
   NavItem3,
   SideNavBarButton,
+  NavHeader,
+  FirstNavigator,
+  SecondNavigator,
+  ThirdNavigator,
 } from './components/AccountsStyle';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import DatePicker from './components/Accounts/DatePickers';
 import FormDialog from './components/Accounts/FormDialog';
 
@@ -28,9 +32,11 @@ const Accounts = () => {
 
   // Navigation 관리--------------------------------
   const [navToggle, setNavToggle] = useState(false);
-  const handleNavButton = () => {
-    setNavToggle(!navToggle);
-  };
+  const [currentPage, setCurrentPage] = useState(0);
+  const handleNavButton = () => setNavToggle(!navToggle);
+  const handleNavigator0 = useCallback(() => setCurrentPage(0), [currentPage]);
+  const handleNavigator1 = () => setCurrentPage(1);
+  const handleNavigator2 = () => setCurrentPage(2);
 
   //
   // const [count, setCount] = useState(0);
@@ -57,7 +63,18 @@ const Accounts = () => {
           <NavItem2>{navToggle ? '' : `>`}</NavItem2>
           <NavItem3>{navToggle ? 'X' : `>`}</NavItem3>
         </SideNavBarButton>
-        <SideNavBar navToggle={navToggle} />
+        <SideNavBar navToggle={navToggle}>
+          <NavHeader>Money-mate</NavHeader>
+          <FirstNavigator currentPage={currentPage} onClick={handleNavigator0}>
+            가계부
+          </FirstNavigator>
+          <SecondNavigator currentPage={currentPage} onClick={handleNavigator1}>
+            달력
+          </SecondNavigator>
+          <ThirdNavigator currentPage={currentPage} onClick={handleNavigator2}>
+            차트
+          </ThirdNavigator>
+        </SideNavBar>
         {/* 콘솔창 불타서 일단 임시 주석처리 */}
         {/* <AccountsContHeader className="contHeader">
           <AccountsTitle className="title">{userName}님의 가계부</AccountsTitle>

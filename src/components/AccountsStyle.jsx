@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { primaryBoldColor, primaryColor } from '../../GlobalStyle';
+import { bgColor } from '../../GlobalStyle';
 
 // Accounts 페이지와 관련된 styled component
 export const blink = keyframes`
@@ -25,6 +26,7 @@ export const SideNavBar = styled.section`
   position: absolute;
   left: ${(props) => (props.navToggle ? '0' : '-500px')};
   background-color: ${primaryColor};
+  border-radius: 0 25px 25px 0;
   transition: all 0.4s;
   z-index: 1;
   @media all and (max-width: 1280px) {
@@ -93,6 +95,68 @@ export const NavItem3 = styled.section`
   transform: translate(0, -50%);
   transition: all 0.5s;
   animation: ${blink} 1s 0.5s infinite alternate;
+`;
+
+export const NavHeader = styled.span`
+  width: 170px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-family: 'Kaushan Script';
+  color: ${bgColor};
+  border-left: 7px solid ${bgColor};
+  border-right: 7px solid ${bgColor};
+  margin-top: 20px;
+`;
+
+export const FirstNavigator = styled.button`
+  width: 90%;
+  height: 70px;
+  position: absolute;
+  top: 100px;
+  right: 0;
+  color: ${(props) =>
+    props.currentPage === 0 ? { primaryColor } : { bgColor }};
+  background-color: ${(props) =>
+    props.currentPage === 0 ? { bgColor } : { primaryColor }};
+  border: ${(props) => (props.currentPage === 0 ? 'none' : { bgColor })};
+  border-radius: 5px 0 0 5px;
+  cursor: pointer;
+`;
+
+export const SecondNavigator = styled.button`
+  width: 90%;
+  height: 70px;
+  position: absolute;
+  top: 180px;
+  right: 0;
+  color: ${bgColor};
+  background-color: ${primaryColor};
+  border: 1px solid ${bgColor};
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+  cursor: pointer;
+`;
+
+export const ThirdNavigator = styled.button`
+  width: 90%;
+  height: 70px;
+  position: absolute;
+  top: 260px;
+  right: 0;
+  color: ${bgColor};
+  background-color: ${primaryColor};
+  border: 1px solid ${bgColor};
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+  cursor: pointer;
+`;
+
+export const NavNewsSection = styled.section`
+  width: 95%;
+  height: 50%;
 `;
 
 // Yurim------------------------------------------
