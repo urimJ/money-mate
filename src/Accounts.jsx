@@ -1,4 +1,4 @@
-import { AccountsBtnInput, AccountsBtnSearch, AccountsContHeader, AccountsContainer, AccountsGroupFromTo, AccountsGroupInput, AccountsSorting, AccountsTitle, AccountsContBody, AccountsTable, AccountsTableWidthFixed, AccountsAmountColorIncome, AccountsAmountColorSpending, AccountsContHeaderGroup } from './components/AccountsStyle';
+import { AccountsBtnInput, AccountsBtnSearch, AccountsContHeader, AccountsContainer, AccountsGroupFromTo, AccountsGroupInput, AccountsSorting, AccountsTitle, AccountsContBody, AccountsTable, AccountsTableWidthFixed, AccountsAmountColorIncome, AccountsAmountColorSpending } from './components/AccountsStyle';
 
 import { useState } from 'react'
 
@@ -25,14 +25,10 @@ const Accounts = () => {
     {date: "", content:"", amount: "", group :"" },
     {},
   ];
-  console.log(startDate);
-
-
 
   return (
     <>
       <AccountsContainer>
-        
         <AccountsContHeader className = "contHeader">
           <AccountsTitle className = "title">{userName}님의 가계부</AccountsTitle>
           <AccountsGroupFromTo className = "groupFromTo">

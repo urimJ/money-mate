@@ -6,7 +6,6 @@ import {
   LandingSection,
   LandingTitle,
 } from './components/LandingStyle';
-// import Typewriter from 'typewriter-effect';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -48,6 +47,7 @@ const Landing = () => {
               color="info"
               name="username"
               type="name"
+              required
               onChange={handleChange}
               sx={{ width: '440px' }}
             />
