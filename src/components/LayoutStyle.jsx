@@ -46,6 +46,7 @@ export const LogoutButton = styled.button`
   color: ${bgColor};
   transition: all 0.5s;
   cursor: pointer;
+  display: ${(props) => (props.isLoggedIn ? '' : 'none')};
   &:hover {
     box-shadow: 0px 10px 55px -4px rgba(65, 120, 203, 0.75);
     font-size: 16px;

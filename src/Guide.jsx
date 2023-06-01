@@ -6,6 +6,7 @@ import {
   GuideNextButton,
 } from './components/GuideStyle';
 import { useNavigate } from 'react-router-dom';
+import Header from './components/Layout/Header';
 
 const Guide = () => {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ const Guide = () => {
   const handleClick = () => navigate(`/accounts/${userName}`);
   return (
     <>
+      <Header />
       <GuideContainer>
         <GuideHeader>
           <Typewriter
