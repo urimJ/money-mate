@@ -9,7 +9,7 @@ export const Container = styled.div`
 
 export const HeaderSection = styled.section`
   width: 100%;
-  height: 8vh;
+  height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,10 +23,11 @@ export const HeaderSection = styled.section`
 `;
 
 export const HeaderText = styled.span`
+  font-size: 30px;
   transition: all 0.5s;
   cursor: pointer;
   &:hover {
-    font-size: 40px;
+    font-size: 35px;
   }
 `;
 
@@ -49,5 +50,4 @@ export const LogoutButton = styled.button`
     box-shadow: 0px 10px 55px -4px rgba(65, 120, 203, 0.75);
     font-size: 16px;
   }
-  /* display: ${(props) => (props.auth ? '' : 'none')}; */
 `;
