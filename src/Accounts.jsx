@@ -1,10 +1,3 @@
-
-
-
-import { useState } from 'react'
-
-import DatePicker from './components/Accounts/DatePickers'
-
 import {
   AccountsBtnInput,
   AccountsBtnSearch,
@@ -29,10 +22,13 @@ import {
   NavNewsSection,
   NavNewsHeader,
   AccountsSection,
+  AccountsTableHeadTh,
 } from './components/AccountsStyle';
-import { useCallback, useState } from 'react';
 import DatePicker from './components/Accounts/DatePickers';
 import FormDialog from './components/Accounts/FormDialog';
+
+import { useState } from 'react'
+import { useCallback} from 'react';
 
  const Accounts = () => {
   // State 관리-------------------------------------
@@ -110,19 +106,19 @@ import FormDialog from './components/Accounts/FormDialog';
             <DatePicker
               className="btnFrom"
               label={'시작 날짜'}
-              value={startDate}
-              onChange={(value)=>{
-                setStartDate(value)
-                console.log(userName, value);}}
+              // value={startDate}
+              // onChange={(value)=>{
+              //   setStartDate(value)
+              //   console.log(userName, value);}}
               />
             <AccountsSorting >부터</AccountsSorting>
             <DatePicker
               className="btnTo"
               label={'종료 날짜'}
-              value={endDate}
-              onChange={(newValue) => {
-                setEndDate(newValue);
-              }}
+              // value={endDate}
+              // onChange={(newValue) => {
+              //   setEndDate(newValue);
+              // }}
             />
             <AccountsSorting className = "sorting">까지</AccountsSorting>
             <AccountsBtnSearch className = "btnSearch">보기</AccountsBtnSearch>

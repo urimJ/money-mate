@@ -240,9 +240,13 @@ export const AccountsSorting = styled.p`
 `;
 
 export const AccountsBtnSearch = styled.button`
-  margin: 0px 0px 0px 20px;
-  background-color: rgb(65, 120, 203);
+  margin : 0px 0px 0px 20px;
+  background-color: rgb(65,120,203);
   color: white;
+  width: 114px;
+  height: 50px;
+  border: 0px solid ${primaryColor};
+  border-radius: 10px;
 `;
 
 export const AccountsBtnInput = styled.button`
@@ -253,26 +257,31 @@ export const AccountsBtnInput = styled.button`
 
 export const AccountsContBody = styled.div`
   margin: 0px 160px;
-  background-color: rgb(33, 236, 169);
+  // background-color: rgb(33, 236, 169);
   border: 3px solid rgb(65, 120, 203);
-  height: 350px;
+  height: 450px;
 `;
 
 export const AccountsTable = styled.table`
   border: 1px solid rgb(65, 120, 203);
-  font-family: 'Nanum Gothic', sans-serif;
-  font-size: 23px;
-  padding: 0 30px;
+  // font-family: 'Nanum Gothic', sans-serif;
+  font-size: 18px;
+  padding: 0 0px;
   text-align: center;
-  width: calc(100vw - 320px);
-  border: 0px;
+  width: 100%;
   border-spacing: 5px;
-  border-collapse: separate;
+  border-collapse: collapse;
 `;
 
-export const AccountsTableWidthFixed = styled.tr`
-  width: 180px;
+export const AccountsTableHeadTh = styled.th`
+  border-bottom: 2px solid rgb(65, 120, 203);
+  border-left: 3px solid rgb65, 120, 203);
+  border-right: 3px solid rgb65, 120, 203);
+  padding: 10px 30px;
+  border-collapse: collapse;
+  
 `;
+
 
 export const AccountsAmountColorSpending = styled.td`
   color: rgb(248, 77, 77);
