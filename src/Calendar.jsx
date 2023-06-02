@@ -13,12 +13,11 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import './components/calendarStyle.css';
 import Modal from 'react-modal';
 import { TextField } from '@mui/material';
-import DatePicker from './components/Calendar/DatePickers';
 
 const Calendar = () => {
   
   const userName = localStorage.getItem('username');
-
+  
   const [isModalOpen,setIsModalOpen]=useState(false);
   const openModal=()=>setIsModalOpen(true);
   const closeModal=()=>setIsModalOpen(false);
@@ -44,7 +43,9 @@ const Calendar = () => {
           style={ModalStyle}>
           <h1>일정 추가</h1>
           <ModalForm>
-            <DatePicker></DatePicker>
+            <TextField
+              type="date">
+            </TextField>
             <TextField
               label="일정을 입력해주세요."
               variant="outlined"
