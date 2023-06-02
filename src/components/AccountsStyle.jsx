@@ -177,10 +177,11 @@ export const NavNewsHeader = styled.p`
 `;
 
 export const NavNewsSection = styled.section`
-  width: 90%;
+  width: 95%;
   height: 500px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   position: absolute;
   left: 50%;
@@ -188,12 +189,93 @@ export const NavNewsSection = styled.section`
   transform: translate(-50%, 0);
   background-color: ${bgColor};
   border-radius: 10px;
+  padding: 5px;
+  overflow-y: auto;
   @media all and (max-height: 900px) {
     height: 400px;
   }
   @media all and (max-height: 800px) {
     height: 300px;
   }
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background: ${bgColor};
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: ${primaryColor};
+    border-radius: 15px;
+  }
+`;
+
+// News API--------------------------------------
+export const NewsContainer = styled.section`
+  width: 99%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+
+  cursor: pointer;
+`;
+export const NewsThumbnailSection = styled.section`
+  width: 60px;
+  height: 60px;
+  border: 1px solid brown;
+  background-image: url(${(props) => props.newsThumbnail});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+`;
+
+export const NewsTextBox = styled.section`
+  width: calc(100% - 65px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+export const NewsHeaderLine = styled.span`
+  width: 100%;
+  height: 20px;
+  font-family: 'AppleSDGothicNeoB';
+  font-weight: 700;
+`;
+
+export const NewsDescription = styled.span`
+  width: 100%;
+  height: 20px;
+  font-family: 'AppleSDGothicNeoL';
+  font-weight: 100;
+`;
+
+export const NewsSubTextBox = styled.section`
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const NewsSource = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'AppleSDGothicNeoL';
+  font-weight: 100;
+  font-size: 10px;
+`;
+
+export const Newspublished = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${primaryColor};
+  font-family: 'AppleSDGothicNeoL';
+  font-weight: 100;
+  font-size: 10px;
 `;
 
 // Accounts--------------------------------------

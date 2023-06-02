@@ -27,14 +27,40 @@ import {
 import DatePicker from './components/Accounts/DatePickers';
 import FormDialog from './components/Accounts/FormDialog';
 
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import NewsList from './components/Accounts/NewsList';
 
 const Accounts = () => {
   // 변수 관리-------------------------------------
-  const userName = localStorage.getItem('username');
   const navigate = useNavigate();
+
+  // News API-------------------------------------
+  const API_KEY = '06288e3f326849a5a788730118439d3c';
+  // API_KEY 임시 처리, 나중에 숨길 것
+  const [newsData, setNewsData] = useState([]);
+  const fetchData = async () => {
+    try {
+      const apiData = await axios.get(
+        `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`
+      );
+      setNewsData(apiData.data.articles);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+  const newsList = newsData?.map((news, idx) => {
+    return (
+      <React.Fragment key={idx}>
+        <NewsList newsData={newsData} id={idx} />
+      </React.Fragment>
+    );
+  });
 
   // Navigation 관리--------------------------------
   const [navToggle, setNavToggle] = useState(false);
@@ -51,7 +77,7 @@ const Accounts = () => {
   //   {date: "", content:"", amount: "", group :"" },
   //   {},
   // ];
-
+  console.log(newsData);
   return (
     <>
       <AccountsContainer>
@@ -72,8 +98,8 @@ const Accounts = () => {
           <ThirdNavigator currentPage={currentPage} onClick={handleNavigator2}>
             차트
           </ThirdNavigator>
-          <NavNewsHeader>경제 뉴스</NavNewsHeader>
-          <NavNewsSection>뉴스 API</NavNewsSection>
+          <NavNewsHeader>WORLDWIDE HOT NEWS</NavNewsHeader>
+          <NavNewsSection>{newsList}</NavNewsSection>
         </SideNavBar>
         <AccountsSection navToggle={navToggle}>
           {currentPage === 0
