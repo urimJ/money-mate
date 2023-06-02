@@ -4,7 +4,7 @@ import { bgColor, primaryColor } from '../../GlobalStyle';
 // Guide 페이지와 관련된 styled component
 export const GuideContainer = styled.div`
   width: 100%;
-  height: 92vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
