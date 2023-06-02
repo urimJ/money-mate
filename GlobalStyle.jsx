@@ -75,8 +75,8 @@ const GlobalStyle = createGlobalStyle`
   } */
 
   *::selection {
-    color: ${bgColor};
-    background: ${primaryColor};
+    color: ${textColor};
+    background: #e1c489;
   }
   // 추가2. 가져온 폰트를 body태그 안에 있으면 다 적용
   body{
