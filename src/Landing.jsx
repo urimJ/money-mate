@@ -6,20 +6,21 @@ import {
   LandingSection,
   LandingTitle,
 } from './components/LandingStyle';
-// import Typewriter from 'typewriter-effect';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { HeaderSection, HeaderText } from './components/LayoutStyle';
+import { Context } from './context/Context';
 
 const Landing = () => {
   // State 관리-------------------------------------------
   const navigate = useNavigate();
   const [userName, setUserName] = useState('');
-  const auth = localStorage.getItem('username');
+  const { isLoggedIn, setIsLoggedIn } = useContext(Context);
 
   // ComponentDidMount------------------------------------
   useEffect(() => {
-    if (auth) {
+    if (isLoggedIn) {
       navigate('/guide', { replace: true });
     }
   }, []);
@@ -29,11 +30,17 @@ const Landing = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem('username', userName);
+    setIsLoggedIn(true);
     navigate('/guide', { replace: true });
   };
 
   return (
     <>
+      <HeaderSection>
+        <HeaderText onClick={() => window.location.replace('/')}>
+          Money Mate
+        </HeaderText>
+      </HeaderSection>
       <LandingContainer className="fadeIn">
         <LandingSection>
           <LandingTitle>
@@ -48,6 +55,7 @@ const Landing = () => {
               color="info"
               name="username"
               type="name"
+              required
               onChange={handleChange}
               sx={{ width: '440px' }}
             />
