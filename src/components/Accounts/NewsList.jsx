@@ -1,6 +1,5 @@
-import React from 'react';
 import {
-  NewsContainer,
+  NewsBox,
   NewsDescription,
   NewsHeaderLine,
   NewsSource,
@@ -11,9 +10,10 @@ import {
 } from '../AccountsStyle';
 
 const NewsList = ({ newsData, id }) => {
+  const handleClick = () => window.open(`${newsData[id].url}`);
   return (
     <>
-      <NewsContainer>
+      <NewsBox onClick={handleClick}>
         <NewsThumbnailSection newsThumbnail={newsData[id]?.urlToImage} />
         <NewsTextBox>
           <NewsHeaderLine>
@@ -29,11 +29,11 @@ const NewsList = ({ newsData, id }) => {
           <NewsSubTextBox>
             <NewsSource>{newsData[id]?.source.name} </NewsSource>
             <Newspublished>
-              {newsData[id]?.publishedAt.slice(0, 10)}
+              {newsData[id]?.publishedAt.substring(0, 10)}
             </Newspublished>
           </NewsSubTextBox>
         </NewsTextBox>
-      </NewsContainer>
+      </NewsBox>
     </>
   );
 };

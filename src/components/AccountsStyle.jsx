@@ -32,6 +32,9 @@ export const SideNavBar = styled.section`
     width: 300px;
     left: ${(props) => (props.navToggle ? '0' : '-300px')};
   }
+  @media all and (max-height: 780px) {
+    left: -500px;
+  }
 `;
 
 export const SideNavBarButton = styled.section`
@@ -174,6 +177,8 @@ export const NavNewsHeader = styled.p`
   position: absolute;
   top: 45%;
   color: ${bgColor};
+  font-family: 'AppleSDGothicNeoB';
+  font-weight: 700;
 `;
 
 export const NavNewsSection = styled.section`
@@ -183,14 +188,16 @@ export const NavNewsSection = styled.section`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  gap: 10px;
   position: absolute;
   left: 50%;
   bottom: 20px;
   transform: translate(-50%, 0);
   background-color: ${bgColor};
-  border-radius: 10px;
+  border-radius: 10px 0 0 10px;
   padding: 5px;
   overflow-y: auto;
+  transition: all 0.5s;
   @media all and (max-height: 900px) {
     height: 400px;
   }
@@ -205,20 +212,21 @@ export const NavNewsSection = styled.section`
 
   ::-webkit-scrollbar-thumb {
     background: ${primaryColor};
-    border-radius: 15px;
   }
 `;
 
 // News API--------------------------------------
-export const NewsContainer = styled.section`
+export const NewsBox = styled.section`
   width: 99%;
   height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: transparent;
-
   cursor: pointer;
+  &:hover {
+    box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.2);
+  }
 `;
 export const NewsThumbnailSection = styled.section`
   width: 60px;
@@ -294,6 +302,9 @@ export const AccountsSection = styled.section`
 
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
+  }
+  @media all and (max-height: 780px) {
+    width: 100%;
   }
 `;
 
