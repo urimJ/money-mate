@@ -25,7 +25,7 @@ const Accounts = () => {
     {date: "", content:"", amount: "", group :"" },
     {},
   ];
-  console.log(startDate);
+  
 
 
 

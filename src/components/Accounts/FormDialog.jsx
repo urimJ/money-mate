@@ -9,7 +9,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 import SelectVariants from './SelectVariants'
 import DatePicker from './DatePickers'
-import { ButtonInput } from './FromDialogStyle';
+import { ButtonInput } from './FormDialogStyle';
 import { useState } from 'react';
 
 const FormDialog = () => {

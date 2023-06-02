@@ -5,11 +5,24 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 const SelectVariant = () => {
-  const [inOut, setInOut] = React.useState('');
+  const [amount, setAmount] = React.useState('');
+  
+  const amountPlus = localStorage.getItem('amountPlus');
+  const AmountMinus = localStorage.getItem('amountMinus');
 
   const handleChange = (event) => {
-    setInOut(event.target.value);
+    setAmount(event.target.value);
+    if(amount === 'income'){
+      
+      localStorage.setItem('amountPlus', income);
+    }else if(amount === 'spending'){
+      
+      localStorage.setItem('amountMinus', spending);
+    }
+    
   };
+  
+  
 
   return (
     <div>
@@ -18,7 +31,7 @@ const SelectVariant = () => {
         <Select
           labelId="demo-simple-select-standard-label"
           id="demo-simple-select-standard"
-          value={inOut}
+          value={amount}
           onChange={handleChange}
           label="분류"
         >
