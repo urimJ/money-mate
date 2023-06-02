@@ -27,46 +27,30 @@ import {
 import DatePicker from './components/Accounts/DatePickers';
 import FormDialog from './components/Accounts/FormDialog';
 
-import { useState } from 'react'
-import { useCallback} from 'react';
+import { useState } from 'react';
+import { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 
- const Accounts = () => {
-  // State 관리-------------------------------------
+const Accounts = () => {
+  // 변수 관리-------------------------------------
   const userName = localStorage.getItem('username');
+  const navigate = useNavigate();
 
   // Navigation 관리--------------------------------
   const [navToggle, setNavToggle] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
   const handleNavButton = () => setNavToggle(!navToggle);
   const handleNavigator0 = useCallback(() => setCurrentPage(0), [currentPage]);
-  const handleNavigator1 = () => setCurrentPage(1);
-  const handleNavigator2 = () => setCurrentPage(2);
+  const handleNavigator1 = useCallback(() => setCurrentPage(1), [currentPage]);
+  const handleNavigator2 = useCallback(() => setCurrentPage(2), [currentPage]);
+  const handleNavToHome = () => navigate('/guide');
 
-
-  const [list, setList] = useState()
-  const group = [];
-  const lists = [
-    {date: "", content:"", amount: "", group :"" },
-    {},
-  ];
-  
-
-  //
-  // const [count, setCount] = useState(0);
-  // //datepicker
-  // const [startDate, setStartDate] = useState();
-  // const [endDate, setEndDate] = useState();
-
-
-  // //list
-  // const [date, setDate] = useState();
-  // const [content, setContent] = useState('');
-  // const [amount, setAmount] = useState();
-  // const [g, setG] = useState('');
-
-  // const [list, setList] = useState();
+  // const [list, setList] = useState()
   // const group = [];
-  // const lists = [{ date: '', content: '', amount: '', group: '' }, {}];
+  // const lists = [
+  //   {date: "", content:"", amount: "", group :"" },
+  //   {},
+  // ];
 
   return (
     <>
@@ -78,7 +62,7 @@ import { useCallback} from 'react';
           <NavItem3>{navToggle ? 'X' : `>`}</NavItem3>
         </SideNavBarButton>
         <SideNavBar navToggle={navToggle}>
-          <NavHeader>Money-mate</NavHeader>
+          <NavHeader onClick={handleNavToHome}>Money-mate</NavHeader>
           <FirstNavigator currentPage={currentPage} onClick={handleNavigator0}>
             가계부
           </FirstNavigator>
@@ -100,7 +84,7 @@ import { useCallback} from 'react';
             ? '차트 페이지'
             : ''}
         </AccountsSection>
-         <AccountsContHeader className="contHeader">
+        {/* <AccountsContHeader className="contHeader">
           <AccountsTitle className="title">{userName}님의 가계부</AccountsTitle>
           <AccountsGroupFromTo className="groupFromTo">
             <DatePicker
@@ -110,8 +94,8 @@ import { useCallback} from 'react';
               // onChange={(value)=>{
               //   setStartDate(value)
               //   console.log(userName, value);}}
-              />
-            <AccountsSorting >부터</AccountsSorting>
+            />
+            <AccountsSorting>부터</AccountsSorting>
             <DatePicker
               className="btnTo"
               label={'종료 날짜'}
@@ -120,33 +104,37 @@ import { useCallback} from 'react';
               //   setEndDate(newValue);
               // }}
             />
-            <AccountsSorting className = "sorting">까지</AccountsSorting>
-            <AccountsBtnSearch className = "btnSearch">보기</AccountsBtnSearch>
+            <AccountsSorting className="sorting">까지</AccountsSorting>
+            <AccountsBtnSearch className="btnSearch">보기</AccountsBtnSearch>
             <FormDialog />
           </AccountsGroupFromTo>
         </AccountsContHeader>
-        <AccountsContBody className = "contBody">
-          <AccountsTable className = "tableWidth">
-              <thead>
-                  <tr>
-                      <AccountsTableHeadTh className = "widthFixed">날짜</AccountsTableHeadTh>
-                      <AccountsTableHeadTh>내용</AccountsTableHeadTh>
-                      <AccountsTableHeadTh>금액</AccountsTableHeadTh>
-                      <AccountsTableHeadTh>그룹A</AccountsTableHeadTh>
-                      <AccountsTableHeadTh>그룹B</AccountsTableHeadTh>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                      <td className = "widthFixed">2023-05-17</td>
-                      <td>박수련장인 베개</td>
-                      <AccountsAmountColorSpending className = "colorAmount income">50,000</AccountsAmountColorSpending>
-                      <td>생활용품</td>
-                      <td>카카오뱅크카드</td>
-                  </tr>
-              </tbody>
+        <AccountsContBody className="contBody">
+          <AccountsTable className="tableWidth">
+            <thead>
+              <tr>
+                <AccountsTableHeadTh className="widthFixed">
+                  날짜
+                </AccountsTableHeadTh>
+                <AccountsTableHeadTh>내용</AccountsTableHeadTh>
+                <AccountsTableHeadTh>금액</AccountsTableHeadTh>
+                <AccountsTableHeadTh>그룹A</AccountsTableHeadTh>
+                <AccountsTableHeadTh>그룹B</AccountsTableHeadTh>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="widthFixed">2023-05-17</td>
+                <td>박수련장인 베개</td>
+                <AccountsAmountColorSpending className="colorAmount income">
+                  50,000
+                </AccountsAmountColorSpending>
+                <td>생활용품</td>
+                <td>카카오뱅크카드</td>
+              </tr>
+            </tbody>
           </AccountsTable>
-        </AccountsContBody>
+        </AccountsContBody> */}
       </AccountsContainer>
     </>
   );

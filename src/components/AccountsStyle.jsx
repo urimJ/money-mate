@@ -108,6 +108,12 @@ export const NavHeader = styled.span`
   border-left: 7px solid ${bgColor};
   border-right: 7px solid ${bgColor};
   margin-top: 20px;
+  cursor: pointer;
+  transition: all 0.5s;
+  &:hover {
+    width: 180px;
+    font-size: 26px;
+  }
 `;
 
 export const FirstNavigator = styled.button`
@@ -233,15 +239,13 @@ export const AccountsGroupFromTo = styled.div`
   margin: 0px 160px 20px 0px;
 `;
 
-
-
 export const AccountsSorting = styled.p`
   margin: 0px 15px 0px 10px;
 `;
 
 export const AccountsBtnSearch = styled.button`
-  margin : 0px 0px 0px 20px;
-  background-color: rgb(65,120,203);
+  margin: 0px 0px 0px 20px;
+  background-color: rgb(65, 120, 203);
   color: white;
   width: 114px;
   height: 50px;
@@ -275,13 +279,11 @@ export const AccountsTable = styled.table`
 
 export const AccountsTableHeadTh = styled.th`
   border-bottom: 2px solid rgb(65, 120, 203);
-  border-left: 3px solid rgb65, 120, 203);
-  border-right: 3px solid rgb65, 120, 203);
+  border-left: 3px solid rgb(65, 120, 203);
+  border-right: 3px solid rgb(65, 120, 203);
   padding: 10px 30px;
   border-collapse: collapse;
-  
 `;
-
 
 export const AccountsAmountColorSpending = styled.td`
   color: rgb(248, 77, 77);
