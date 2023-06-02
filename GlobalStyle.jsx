@@ -1,4 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
+import AppleSDGothicNeoL from './src/fonts/AppleSDGothicNeoL.ttf';
+import AppleSDGothicNeoM from './src/fonts/AppleSDGothicNeoM.ttf';
+import AppleSDGothicNeoB from './src/fonts/AppleSDGothicNeoB.ttf';
+import KaushanScript from './src/fonts/KaushanScript-Regular.ttf';
 
 // 배경색, 글꼴 색
 export const bgColor = 'white';
@@ -71,8 +75,8 @@ const GlobalStyle = createGlobalStyle`
   } */
 
   *::selection {
-    color: ${bgColor};
-    background: ${primaryColor};
+    color: ${textColor};
+    background: #e1c489;
   }
   // 추가2. 가져온 폰트를 body태그 안에 있으면 다 적용
   body{
@@ -89,19 +93,19 @@ const GlobalStyle = createGlobalStyle`
   /* Animation declaration, Font-face Setting */
   @font-face {
     font-family: 'Kaushan Script';
-    src: url("./src/fonts/KaushanScript-Regular.ttf");
+    src: url(${KaushanScript});
   }
   @font-face {
     font-family: "AppleSDGothicNeoM";
-    src: url("./src/fonts/AppleSDGothicNeoM.ttf");
+    src: url(${AppleSDGothicNeoM});
   }
   @font-face {
     font-family: "AppleSDGothicNeoL";
-    src: url("./src/fonts/AppleSDGothicNeoL.ttf");
+    src: url(${AppleSDGothicNeoL});
   }
   @font-face {
     font-family: "AppleSDGothicNeoB";
-    src: url("./src/fonts/AppleSDGothicNeoB.ttf");
+    src: url(${AppleSDGothicNeoB});
   }
   @keyframes fadeIn {
     from {opacity: 0;}
