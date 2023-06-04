@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { bgColor, primaryColor } from '../../GlobalStyle';
 
 // Guide 페이지와 관련된 styled component
@@ -125,6 +125,7 @@ export const GuideSecondScene = styled.section`
   align-items: center;
   position: relative;
   font-family: 'GmarketSansTTFLight';
+  overflow: auto;
 `;
 
 export const SecondSection1 = styled.section`
@@ -134,6 +135,7 @@ export const SecondSection1 = styled.section`
       left: -550px;
     }
     to {
+      opacity: 1;
       left: 5%;
     }
   }
@@ -144,7 +146,7 @@ export const SecondSection1 = styled.section`
   align-items: center;
   position: absolute;
   top: 5%;
-  left: -550px;
+  opacity: 0;
   border: none;
   border-radius: 25px;
   box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.3);
@@ -184,9 +186,11 @@ export const Section1RightBox = styled.section`
 export const SecondSection2 = styled.section`
   @keyframes slideRight {
     from {
+      opacity: 0;
       right: -550px;
     }
     to {
+      opacity: 1;
       right: 5%;
     }
   }
@@ -197,7 +201,7 @@ export const SecondSection2 = styled.section`
   align-items: center;
   position: absolute;
   top: 50%;
-  right: -550px;
+  opacity: 0;
   transform: translate(0, -50%);
   border: none;
   border-radius: 25px;
@@ -243,6 +247,7 @@ export const SecondSection3 = styled.section`
     }
     to {
       left: 5%;
+      opacity: 1;
     }
   }
   width: 550px;
@@ -252,7 +257,7 @@ export const SecondSection3 = styled.section`
   align-items: center;
   position: absolute;
   bottom: 5%;
-  /* left: -550px; */
+  opacity: 0;
   border: none;
   border-radius: 25px;
   box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.3);
