@@ -30,13 +30,21 @@ import {
   faPiggyBank,
   faSortDown,
 } from '@fortawesome/free-solid-svg-icons';
+import { useInView } from 'react-intersection-observer';
 
 const Guide = () => {
   // 변수 관리---------------------------------------------
   const navigate = useNavigate();
   const userName = localStorage.getItem('username');
+  // Promise setTimeOut State-----------------------------
   const [arrow, setArrow] = useState(false);
+  // React fullpage ref-----------------------------------
   const containerRef = useRef();
+  // InterSection Observer--------------------------------
+  const [ref, inView] = useInView({
+    triggerOnce: true, // 한 번만 트리거
+    threshold: 0.5, // 요소가 화면의 50% 이상 보일 때 트리거
+  });
 
   // 함수 관리---------------------------------------------
   const handleClick = () => navigate(`/accounts/${userName}`);
@@ -116,7 +124,7 @@ const Guide = () => {
           </GuideHeader>
         </GuideFirstScene>
         <GuideSecondScene>
-          <SecondSection1>
+          <SecondSection1 ref={ref} inView={inView}>
             <Section1LeftBox>
               <FontAwesomeIcon icon={faHandHoldingDollar} />
             </Section1LeftBox>
@@ -126,7 +134,7 @@ const Guide = () => {
               한눈에 보기 쉽게 정리할 수 있어요.
             </Section1RightBox>
           </SecondSection1>
-          <SecondSection2>
+          <SecondSection2 ref={ref} inView={inView}>
             <Section2LeftBox>
               내 자산 통계를
               <br />
@@ -136,7 +144,7 @@ const Guide = () => {
               <FontAwesomeIcon icon={faChartLine} />
             </Section2RightBox>
           </SecondSection2>
-          <SecondSection3>
+          <SecondSection3 ref={ref} inView={inView}>
             <Section3LeftBox>
               <FontAwesomeIcon icon={faChartPie} />
             </Section3LeftBox>

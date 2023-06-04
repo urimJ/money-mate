@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { bgColor, primaryColor } from '../../GlobalStyle';
 
 // Guide 페이지와 관련된 styled component
@@ -116,16 +116,6 @@ export const GuideNextButton = styled.button`
 `;
 
 // Second Scene-----------------------------------
-export const slideLeft = keyframes`
-  from {
-      opacity: 0;
-      left: -550px;
-    }
-    to {
-      left: 5%;
-    }
-`;
-
 export const GuideSecondScene = styled.section`
   width: 100%;
   height: 100vh;
@@ -138,6 +128,15 @@ export const GuideSecondScene = styled.section`
 `;
 
 export const SecondSection1 = styled.section`
+  @keyframes slideLeft {
+    from {
+      opacity: 0;
+      left: -550px;
+    }
+    to {
+      left: 5%;
+    }
+  }
   width: 550px;
   height: 250px;
   display: flex;
@@ -145,11 +144,16 @@ export const SecondSection1 = styled.section`
   align-items: center;
   position: absolute;
   top: 5%;
-  left: 5%;
+  left: -550px;
   border: none;
   border-radius: 25px;
   box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.3);
-  animation: ${slideLeft} 1s linear forwards;
+  animation: ${(props) =>
+    props.inView
+      ? css`
+          slideLeft 1s linear forwards
+        `
+      : ''};
   @media all and (max-width: 678px) {
     width: 55vw;
     height: 20vh;
@@ -159,7 +163,7 @@ export const SecondSection1 = styled.section`
 `;
 
 export const Section1LeftBox = styled.section`
-  width: 50%;
+  width: 40%;
   height: 90%;
   display: flex;
   justify-content: center;
@@ -169,7 +173,7 @@ export const Section1LeftBox = styled.section`
 `;
 
 export const Section1RightBox = styled.section`
-  width: 50%;
+  width: 60%;
   height: 90%;
   display: flex;
   justify-content: center;
@@ -193,12 +197,17 @@ export const SecondSection2 = styled.section`
   align-items: center;
   position: absolute;
   top: 50%;
-  right: 5%;
+  right: -550px;
   transform: translate(0, -50%);
   border: none;
   border-radius: 25px;
   box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.3);
-  animation: slideRight 1s 1s linear forwards;
+  animation: ${(props) =>
+    props.inView
+      ? css`
+          slideRight 1s 1s linear forwards
+        `
+      : ''};
   @media all and (max-width: 678px) {
     width: 55vw;
     height: 20vh;
@@ -208,7 +217,7 @@ export const SecondSection2 = styled.section`
 `;
 
 export const Section2LeftBox = styled.section`
-  width: 50%;
+  width: 60%;
   height: 90%;
   display: flex;
   justify-content: center;
@@ -217,7 +226,7 @@ export const Section2LeftBox = styled.section`
 `;
 
 export const Section2RightBox = styled.section`
-  width: 50%;
+  width: 40%;
   height: 90%;
   display: flex;
   justify-content: center;
@@ -227,6 +236,15 @@ export const Section2RightBox = styled.section`
 `;
 
 export const SecondSection3 = styled.section`
+  @keyframes slideLeft2 {
+    from {
+      opacity: 0;
+      left: -550px;
+    }
+    to {
+      left: 5%;
+    }
+  }
   width: 550px;
   height: 250px;
   display: flex;
@@ -234,11 +252,16 @@ export const SecondSection3 = styled.section`
   align-items: center;
   position: absolute;
   bottom: 5%;
-  left: 5%;
+  /* left: -550px; */
   border: none;
   border-radius: 25px;
   box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.3);
-  animation: ${slideLeft} 1s 2s linear forwards;
+  animation: ${(props) =>
+    props.inView
+      ? css`
+          slideLeft2 1s 2s linear forwards
+        `
+      : ''};
   @media all and (max-width: 678px) {
     width: 55vw;
     height: 20vh;
@@ -248,7 +271,7 @@ export const SecondSection3 = styled.section`
 `;
 
 export const Section3LeftBox = styled.section`
-  width: 50%;
+  width: 40%;
   height: 90%;
   display: flex;
   justify-content: center;
@@ -258,7 +281,7 @@ export const Section3LeftBox = styled.section`
 `;
 
 export const Section3RightBox = styled.section`
-  width: 50%;
+  width: 60%;
   height: 90%;
   display: flex;
   justify-content: center;
