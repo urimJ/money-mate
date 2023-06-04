@@ -3,6 +3,9 @@ import AppleSDGothicNeoL from './src/fonts/AppleSDGothicNeoL.ttf';
 import AppleSDGothicNeoM from './src/fonts/AppleSDGothicNeoM.ttf';
 import AppleSDGothicNeoB from './src/fonts/AppleSDGothicNeoB.ttf';
 import KaushanScript from './src/fonts/KaushanScript-Regular.ttf';
+import GmarketSansTTFLight from './src/fonts/GmarketSansTTFLight.ttf';
+import GmarketSansTTFMedium from './src/fonts/GmarketSansTTFMedium.ttf';
+import GmarketSansTTFBold from './src/fonts/GmarketSansTTFBold.ttf';
 
 // 배경색, 글꼴 색
 export const bgColor = 'white';
@@ -64,15 +67,14 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
-  /* *::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-    background: ${bgColor};
+  /* 스크롤바 없애기 */
+  *::-webkit-scrollbar {
+    display: none;
   }
 
   *::-webkit-scrollbar-thumb {
     background: ${primaryColor};
-  } */
+  }
 
   *::selection {
     color: ${textColor};
@@ -107,6 +109,19 @@ const GlobalStyle = createGlobalStyle`
     font-family: "AppleSDGothicNeoB";
     src: url(${AppleSDGothicNeoB});
   }
+  @font-face {
+    font-family: "GmarketSansTTFLight";
+    src: url(${GmarketSansTTFLight});
+  }
+  @font-face {
+    font-family: "GmarketSansTTFMedium";
+    src: url(${GmarketSansTTFMedium});
+  }
+  @font-face {
+    font-family: "GmarketSansTTFBold";
+    src: url(${GmarketSansTTFBold});
+  }
+
   @keyframes fadeIn {
     from {opacity: 0;}
     to {opacity: 1;}   
