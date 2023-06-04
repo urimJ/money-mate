@@ -10,7 +10,7 @@ export const GuideContainer = styled.div`
 // First Scene-----------------------------------
 export const GuideFirstScene = styled.section`
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -105,15 +105,23 @@ export const GoToNextSection = styled.section`
 export const GuideNextButton = styled.button`
   width: 100px;
   height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   right: 10px;
   top: 10px;
   border: none;
-  border-radius: 15px;
+  border-radius: 25px;
   background-color: ${bgColor};
+  font-family: 'GmarketSansTTFLight';
   color: ${primaryColor};
   cursor: pointer;
   z-index: 1;
+  @media all and (max-width: 720px) {
+    width: 70px;
+    height: 35px;
+  }
 `;
 
 // Second Scene-----------------------------------
@@ -158,7 +166,7 @@ export const SecondSection1 = styled.section`
         `
       : ''};
   @media all and (min-width: 1280px) {
-    width: 55vw;
+    width: 800px;
     height: 20vh;
   }
   @media all and (max-width: 720px) {
@@ -218,7 +226,7 @@ export const SecondSection2 = styled.section`
         `
       : ''};
   @media all and (min-width: 1280px) {
-    width: 55vw;
+    width: 800px;
     height: 20vh;
   }
   @media all and (max-width: 720px) {
@@ -277,7 +285,7 @@ export const SecondSection3 = styled.section`
         `
       : ''};
   @media all and (min-width: 1280px) {
-    width: 55vw;
+    width: 800px;
     height: 20vh;
   }
   @media all and (max-width: 720px) {

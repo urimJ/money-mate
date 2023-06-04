@@ -55,6 +55,9 @@ export const SideNavBarButton = styled.section`
   @media all and (max-width: 1280px) {
     left: ${(props) => (props.navToggle ? '240px' : '5px')};
   }
+  @media (max-height: 780px) or (max-width: 678px) {
+    display: none;
+  }
 `;
 
 export const NavItem1 = styled.section`
@@ -194,7 +197,7 @@ export const NavNewsSection = styled.section`
   bottom: 20px;
   transform: translate(-50%, 0);
   background-color: ${bgColor};
-  border-radius: 10px 0 0 10px;
+  border-radius: 10px;
   padding: 5px;
   overflow-y: auto;
   transition: all 0.5s;
@@ -251,14 +254,14 @@ export const NewsHeaderLine = styled.span`
   width: 100%;
   height: 20px;
   font-family: 'GmarketSansTTFBold';
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
 `;
 
 export const NewsDescription = styled.span`
   width: 100%;
   height: 20px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 100;
 `;
 

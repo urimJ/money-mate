@@ -23,7 +23,7 @@ const NewsList = ({ newsData, id }) => {
           </NewsHeaderLine>
           <NewsDescription>
             {newsData[id]?.description?.length > 10
-              ? newsData[id]?.description.substring(0, 20) + '...'
+              ? newsData[id]?.description.substring(0, 24) + '...'
               : newsData[id]?.description}{' '}
           </NewsDescription>
           <NewsSubTextBox>
