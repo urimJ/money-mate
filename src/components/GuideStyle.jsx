@@ -5,8 +5,6 @@ import { bgColor, primaryColor } from '../../GlobalStyle';
 export const GuideContainer = styled.div`
   width: 100%;
   min-height: 90vh;
-  overflow-y: auto;
-  border: 3px solid red;
 `;
 
 export const GuideFirstScene = styled.section`
@@ -16,7 +14,6 @@ export const GuideFirstScene = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 3px solid blue;
 `;
 
 export const GuideSecondScene = styled.section`
@@ -26,7 +23,6 @@ export const GuideSecondScene = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 3px solid brown;
 `;
 
 export const GuideHeader = styled.h1`
@@ -37,14 +33,24 @@ export const GuideHeader = styled.h1`
   line-height: 1.5;
 `;
 
-export const GuideContent = styled.section`
-  width: 700px;
-  height: 70%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid black;
-  border-radius: 30px;
+export const GoToNextSection = styled.section`
+  @keyframes moved {
+    from {
+      bottom: 1%;
+    }
+    to {
+      bottom: 5%;
+      opacity: 0.5;
+    }
+  }
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 50%;
+  bottom: 3%;
+  cursor: pointer;
+  transition: all 0.5s;
+  animation: moved 1s ease infinite alternate;
 `;
 
 export const GuideNextButton = styled.button`

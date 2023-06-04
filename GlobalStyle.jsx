@@ -64,15 +64,14 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
-  /* *::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-    background: ${bgColor};
+  /* 스크롤바 없애기 */
+  *::-webkit-scrollbar {
+    display: none;
   }
 
   *::-webkit-scrollbar-thumb {
     background: ${primaryColor};
-  } */
+  }
 
   *::selection {
     color: ${textColor};

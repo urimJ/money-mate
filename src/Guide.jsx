@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Typewriter from 'typewriter-effect';
 import {
+  GoToNextSection,
   GuideContainer,
   GuideFirstScene,
   GuideHeader,
@@ -17,8 +18,6 @@ const Guide = () => {
   const navigate = useNavigate();
   const userName = localStorage.getItem('username');
   const containerRef = useRef();
-  const section1Ref = useRef();
-  const section2Ref = useRef();
 
   // 함수 관리---------------------------------------------
   const handleClick = () => navigate(`/accounts/${userName}`);
@@ -30,15 +29,11 @@ const Guide = () => {
       const { deltaY } = e;
       const { scrollTop } = containerRef.current; // 스크롤 위쪽 끝부분 위치
       const pageHeight = window.innerHeight; // 100vh
-      const DIVIDER_HEIGHT = 5;
-
       if (deltaY > 0) {
         // 스크롤 내릴 때
         if (scrollTop >= 0 && scrollTop < pageHeight) {
-          //현재 1페이지
-          console.log('현재 1페이지, down');
           window.scrollTo({
-            top: pageHeight + DIVIDER_HEIGHT,
+            top: pageHeight,
             left: 0,
             behavior: 'smooth',
           });
@@ -46,8 +41,6 @@ const Guide = () => {
       } else {
         // 스크롤 올릴 때
         if (scrollTop >= 0 && scrollTop < pageHeight) {
-          //현재 1페이지
-          console.log('현재 1페이지, up');
           window.scrollTo({
             top: 0,
             left: 0,
@@ -58,7 +51,7 @@ const Guide = () => {
     };
     containerRef.current.addEventListener('wheel', handleScroll);
     return () => {
-      containerRef.current.removeEventListener('wheel', handleScroll);
+      containerRef.current?.removeEventListener('wheel', handleScroll);
     };
   }, []);
 
@@ -66,7 +59,7 @@ const Guide = () => {
     <>
       <Header />
       <GuideContainer ref={containerRef}>
-        <GuideFirstScene ref={section1Ref}>
+        <GuideFirstScene>
           <GuideHeader>
             <Typewriter
               onInit={(typewriter) => {
@@ -80,12 +73,12 @@ const Guide = () => {
                   .start();
               }}
             />
-            {/* <GoToNextScene>
+            <GoToNextSection>
               <FontAwesomeIcon icon={faSortDown} />
-            </GoToNextScene> */}
+            </GoToNextSection>
           </GuideHeader>
         </GuideFirstScene>
-        <GuideSecondScene ref={section2Ref}>Section 2</GuideSecondScene>
+        <GuideSecondScene>Section 2</GuideSecondScene>
       </GuideContainer>
       <GuideNextButton onClick={handleClick}>다음</GuideNextButton>
     </>
