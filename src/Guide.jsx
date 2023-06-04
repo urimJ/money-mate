@@ -92,8 +92,8 @@ const Guide = () => {
 
   return (
     <>
-      <Header />
       <GuideContainer ref={containerRef}>
+        <Header />
         <GuideFirstScene>
           <FirstScenebackground1>
             <FontAwesomeIcon icon={faPiggyBank} />
@@ -111,7 +111,7 @@ const Guide = () => {
                   )
                   .pauseFor(500)
                   .typeString(
-                    '다양한 통계 분석을 통해 더 효율적인 자산 관리 경험을 제공합니다.'
+                    '다양한 통계 분석을 통해 더 효율적인 자산 관리를 경험해보세요!'
                   )
                   .pauseFor(500)
                   .start();
@@ -156,7 +156,7 @@ const Guide = () => {
           </SecondSection3>
         </GuideSecondScene>
       </GuideContainer>
-      <GuideNextButton onClick={handleClick}>다음</GuideNextButton>
+      <GuideNextButton onClick={handleClick}>NEXT</GuideNextButton>
     </>
   );
 };

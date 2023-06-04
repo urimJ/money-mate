@@ -32,7 +32,7 @@ export const SideNavBar = styled.section`
     width: 300px;
     left: ${(props) => (props.navToggle ? '0' : '-300px')};
   }
-  @media all and (max-height: 780px) {
+  @media (max-height: 780px) or (max-width: 678px) {
     left: -500px;
   }
 `;
@@ -54,6 +54,9 @@ export const SideNavBarButton = styled.section`
   z-index: 2;
   @media all and (max-width: 1280px) {
     left: ${(props) => (props.navToggle ? '240px' : '5px')};
+  }
+  @media (max-height: 780px) or (max-width: 678px) {
+    display: none;
   }
 `;
 
@@ -177,7 +180,7 @@ export const NavNewsHeader = styled.p`
   position: absolute;
   top: 45%;
   color: ${bgColor};
-  font-family: 'AppleSDGothicNeoB';
+  font-family: 'GmarketSansTTFBold';
   font-weight: 700;
 `;
 
@@ -194,7 +197,7 @@ export const NavNewsSection = styled.section`
   bottom: 20px;
   transform: translate(-50%, 0);
   background-color: ${bgColor};
-  border-radius: 10px 0 0 10px;
+  border-radius: 10px;
   padding: 5px;
   overflow-y: auto;
   transition: all 0.5s;
@@ -250,14 +253,15 @@ export const NewsTextBox = styled.section`
 export const NewsHeaderLine = styled.span`
   width: 100%;
   height: 20px;
-  font-family: 'AppleSDGothicNeoB';
-  font-weight: 700;
+  font-family: 'GmarketSansTTFBold';
+  font-size: 14px;
+  font-weight: 500;
 `;
 
 export const NewsDescription = styled.span`
   width: 100%;
   height: 20px;
-  font-family: 'AppleSDGothicNeoL';
+  font-size: 13px;
   font-weight: 100;
 `;
 
@@ -272,7 +276,6 @@ export const NewsSource = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'AppleSDGothicNeoL';
   font-weight: 100;
   font-size: 10px;
 `;
@@ -282,7 +285,7 @@ export const Newspublished = styled.span`
   justify-content: center;
   align-items: center;
   color: ${primaryColor};
-  font-family: 'AppleSDGothicNeoL';
+
   font-weight: 100;
   font-size: 10px;
 `;
@@ -304,7 +307,7 @@ export const AccountsSection = styled.section`
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
   }
-  @media all and (max-height: 780px) {
+  @media (max-height: 780px) or (max-width: 678px) {
     width: 100%;
   }
 `;

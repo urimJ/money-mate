@@ -84,7 +84,7 @@ const GlobalStyle = createGlobalStyle`
   body{
     background-color: ${bgColor};
     color: ${textColor};
-    font-family: "AppleSDGothicNeoM", 'Noto Sans KR Black';
+    font-family: "GmarketSansTTFLight";
   }
   // 추가3. 링크에 모든 밑줄 삭제
   a{
