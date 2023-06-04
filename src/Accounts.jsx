@@ -77,7 +77,7 @@ const Accounts = () => {
   //   {date: "", content:"", amount: "", group :"" },
   //   {},
   // ];
-  console.log(newsData);
+
   return (
     <>
       <AccountsContainer>
