@@ -49,6 +49,7 @@ export const GoToNextSection = styled.section`
   left: 50%;
   bottom: 3%;
   cursor: pointer;
+  display: ${(props) => (props.arrow ? '' : 'none')};
   transition: all 0.5s;
   animation: moved 1s ease infinite alternate;
 `;

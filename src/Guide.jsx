@@ -17,13 +17,22 @@ const Guide = () => {
   // 변수 관리---------------------------------------------
   const navigate = useNavigate();
   const userName = localStorage.getItem('username');
+  const [arrow, setArrow] = useState(false);
   const containerRef = useRef();
 
   // 함수 관리---------------------------------------------
   const handleClick = () => navigate(`/accounts/${userName}`);
+  const delay = () => {
+    return new Promise(() => {
+      setTimeout(() => {
+        setArrow(true);
+      }, 11000);
+    });
+  };
 
   // ComponentDidMount------------------------------------
   useEffect(() => {
+    delay();
     const handleScroll = (e) => {
       e.preventDefault();
       const { deltaY } = e;
@@ -73,7 +82,7 @@ const Guide = () => {
                   .start();
               }}
             />
-            <GoToNextSection>
+            <GoToNextSection arrow={arrow}>
               <FontAwesomeIcon icon={faSortDown} />
             </GoToNextSection>
           </GuideHeader>
