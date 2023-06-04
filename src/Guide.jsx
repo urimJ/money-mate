@@ -92,8 +92,8 @@ const Guide = () => {
 
   return (
     <>
-      <Header />
       <GuideContainer ref={containerRef}>
+        <Header />
         <GuideFirstScene>
           <FirstScenebackground1>
             <FontAwesomeIcon icon={faPiggyBank} />

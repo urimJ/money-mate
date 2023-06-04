@@ -105,7 +105,7 @@ export const GoToNextSection = styled.section`
 export const GuideNextButton = styled.button`
   width: 100px;
   height: 40px;
-  position: absolute;
+  position: fixed;
   right: 10px;
   top: 10px;
   border: none;
@@ -113,6 +113,7 @@ export const GuideNextButton = styled.button`
   background-color: ${bgColor};
   color: ${primaryColor};
   cursor: pointer;
+  z-index: 1;
 `;
 
 // Second Scene-----------------------------------
@@ -140,12 +141,12 @@ export const SecondSection1 = styled.section`
     }
   }
   width: 550px;
-  height: 250px;
+  height: 200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  top: 5%;
+  top: 20%;
   opacity: 0;
   border: none;
   border-radius: 25px;
@@ -156,7 +157,11 @@ export const SecondSection1 = styled.section`
           slideLeft 1s linear forwards
         `
       : ''};
-  @media all and (max-width: 678px) {
+  @media all and (min-width: 1280px) {
+    width: 55vw;
+    height: 20vh;
+  }
+  @media all and (max-width: 720px) {
     width: 55vw;
     height: 20vh;
     min-width: 250px;
@@ -195,14 +200,14 @@ export const SecondSection2 = styled.section`
     }
   }
   width: 550px;
-  height: 250px;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   top: 50%;
   opacity: 0;
-  transform: translate(0, -50%);
+  transform: translate(0, -25%);
   border: none;
   border-radius: 25px;
   box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.3);
@@ -212,7 +217,11 @@ export const SecondSection2 = styled.section`
           slideRight 1s 1s linear forwards
         `
       : ''};
-  @media all and (max-width: 678px) {
+  @media all and (min-width: 1280px) {
+    width: 55vw;
+    height: 20vh;
+  }
+  @media all and (max-width: 720px) {
     width: 55vw;
     height: 20vh;
     min-width: 250px;
@@ -251,12 +260,12 @@ export const SecondSection3 = styled.section`
     }
   }
   width: 550px;
-  height: 250px;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  bottom: 5%;
+  bottom: 10%;
   opacity: 0;
   border: none;
   border-radius: 25px;
@@ -267,7 +276,11 @@ export const SecondSection3 = styled.section`
           slideLeft2 1s 2s linear forwards
         `
       : ''};
-  @media all and (max-width: 678px) {
+  @media all and (min-width: 1280px) {
+    width: 55vw;
+    height: 20vh;
+  }
+  @media all and (max-width: 720px) {
     width: 55vw;
     height: 20vh;
     min-width: 250px;
