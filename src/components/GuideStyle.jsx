@@ -4,7 +4,7 @@ import { bgColor, primaryColor } from '../../GlobalStyle';
 // Guide 페이지와 관련된 styled component
 export const GuideContainer = styled.div`
   width: 100%;
-  min-height: 90vh;
+  min-height: 100vh;
 `;
 
 // First Scene-----------------------------------
