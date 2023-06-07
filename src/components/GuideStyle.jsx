@@ -149,12 +149,12 @@ export const SecondSection1 = styled.section`
     }
   }
   width: 550px;
-  height: 200px;
+  height: 20%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: absolute;
-  top: 20%;
+  top: 17.5%;
   opacity: 0;
   border: none;
   border-radius: 25px;
@@ -208,14 +208,13 @@ export const SecondSection2 = styled.section`
     }
   }
   width: 550px;
-  height: 200px;
+  height: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 50%;
+  top: 45%;
   opacity: 0;
-  transform: translate(0, -25%);
   border: none;
   border-radius: 25px;
   box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.3);
@@ -268,12 +267,12 @@ export const SecondSection3 = styled.section`
     }
   }
   width: 550px;
-  height: 200px;
+  height: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  bottom: 10%;
+  bottom: 7.5%;
   opacity: 0;
   border: none;
   border-radius: 25px;
