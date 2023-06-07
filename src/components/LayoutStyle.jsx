@@ -14,6 +14,7 @@ export const HeaderSection = styled.section`
   justify-content: center;
   align-items: center;
   position: fixed;
+  top: 0;
   background-color: ${primaryColor};
   color: ${secondaryColor};
   font-family: 'Kaushan Script', cursive;

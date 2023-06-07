@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { bgColor, primaryColor } from '../../GlobalStyle';
+import { bgColor, primaryBoldColor, primaryColor } from '../../GlobalStyle';
 
 // Accounts 페이지와 관련된 styled component
 export const blink = keyframes`
@@ -32,7 +32,7 @@ export const SideNavBar = styled.section`
     width: 300px;
     left: ${(props) => (props.navToggle ? '0' : '-300px')};
   }
-  @media (max-height: 780px) or (max-width: 678px) {
+  @media (max-height: 450px) or (max-width: 678px) {
     left: -500px;
   }
 `;
@@ -55,7 +55,7 @@ export const SideNavBarButton = styled.section`
   @media all and (max-width: 1280px) {
     left: ${(props) => (props.navToggle ? '240px' : '5px')};
   }
-  @media (max-height: 780px) or (max-width: 678px) {
+  @media (max-height: 450px) or (max-width: 678px) {
     display: none;
   }
 `;
@@ -177,9 +177,7 @@ export const ThirdNavigator = styled.button`
 `;
 
 export const NavNewsHeader = styled.p`
-  position: absolute;
-  top: 45%;
-  color: ${bgColor};
+  color: ${primaryBoldColor};
   font-family: 'GmarketSansTTFBold';
   font-weight: 700;
 `;
@@ -206,6 +204,9 @@ export const NavNewsSection = styled.section`
   }
   @media all and (max-height: 800px) {
     height: 300px;
+  }
+  @media all and (max-height: 670px) {
+    display: none;
   }
   ::-webkit-scrollbar {
     width: 5px;
@@ -307,7 +308,7 @@ export const AccountsSection = styled.section`
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
   }
-  @media (max-height: 780px) or (max-width: 678px) {
+  @media (max-height: 450px) or (max-width: 678px) {
     width: 100%;
   }
 `;

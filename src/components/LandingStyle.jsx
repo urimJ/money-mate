@@ -4,7 +4,7 @@ import { bgColor, primaryColor } from '../../GlobalStyle';
 // Landing 페이지와 관련된 styled component
 export const LandingContainer = styled.div`
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
