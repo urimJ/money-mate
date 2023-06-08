@@ -425,15 +425,27 @@
   dependencies:
     preact "~10.12.1"
 
-"@fullcalendar/daygrid@^6.1.8":
+"@fullcalendar/daygrid@^6.1.8", "@fullcalendar/daygrid@~6.1.8":
   version "6.1.8"
   resolved "https://registry.npmjs.org/@fullcalendar/daygrid/-/daygrid-6.1.8.tgz"
   integrity sha512-kCZxQFKb9Vqa3CZRX0v7rMSJ2mlTt4gDpyLfiNJKxUAq7W51uKurPaFZWicaXy1ESHVBxKNlbx5uNjBpyu50JQ==
+
+"@fullcalendar/interaction@^6.1.8":
+  version "6.1.8"
+  resolved "https://registry.npmjs.org/@fullcalendar/interaction/-/interaction-6.1.8.tgz"
+  integrity sha512-r6W4E9ohaA87M2uPSlmpE2WT7Fzu7LN0u2pE6D/tThruCEaAPbN8Pw5+sqclsuyTIL09mg0eSJm/ggJekTabSA==
 
 "@fullcalendar/react@^6.1.8":
   version "6.1.8"
   resolved "https://registry.npmjs.org/@fullcalendar/react/-/react-6.1.8.tgz"
   integrity sha512-E8GQSQyZHkjpwxQW5Vci7iZgN7f33ntuRcvfGii4Fn35t9VHGz2SEyKAWXpVf38elcKTZKVgajU9ipStd+1LEg==
+
+"@fullcalendar/timegrid@^6.1.8":
+  version "6.1.8"
+  resolved "https://registry.npmjs.org/@fullcalendar/timegrid/-/timegrid-6.1.8.tgz"
+  integrity sha512-3+3KHHCoNcaLs/gQt004hAqICbY5+WAffrZ0ePv+80HFB1OVh8BQ5XXLHSOUbTvXdgtUTcfBHuw9fhO31kt5gA==
+  dependencies:
+    "@fullcalendar/daygrid" "~6.1.8"
 
 "@humanwhocodes/config-array@^0.11.8":
   version "0.11.8"
@@ -510,21 +522,7 @@
   resolved "https://registry.npmjs.org/@mui/core-downloads-tracker/-/core-downloads-tracker-5.13.3.tgz"
   integrity sha512-w4//nRIi9fiMow/MmhkForOezd8nc229EpSZZ5DzwpJNOmAXwypFTapOUVAGTUQiTJyeZXUNbQqYuUIrIs2nbg==
 
-"@mui/lab@^5.0.0-alpha.132":
-  version "5.0.0-alpha.132"
-  resolved "https://registry.npmjs.org/@mui/lab/-/lab-5.0.0-alpha.132.tgz"
-  integrity sha512-MCkQlZZSsRumgCD1rDhtkyaJmCHg20zaneJhSB55X4Rr6dA9p4vK70HvCEQKQibK3RqvEuWuRUYNKWD5SlFVww==
-  dependencies:
-    "@babel/runtime" "^7.21.0"
-    "@mui/base" "5.0.0-beta.3"
-    "@mui/system" "^5.13.2"
-    "@mui/types" "^7.2.4"
-    "@mui/utils" "^5.13.1"
-    clsx "^1.2.1"
-    prop-types "^15.8.1"
-    react-is "^18.2.0"
-
-"@mui/material@^5.0.0", "@mui/material@^5.13.3", "@mui/material@^5.8.6":
+"@mui/material@^5.13.3", "@mui/material@^5.8.6":
   version "5.13.3"
   resolved "https://registry.npmjs.org/@mui/material/-/material-5.13.3.tgz"
   integrity sha512-10pek+Bz+PZ4rjUf3KTKfXWjPMUqU1nSnRPf4DAXABhsjzelGGfGW/EICgrLRrttYplTJZhoponWALezAge8ug==
