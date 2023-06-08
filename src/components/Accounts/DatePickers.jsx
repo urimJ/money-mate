@@ -10,7 +10,7 @@ const DatePickers = () => {
     // localeText={koKR.components.MuiLocalizationProvider.defaultProps.localeText}
     >
       <DatePicker 
-        format="YYYY - MM - DD"  
+        format="YYYY - MM - DD" 
       />
     </LocalizationProvider>
   );

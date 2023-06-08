@@ -17,7 +17,7 @@ const NewsList = ({ newsData, id }) => {
         <NewsThumbnailSection newsThumbnail={newsData[id]?.urlToImage} />
         <NewsTextBox>
           <NewsHeaderLine>
-            {newsData[id]?.title.length > 10
+            {newsData[id]?.title.length == 10
               ? newsData[id]?.title.substring(0, 21) + '...'
               : newsData[id]?.title}
           </NewsHeaderLine>

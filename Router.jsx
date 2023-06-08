@@ -13,7 +13,7 @@ function Router() {
         <Route path="/guide" element={<Guide />} />
         <Route path="/accounts/:username" element={<Accounts />} />
         <Route path="/calendar" element={<Calendar />} />
-        <Route path="/statisitcs" element={<Statistics />} />
+        <Route path="/statistics" element={<Statistics />} />
       </Routes>
     </BrowserRouter>
   );
