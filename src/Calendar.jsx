@@ -6,7 +6,7 @@ import {
   CalendarButton,
   ModalStyle,
   ModalForm,
-  ModalButton
+  ModalButton,
 } from './components/CalendarStyle';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';

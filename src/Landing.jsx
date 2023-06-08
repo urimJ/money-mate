@@ -55,6 +55,7 @@ const Landing = () => {
               color="info"
               name="username"
               type="name"
+              autoFocus
               required
               onChange={handleChange}
               sx={{ width: '440px' }}

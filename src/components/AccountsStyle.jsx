@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { bgColor, primaryColor } from '../../GlobalStyle';
+import { bgColor, primaryBoldColor, primaryColor } from '../../GlobalStyle';
 
 // Accounts 페이지와 관련된 styled component
 export const blink = keyframes`
@@ -32,7 +32,7 @@ export const SideNavBar = styled.section`
     width: 300px;
     left: ${(props) => (props.navToggle ? '0' : '-300px')};
   }
-  @media all and (max-height: 780px) {
+  @media (max-height: 450px) or (max-width: 678px) {
     left: -500px;
   }
 `;
@@ -54,6 +54,9 @@ export const SideNavBarButton = styled.section`
   z-index: 2;
   @media all and (max-width: 1280px) {
     left: ${(props) => (props.navToggle ? '240px' : '5px')};
+  }
+  @media (max-height: 450px) or (max-width: 678px) {
+    display: none;
   }
 `;
 
@@ -174,10 +177,8 @@ export const ThirdNavigator = styled.button`
 `;
 
 export const NavNewsHeader = styled.p`
-  position: absolute;
-  top: 45%;
-  color: ${bgColor};
-  font-family: 'AppleSDGothicNeoB';
+  color: ${primaryBoldColor};
+  font-family: 'GmarketSansTTFBold';
   font-weight: 700;
 `;
 
@@ -194,7 +195,7 @@ export const NavNewsSection = styled.section`
   bottom: 20px;
   transform: translate(-50%, 0);
   background-color: ${bgColor};
-  border-radius: 10px 0 0 10px;
+  border-radius: 10px;
   padding: 5px;
   overflow-y: auto;
   transition: all 0.5s;
@@ -203,6 +204,9 @@ export const NavNewsSection = styled.section`
   }
   @media all and (max-height: 800px) {
     height: 300px;
+  }
+  @media all and (max-height: 670px) {
+    display: none;
   }
   ::-webkit-scrollbar {
     width: 5px;
@@ -223,6 +227,7 @@ export const NewsBox = styled.section`
   justify-content: space-between;
   align-items: center;
   background-color: transparent;
+  border-radius: 15px;
   cursor: pointer;
   &:hover {
     box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.2);
@@ -249,14 +254,15 @@ export const NewsTextBox = styled.section`
 export const NewsHeaderLine = styled.span`
   width: 100%;
   height: 20px;
-  font-family: 'AppleSDGothicNeoB';
-  font-weight: 700;
+  font-family: 'GmarketSansTTFBold';
+  font-size: 14px;
+  font-weight: 500;
 `;
 
 export const NewsDescription = styled.span`
   width: 100%;
   height: 20px;
-  font-family: 'AppleSDGothicNeoL';
+  font-size: 13px;
   font-weight: 100;
 `;
 
@@ -271,7 +277,6 @@ export const NewsSource = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'AppleSDGothicNeoL';
   font-weight: 100;
   font-size: 10px;
 `;
@@ -281,7 +286,7 @@ export const Newspublished = styled.span`
   justify-content: center;
   align-items: center;
   color: ${primaryColor};
-  font-family: 'AppleSDGothicNeoL';
+
   font-weight: 100;
   font-size: 10px;
 `;
@@ -303,7 +308,7 @@ export const AccountsSection = styled.section`
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
   }
-  @media all and (max-height: 780px) {
+  @media (max-height: 450px) or (max-width: 678px) {
     width: 100%;
   }
 `;
