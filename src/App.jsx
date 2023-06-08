@@ -10,7 +10,7 @@ function App() {
   const auth = localStorage.getItem('username');
   const [isLoggedIn, setIsLoggedIn] = useState(auth);
   const [darkTheme, setDarkTheme] = useState(false);
-  console.log('로그인 유저', isLoggedIn);
+  // console.log('로그인 유저', isLoggedIn);
   return (
     <>
       <RecoilRoot>

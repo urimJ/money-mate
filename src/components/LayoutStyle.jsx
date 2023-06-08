@@ -13,6 +13,8 @@ export const HeaderSection = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  top: 0;
   background-color: ${primaryColor};
   color: ${secondaryColor};
   font-family: 'Kaushan Script', cursive;
@@ -32,8 +34,8 @@ export const HeaderText = styled.span`
 `;
 
 export const LogoutButton = styled.button`
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,7 +50,7 @@ export const LogoutButton = styled.button`
   cursor: pointer;
   display: ${(props) => (props.isLoggedIn ? '' : 'none')};
   &:hover {
-    box-shadow: 0px 10px 55px -4px rgba(65, 120, 203, 0.75);
+    box-shadow: 0 0 15px -4px rgba(65, 120, 203, 0.75);
     font-size: 16px;
   }
 `;

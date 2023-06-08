@@ -4,6 +4,7 @@ import Guide from './src/Guide';
 import Accounts from './src/Accounts';
 import Calendar from './src/Calendar';
 import Statistics from './src/Statistics';
+import NotFound from './src/NotFound';
 
 function Router() {
   return (
@@ -13,7 +14,8 @@ function Router() {
         <Route path="/guide" element={<Guide />} />
         <Route path="/accounts/:username" element={<Accounts />} />
         <Route path="/calendar" element={<Calendar />} />
-        <Route path="/statistics" element={<Statistics />} />
+        <Route path="/statisitcs" element={<Statistics />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
