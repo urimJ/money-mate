@@ -77,7 +77,7 @@ const Accounts = () => {
   //   {date: "", content:"", amount: "", group :"" },
   //   {},
   // ];
-  console.log(newsData);
+
   return (
     <>
       <AccountsContainer>
@@ -98,8 +98,11 @@ const Accounts = () => {
           <ThirdNavigator currentPage={currentPage} onClick={handleNavigator2}>
             차트
           </ThirdNavigator>
-          <NavNewsHeader>WORLDWIDE HOT NEWS</NavNewsHeader>
-          <NavNewsSection>{newsList}</NavNewsSection>
+
+          <NavNewsSection>
+            <NavNewsHeader>WORLDWIDE HOT NEWS</NavNewsHeader>
+            {newsList}
+          </NavNewsSection>
         </SideNavBar>
         <AccountsSection navToggle={navToggle}>
           {currentPage === 0
