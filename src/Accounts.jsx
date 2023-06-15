@@ -110,7 +110,7 @@ const Accounts = () => {
             ? '차트 페이지'
             : ''}
         </AccountsSection>
-        {/* <AccountsContHeader className="contHeader">
+        <AccountsContHeader className="contHeader">
           <AccountsTitle className="title">{userName}님의 가계부</AccountsTitle>
           <AccountsGroupFromTo className="groupFromTo">
             <DatePicker
@@ -160,7 +160,7 @@ const Accounts = () => {
               </tr>
             </tbody>
           </AccountsTable>
-        </AccountsContBody> */}
+        </AccountsContBody>
       </AccountsContainer>
     </>
   );
