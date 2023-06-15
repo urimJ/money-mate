@@ -13,13 +13,12 @@ import { ButtonInput } from './FormDialogStyle';
 import { useState } from 'react';
 
 const FormDialog = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const [amnt, setAmnt] = useState();
   const amount = localStorage.getItem('amnt');
 
   const handleClickOpen = () => {
     setOpen(true);
-    console.log("입력 버튼 눌림");
   };
 
   const handleChange = (e) => {
@@ -39,7 +38,7 @@ const FormDialog = () => {
 
   return (
     <div>
-      <ButtonInput className = "btnInput" onClick={handleClickOpen}>
+      <ButtonInput  onClick={handleClickOpen}>
         입력
       </ButtonInput>
       <Dialog open={open} onClose={handleCloseDialog}>

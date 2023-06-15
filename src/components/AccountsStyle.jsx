@@ -356,6 +356,11 @@ export const AccountsBtnSearch = styled.button`
   height: 50px;
   border: 0px solid ${primaryColor};
   border-radius: 10px;
+  cursor: pointer;
+  &:hover {
+    background-color: black;
+    cursor: pointer;
+  }
 
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? '100px' : '114px')};
@@ -389,6 +394,7 @@ export const AccountsTable = styled.table`
   width: 100%;
   border-spacing: 5px;
   border-collapse: collapse;
+  
 
   
 `;
@@ -399,8 +405,16 @@ export const AccountsTableHeadTh = styled.th`
   border-right: 3px solid rgb(65, 120, 203);
   padding: 10px 30px;
   border-collapse: collapse;
+  font-weight: bold;
 
   
+`;
+
+export const AccountsTableBodyTd = styled.td`
+  padding: 8px 30px;
+  border-left: 1px solid rgb(65, 120, 203);
+  border-right: 1px solid rgb(65, 120, 203);
+  border-collapse: collapse;
 `;
 
 export const AccountsAmountColorSpending = styled.td`

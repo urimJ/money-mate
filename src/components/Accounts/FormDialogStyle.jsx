@@ -10,7 +10,11 @@ export const ButtonInput = styled.button`
     height: 50px;
     border: 0px solid ${primaryColor};
     border-radius: 10px;
-
+    cursor: pointer;
+    &:hover {
+        background-color: black;
+        cursor: pointer;
+    }
     @media all and (max-width: 1280px) {
         width: ${(props) => (props.navToggle ? '100px' : '114px')};
         margin : 0px 0px 10px 10px;
