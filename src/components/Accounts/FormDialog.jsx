@@ -19,6 +19,7 @@ const FormDialog = () => {
 
   const handleClickOpen = () => {
     setOpen(true);
+    console.log("입력 버튼 눌림");
   };
 
   const handleChange = (e) => {

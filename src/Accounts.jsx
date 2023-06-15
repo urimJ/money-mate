@@ -1,5 +1,4 @@
 import {
-  AccountsBtnInput,
   AccountsBtnSearch,
   AccountsContHeader,
   AccountsContainer,
@@ -36,6 +35,7 @@ import NewsList from './components/Accounts/NewsList';
 const Accounts = () => {
   // 변수 관리-------------------------------------
   const navigate = useNavigate();
+  const userName = localStorage.getItem('username');
 
   // News API-------------------------------------
   const API_KEY = '06288e3f326849a5a788730118439d3c';
@@ -113,6 +113,7 @@ const Accounts = () => {
             ? '차트 페이지'
             : ''}
         </AccountsSection>
+
         <AccountsContHeader className="contHeader">
           <AccountsTitle className="title">{userName}님의 가계부</AccountsTitle>
           <AccountsGroupFromTo className="groupFromTo">

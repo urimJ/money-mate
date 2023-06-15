@@ -327,6 +327,13 @@ export const AccountsContHeader = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+  @media all and (max-width: 1280px) {
+    width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
+  }
+  @media (max-height: 450px) or (max-width: 678px) {
+    width: 100%;
+  }
 `;
 
 export const AccountsGroupFromTo = styled.div`
@@ -349,19 +356,28 @@ export const AccountsBtnSearch = styled.button`
   height: 50px;
   border: 0px solid ${primaryColor};
   border-radius: 10px;
+
+  @media all and (max-width: 1280px) {
+    width: ${(props) => (props.navToggle ? '100px' : '114px')};
+  }
+  @media (max-height: 450px) or (max-width: 678px) {
+    width: 10vw;
+  }
 `;
 
-export const AccountsBtnInput = styled.button`
-  margin: 0px 0px 20px 20px;
-  background-color: rgb(65, 120, 203);
-  color: white;
-`;
 
 export const AccountsContBody = styled.div`
   margin: 0px 160px;
   // background-color: rgb(33, 236, 169);
   border: 3px solid rgb(65, 120, 203);
   height: 450px;
+
+  @media all and (max-width: 1280px) {
+    width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
+  }
+  @media (max-height: 450px) or (max-width: 678px) {
+    width: 100%;
+  }
 `;
 
 export const AccountsTable = styled.table`
@@ -373,6 +389,8 @@ export const AccountsTable = styled.table`
   width: 100%;
   border-spacing: 5px;
   border-collapse: collapse;
+
+  
 `;
 
 export const AccountsTableHeadTh = styled.th`
@@ -381,6 +399,8 @@ export const AccountsTableHeadTh = styled.th`
   border-right: 3px solid rgb(65, 120, 203);
   padding: 10px 30px;
   border-collapse: collapse;
+
+  
 `;
 
 export const AccountsAmountColorSpending = styled.td`
