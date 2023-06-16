@@ -10,7 +10,8 @@ export const MyPageContainer = styled.div`
   align-items: center;
 `;
 
-export const MyPageProfileSection = styled.section`
+// ---------------------------------------------------------
+export const MyPageHeaderSection = styled.section`
   width: 90%;
   height: 20%;
   display: flex;
@@ -19,6 +20,19 @@ export const MyPageProfileSection = styled.section`
   gap: 15px;
   padding: 15px;
   border: 1px solid black;
+`;
+
+export const MyPageProfileSection = styled.section`
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  @media all and (min-width: 1200px) {
+    width: 15%;
+  }
 `;
 
 export const MyPageProfileBox = styled.section`
@@ -30,8 +44,66 @@ export const MyPageProfileBox = styled.section`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  transition: all 0.5s;
+  @media all and (max-width: 620px) {
+    width: 75px;
+    height: 75px;
+  }
 `;
 
+export const MyPageProfileInput = styled.label`
+  width: 60px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid ${primaryColor};
+  border-radius: 10px;
+  background-color: transparent;
+  color: ${primaryColor};
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    color: ${bgColor};
+    background-color: ${primaryColor};
+  }
+`;
+
+export const HiddenFileInput = styled.input`
+  display: none;
+`;
+
+export const MyPageRightSection = styled.section`
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s;
+  @media all and (max-width: 620px) {
+  }
+  @media all and (min-width: 1200px) {
+    width: 85%;
+  }
+`;
+
+export const MyPageInfo = styled.h1`
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  font-family: 'GmarketSansTTFBold';
+`;
+
+export const MyPageCheckList = styled.section`
+  width: 100%;
+  height: 80%;
+  padding: 10px;
+  font-size: 12px;
+  border: 1px solid black;
+`;
+
+// ---------------------------------------------------------
 export const MyPageContentSection = styled.section`
   width: 90%;
   height: 60%;
@@ -40,23 +112,41 @@ export const MyPageContentSection = styled.section`
   justify-content: center;
   align-items: center;
   gap: 15px;
+  padding: 15px;
   border: 1px solid black;
 `;
 
+export const MyPageCategoryBox = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const MyPageCategoryInput = styled.input`
-  width: 80%;
+  width: calc(98% - 80px);
   height: 40px;
   border: 1px solid ${primaryColor};
   border-radius: 10px;
   padding: 5px;
+  font-family: 'GmarketSansTTFLight';
   &:focus {
     border: 2px solid ${primaryBoldColor};
     outline: none;
   }
 `;
 
+export const MyPageCategoryInputButton = styled.button`
+  width: 80px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: ${primaryColor};
+  color: ${bgColor};
+`;
+
 export const MyPageCategorySection = styled.section`
-  width: 90%;
+  width: 100%;
   height: 80%;
   display: flex;
   flex-wrap: wrap;
@@ -68,10 +158,13 @@ export const MyPageCategorySection = styled.section`
 `;
 
 export const MyPageCategoryButton = styled.button`
-  width: 235px;
+  width: 250px;
   height: 40px;
   border: none;
   border-radius: 10px;
   background-color: ${primaryColor};
   color: ${bgColor};
+  @media all and (max-width: 650px) {
+    width: 200px;
+  }
 `;

@@ -32,7 +32,7 @@ export const SideNavBar = styled.section`
     width: 300px;
     left: ${(props) => (props.navToggle ? '0' : '-300px')};
   }
-  @media (max-height: 450px) or (max-width: 678px) {
+  @media (max-height: 450px) or (max-width: 500px) {
     left: -500px;
   }
 `;
@@ -55,7 +55,7 @@ export const SideNavBarButton = styled.section`
   @media all and (max-width: 1280px) {
     left: ${(props) => (props.navToggle ? '240px' : '5px')};
   }
-  @media (max-height: 450px) or (max-width: 678px) {
+  @media (max-height: 450px) or (max-width: 500px) {
     display: none;
   }
 `;
@@ -356,7 +356,7 @@ export const AccountsSection = styled.section`
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
   }
-  @media (max-height: 450px) or (max-width: 678px) {
+  @media (max-height: 450px) or (max-width: 500px) {
     width: 100%;
   }
 `;
