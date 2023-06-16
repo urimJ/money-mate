@@ -31,7 +31,7 @@ import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import NewsList from './components/Accounts/NewsList';
-import Cont from './components/Accounts/Cont';
+import AccountsComponent from './components/Accounts/AccountsComponent';
 
 const Accounts = () => {
   // 변수 관리-------------------------------------
@@ -103,7 +103,7 @@ const Accounts = () => {
         </SideNavBar>
         <AccountsSection navToggle={navToggle}>
           {currentPage === 0
-            ? <Cont />
+            ? <AccountsComponent />
             : currentPage === 1
             ? '달력 페이지'
             : currentPage === 2

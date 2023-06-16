@@ -17,7 +17,7 @@ import React, { useEffect, useState } from 'react';
 import { useCallback } from 'react';
 
 
-const Cont = (props) => {
+const AccountsComponent = (props) => {
     
 
     const userName = localStorage.getItem('username');
@@ -109,4 +109,4 @@ const Cont = (props) => {
     )
 };
 
-export default Cont
+export default AccountsComponent
