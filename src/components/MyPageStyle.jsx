@@ -79,6 +79,7 @@ export const MyPageRightSection = styled.section`
   height: 100%;
   display: flex;
   flex-direction: column;
+  gap: 10px;
   transition: all 0.5s;
   @media all and (max-width: 620px) {
   }
@@ -87,12 +88,49 @@ export const MyPageRightSection = styled.section`
   }
 `;
 
+export const MyPageInfoBox = styled.section`
+  height: 100%;
+  height: 18%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const MyPageInfo = styled.h1`
-  width: 100%;
-  height: 20%;
+  width: calc(100% - 200px);
+  height: 100%;
   display: flex;
   align-items: center;
   font-family: 'GmarketSansTTFBold';
+`;
+
+export const MyPageThemeToggle = styled.section`
+  width: 150px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid ${primaryColor};
+  border-radius: 25px;
+  cursor: pointer;
+`;
+
+export const MypageThemeLight = styled.button`
+  width: 50%;
+  height: 100%;
+  border: 1px solid ${primaryBoldColor};
+  border-radius: 25px;
+  background-color: ${bgColor};
+  color: ${primaryBoldColor};
+  cursor: pointer;
+`;
+
+export const MypageThemeDark = styled.button`
+  width: 50%;
+  height: 100%;
+  border: 1px solid ${primaryBoldColor};
+  border-radius: 25px;
+  background-color: ${primaryBoldColor};
+  color: ${bgColor};
 `;
 
 export const MyPageCheckList = styled.section`

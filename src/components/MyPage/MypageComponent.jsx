@@ -11,12 +11,18 @@ import {
   MyPageContentSection,
   MyPageHeaderSection,
   MyPageInfo,
+  MyPageInfoBox,
   MyPageProfileBox,
   MyPageProfileInput,
   MyPageProfileSection,
   MyPageRightSection,
+  MyPageThemeToggle,
+  MypageThemeDark,
+  MypageThemeLight,
 } from '../MyPageStyle';
 import defaultProfile from '../../../public/images/defaultProfile.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
 const MypageComponent = () => {
   // 변수 선언------------------------------------------------
@@ -63,7 +69,17 @@ const MypageComponent = () => {
             </MyPageProfileInput>
           </MyPageProfileSection>
           <MyPageRightSection>
-            <MyPageInfo>{userName}님의 프로필</MyPageInfo>
+            <MyPageInfoBox>
+              <MyPageInfo>{userName}님의 프로필</MyPageInfo>
+              <MyPageThemeToggle>
+                <MypageThemeLight>
+                  <FontAwesomeIcon icon={faSun} />
+                </MypageThemeLight>
+                <MypageThemeDark>
+                  <FontAwesomeIcon icon={faMoon} />
+                </MypageThemeDark>
+              </MyPageThemeToggle>
+            </MyPageInfoBox>
             <MyPageCheckList>CHECK LIST</MyPageCheckList>
           </MyPageRightSection>
         </MyPageHeaderSection>
