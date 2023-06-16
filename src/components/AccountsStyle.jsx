@@ -342,6 +342,13 @@ export const AccountsGroupFromTo = styled.div`
   justify-content: flex-end;
   align-items: baseline;
   margin: 0px 160px 20px 0px;
+
+  @media all and (max-width: 1280px) {
+    width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
+  }
+  @media (max-height: 450px) or (max-width: 678px) {
+    width: 100%;
+  }
 `;
 
 export const AccountsSorting = styled.p`

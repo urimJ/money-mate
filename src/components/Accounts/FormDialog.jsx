@@ -11,24 +11,51 @@ import SelectVariants from './SelectVariants'
 import DatePicker from './DatePickers'
 import { ButtonInput } from './FormDialogStyle';
 import { useState } from 'react';
+import { stepContentClasses } from '@mui/material';
 
-const FormDialog = () => {
+const FormDialog = (props) => {
   const [open, setOpen] = useState(false);
   const [amnt, setAmnt] = useState();
-  const amount = localStorage.getItem('amnt');
+  const [cntnt, setCntnt] = useState();
+  //const amount = localStorage.getItem('amnt');
+  //const content = localStorage.getItem('cntnt');
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
-  const handleChange = (e) => {
+  const handleChangeAmnt = (e) => {
     setAmnt(e.target.value);
+    
   }
+  const handleChangeCntnt = (e) => {
+    setCntnt(e.target.value);
+    
+  }
+  
   const handleClose = (e) => {
     setOpen(false);
     localStorage.setItem('amnt', amnt);
+    localStorage.setItem('cntnt', cntnt);
+
+    const newData = [
+      ...props.tableData,
+      {
+        date: '임시',
+        content: cntnt, 
+        amount: amnt, 
+        group: "임시",
+        paymentMethod: "임시",
+      }
+    ];
+
+    props.updateTableData(newData);
+    setAmnt('');
+    setCntnt('');
     
   };
+
+  
 
   const handleCloseDialog = () => {
     setOpen(false);
@@ -50,12 +77,23 @@ const FormDialog = () => {
                 autoFocus
                 margin="dense"
                 id="name"
+                label="내용"
+                type="content"
+                fullWidth
+                variant="standard"
+                //value={content}
+                onChange={handleChangeCntnt}
+            />
+            <TextField
+                autoFocus
+                margin="dense"
+                id="name"
                 label="금액(원)"
                 type="amount"
                 fullWidth
                 variant="standard"
-                value={amount}
-                onChange={handleChange}
+                //value={amount}
+                onChange={handleChangeAmnt}
             />
         </DialogContent>
         <DialogActions>

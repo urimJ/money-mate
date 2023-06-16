@@ -24,8 +24,7 @@ import {
   AccountsTableHeadTh,
   AccountsTableBodyTd,
 } from './components/AccountsStyle';
-import DatePicker from './components/Accounts/DatePickers';
-import FormDialog from './components/Accounts/FormDialog';
+
 
 import React, { useEffect, useState } from 'react';
 import { useCallback } from 'react';
@@ -37,7 +36,7 @@ import Cont from './components/Accounts/Cont';
 const Accounts = () => {
   // 변수 관리-------------------------------------
   const navigate = useNavigate();
-  const userName = localStorage.getItem('username');
+  
 
   // News API-------------------------------------
   const API_KEY = '06288e3f326849a5a788730118439d3c';
@@ -111,9 +110,6 @@ const Accounts = () => {
             ? '차트 페이지'
             : ''}
         </AccountsSection>
-        {/* <AccountsContHeader />
-        <AccountsContBody /> */}
-        
       </AccountsContainer>
     </>
   );

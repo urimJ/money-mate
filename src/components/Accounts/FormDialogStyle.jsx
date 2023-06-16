@@ -13,7 +13,7 @@ export const ButtonInput = styled.button`
     cursor: pointer;
     &:hover {
         background-color: black;
-        cursor: pointer;
+        //cursor: pointer;
     }
     @media all and (max-width: 1280px) {
         width: ${(props) => (props.navToggle ? '100px' : '114px')};
