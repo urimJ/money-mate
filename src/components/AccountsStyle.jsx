@@ -316,11 +316,11 @@ export const AccountsSection = styled.section`
 // Yurim------------------------------------------
 export const AccountsTitle = styled.p`
   font-family: 'Nanum Gothic', sans-serif;
-  font-size: 36px;
+  font-size: 30px;
   font-weight: bold;
   color: ${primaryColor};
   margin: 0px 20px 10px 160px;
-  padding: 80px 0px 0px 0px;
+  padding: 40px 0px 0px 0px;
 `;
 
 export const AccountsContHeader = styled.div`
@@ -421,13 +421,24 @@ export const AccountsTableBodyTd = styled.td`
   padding: 8px 30px;
   border-left: 1px solid rgb(65, 120, 203);
   border-right: 1px solid rgb(65, 120, 203);
+  //border-bottom: 1px solid rgb(65, 120, 203);
   border-collapse: collapse;
 `;
 
 export const AccountsAmountColorSpending = styled.td`
   color: rgb(248, 77, 77);
+  padding: 8px 30px;
+  border-left: 1px solid rgb(65, 120, 203);
+  border-right: 1px solid rgb(65, 120, 203);
+  //border-bottom: 1px solid rgb(65, 120, 203);
+  border-collapse: collapse;
 `;
 
 export const AccountsAmountColorIncome = styled.td`
   color: rgb(45, 103, 251);
+  padding: 8px 30px;
+  border-left: 1px solid rgb(65, 120, 203);
+  border-right: 1px solid rgb(65, 120, 203);
+  //border-bottom: 1px solid rgb(65, 120, 203);
+  border-collapse: collapse;
 `;

@@ -9,6 +9,8 @@ import {
     AccountsTableHeadTh,
     AccountsTableBodyTd,
     AccountsContainer,
+    AccountsAmountColorSpending,
+    AccountsAmountColorIncome,
 } from '../AccountsStyle';
 
 import DatePicker from './DatePickers';
@@ -94,10 +96,16 @@ const AccountsComponent = (props) => {
                 <tr key={index}>
                 <AccountsTableBodyTd className="widthFixed">{row.date}</AccountsTableBodyTd>
                 <AccountsTableBodyTd>{row.content}</AccountsTableBodyTd>
-                <AccountsTableBodyTd className="colorAmount income">
+                {row.amount < 0 ? (
+                <AccountsAmountColorSpending className="colorAmount spending">
+                    {-row.amount}
+                </AccountsAmountColorSpending>
+                ) : (
+                <AccountsAmountColorIncome className="colorAmount income">
                     {row.amount}
-                </AccountsTableBodyTd>
-                <AccountsTableBodyTd>{row.group}</AccountsTableBodyTd>
+                </AccountsAmountColorIncome>
+                )}
+                <AccountsTableBodyTd>{row.group1}</AccountsTableBodyTd>
                 <AccountsTableBodyTd>{row.paymentMethod}</AccountsTableBodyTd>
                 </tr>
             ))}
