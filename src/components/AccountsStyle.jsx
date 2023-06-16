@@ -182,6 +182,9 @@ export const MyPageNavigator = styled.button`
   position: absolute;
   top: 340px;
   right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: ${(props) =>
     props.currentPage === 3 ? `${primaryColor}` : `${bgColor}`};
   background-color: ${(props) =>
@@ -192,6 +195,26 @@ export const MyPageNavigator = styled.button`
   border-radius: 10px 0 0 10px;
   transition: all 0.5s;
   cursor: pointer;
+`;
+
+export const MypageTextBox = styled.section`
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  &:hover {
+    animation: rotate 2s infinite alternate;
+  }
 `;
 
 export const NavNewsHeader = styled.p`
@@ -260,7 +283,7 @@ export const NewsBox = styled.section`
 export const NewsThumbnailSection = styled.section`
   width: 60px;
   height: 60px;
-  border: 1px solid brown;
+  border-radius: 15px;
   background-image: url(${(props) => props.newsThumbnail});
   background-position: center;
   background-size: cover;
@@ -273,6 +296,7 @@ export const NewsTextBox = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 5px;
 `;
 
 export const NewsHeaderLine = styled.span`

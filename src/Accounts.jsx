@@ -24,6 +24,7 @@ import {
   AccountsSection,
   AccountsTableHeadTh,
   MyPageNavigator,
+  MypageTextBox,
 } from './components/AccountsStyle';
 import DatePicker from './components/Accounts/DatePickers';
 import FormDialog from './components/Accounts/FormDialog';
@@ -33,6 +34,9 @@ import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import NewsList from './components/Accounts/NewsList';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGear } from '@fortawesome/free-solid-svg-icons';
+import MypageComponent from './components/MyPage/MypageComponent';
 
 const Accounts = () => {
   // 변수 관리-------------------------------------
@@ -101,8 +105,10 @@ const Accounts = () => {
           <ThirdNavigator currentPage={currentPage} onClick={handleNavigator2}>
             차트
           </ThirdNavigator>
-          <MyPageNavigator onClick={handleNavigator3}>
-            {userName}님의 페이지
+          <MyPageNavigator currentPage={currentPage} onClick={handleNavigator3}>
+            <MypageTextBox>
+              <FontAwesomeIcon icon={faGear} />
+            </MypageTextBox>
           </MyPageNavigator>
           <NavNewsSection>
             <NavNewsHeader>WORLDWIDE HOT NEWS</NavNewsHeader>
@@ -110,13 +116,17 @@ const Accounts = () => {
           </NavNewsSection>
         </SideNavBar>
         <AccountsSection navToggle={navToggle}>
-          {currentPage === 0
-            ? '가계부 페이지'
-            : currentPage === 1
-            ? '달력 페이지'
-            : currentPage === 2
-            ? '차트 페이지'
-            : ''}
+          {currentPage === 0 ? (
+            '가계부 페이지'
+          ) : currentPage === 1 ? (
+            '달력 페이지'
+          ) : currentPage === 2 ? (
+            '차트 페이지'
+          ) : currentPage === 3 ? (
+            <MypageComponent />
+          ) : (
+            ''
+          )}
         </AccountsSection>
         {/* <AccountsContHeader className="contHeader">
           <AccountsTitle className="title">{userName}님의 가계부</AccountsTitle>
