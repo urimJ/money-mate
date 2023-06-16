@@ -383,6 +383,7 @@ export const AccountsContBody = styled.div`
   // background-color: rgb(33, 236, 169);
   border: 3px solid rgb(65, 120, 203);
   height: 450px;
+  overflow: auto;
 
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
@@ -401,6 +402,7 @@ export const AccountsTable = styled.table`
   width: 100%;
   border-spacing: 5px;
   border-collapse: collapse;
+  
   
 
   

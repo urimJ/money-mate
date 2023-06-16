@@ -10,7 +10,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import SelectVariants from './SelectVariants'
 import DatePicker from './DatePickers'
 import { ButtonInput } from './FormDialogStyle';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { stepContentClasses } from '@mui/material';
 import SelectVariantG from './SelectVariantG';
 
@@ -22,7 +22,20 @@ const FormDialog = (props) => {
   const [g1, setG1] = useState('');
   //const amount = localStorage.getItem('amnt');
   //const content = localStorage.getItem('cntnt');
+  const [disableSubmit, setDisableSubmit] = useState(true); // 입력 버튼 비활성화 상태를 저장하는 변수
 
+  useEffect(() => {
+    if (amnt && cntnt && inOut) {
+      // inOut 값이 'spending'인 경우에만 g1 값이 존재해야 합니다.
+      if (inOut === 'spending' && !g1) {
+        setDisableSubmit(true);
+      } else {
+        setDisableSubmit(false);
+      }
+    } else {
+      setDisableSubmit(true);
+    }
+  }, [amnt, cntnt, inOut, g1]);
 
   const handleInOutChange = (value) => {
     setInOut(value);
@@ -94,13 +107,11 @@ const FormDialog = (props) => {
     setInOut('');
   };
 
-  
-
   const handleCloseDialog = () => {
     setOpen(false);
   };
 
- 
+  
 
   return (
     <div>
@@ -139,7 +150,7 @@ const FormDialog = (props) => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseDialog}>취소</Button>
-          <Button onClick={handleClose}>입력</Button>
+          <Button onClick={handleClose} disabled={disableSubmit}>입력</Button>
         </DialogActions>
       </Dialog>
     </div>
