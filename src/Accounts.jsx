@@ -72,7 +72,6 @@ const Accounts = () => {
   const handleNavigator2 = useCallback(() => setCurrentPage(2), [currentPage]);
   const handleNavToHome = () => navigate('/guide');
 
-  
 
 
   return (
