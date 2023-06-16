@@ -176,6 +176,24 @@ export const ThirdNavigator = styled.button`
   cursor: pointer;
 `;
 
+export const MyPageNavigator = styled.button`
+  width: 90%;
+  height: 70px;
+  position: absolute;
+  top: 340px;
+  right: 0;
+  color: ${(props) =>
+    props.currentPage === 3 ? `${primaryColor}` : `${bgColor}`};
+  background-color: ${(props) =>
+    props.currentPage === 3 ? `${bgColor}` : `${primaryColor}`};
+  border: ${(props) =>
+    props.currentPage === 3 ? 'none' : `1px solid ${bgColor}`};
+  border-right: none;
+  border-radius: 10px 0 0 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+`;
+
 export const NavNewsHeader = styled.p`
   color: ${primaryBoldColor};
   font-family: 'GmarketSansTTFBold';
@@ -199,13 +217,19 @@ export const NavNewsSection = styled.section`
   padding: 5px;
   overflow-y: auto;
   transition: all 0.5s;
-  @media all and (max-height: 900px) {
-    height: 400px;
+  @media all and (max-height: 940px) {
+    height: 50vh;
   }
-  @media all and (max-height: 800px) {
-    height: 300px;
+  @media all and (max-height: 880px) {
+    height: 40vh;
   }
-  @media all and (max-height: 670px) {
+  @media all and (max-height: 748px) {
+    height: 35vh;
+  }
+  @media all and (max-height: 678px) {
+    height: 25vh;
+  }
+  @media all and (max-height: 578px) {
     display: none;
   }
   ::-webkit-scrollbar {

@@ -23,6 +23,7 @@ import {
   NavNewsHeader,
   AccountsSection,
   AccountsTableHeadTh,
+  MyPageNavigator,
 } from './components/AccountsStyle';
 import DatePicker from './components/Accounts/DatePickers';
 import FormDialog from './components/Accounts/FormDialog';
@@ -35,6 +36,7 @@ import NewsList from './components/Accounts/NewsList';
 
 const Accounts = () => {
   // 변수 관리-------------------------------------
+  const userName = localStorage.getItem('username');
   const navigate = useNavigate();
 
   // News API-------------------------------------
@@ -69,6 +71,7 @@ const Accounts = () => {
   const handleNavigator0 = useCallback(() => setCurrentPage(0), [currentPage]);
   const handleNavigator1 = useCallback(() => setCurrentPage(1), [currentPage]);
   const handleNavigator2 = useCallback(() => setCurrentPage(2), [currentPage]);
+  const handleNavigator3 = useCallback(() => setCurrentPage(3), [currentPage]);
   const handleNavToHome = () => navigate('/guide');
 
   // const [list, setList] = useState()
@@ -98,7 +101,9 @@ const Accounts = () => {
           <ThirdNavigator currentPage={currentPage} onClick={handleNavigator2}>
             차트
           </ThirdNavigator>
-
+          <MyPageNavigator onClick={handleNavigator3}>
+            {userName}님의 페이지
+          </MyPageNavigator>
           <NavNewsSection>
             <NavNewsHeader>WORLDWIDE HOT NEWS</NavNewsHeader>
             {newsList}
