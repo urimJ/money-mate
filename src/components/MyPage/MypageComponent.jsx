@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {
+  CategoryDeleteButton,
   HiddenFileInput,
   MyPageCategoryBox,
   MyPageCategoryButton,
@@ -23,17 +24,14 @@ import {
 import defaultProfile from '../../../public/images/defaultProfile.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { useContext } from 'react';
+import { Context } from '../../context/Context';
 
 const MypageComponent = () => {
   // 변수 선언------------------------------------------------
   const userName = localStorage.getItem('username');
-  const [category, setCategory] = useState([
-    { name: '식비' },
-    { name: '교통비' },
-    { name: '문화 여가비' },
-    { name: '유흥비' },
-    { name: '교육비' },
-  ]);
+  const { category, setCategory } = useContext(Context);
+  const [newCategory, setNewCategory] = useState('');
   const [selectedImage, setSelectedImage] = useState(null);
 
   // Function------------------------------------------------
@@ -48,9 +46,41 @@ const MypageComponent = () => {
     reader.readAsDataURL(file);
   };
 
+  const onChangeCategory = (e) => {
+    setNewCategory(e.target.value);
+  };
+
+  const onSubmitCategory = (e) => {
+    e.preventDefault();
+    if (newCategory.trim() === '') {
+      alert('카테고리는 공백이 될 수 없습니다.');
+      return;
+    }
+    const updatedCategory = [...category, { category: newCategory }];
+    setCategory(updatedCategory);
+    setNewCategory('');
+    localStorage.setItem('category', JSON.stringify(updatedCategory));
+  };
+  const handleCategoryDelete = (idx) => {
+    const updatedCategory = [...category];
+    updatedCategory.splice(idx, 1);
+    setCategory(updatedCategory);
+    localStorage.setItem('category', JSON.stringify(updatedCategory));
+  };
+
   //
-  const categoryList = category.map((c) => {
-    return <MyPageCategoryButton key={c.name}>{c.name}</MyPageCategoryButton>;
+  const categoryList = category?.map((c, idx) => {
+    return (
+      <MyPageCategoryButton key={c.category}>
+        {c.category}
+        <CategoryDeleteButton
+          onClick={() => handleCategoryDelete(idx)}
+          idx={idx}
+        >
+          X
+        </CategoryDeleteButton>
+      </MyPageCategoryButton>
+    );
   });
   return (
     <>
@@ -84,10 +114,13 @@ const MypageComponent = () => {
           </MyPageRightSection>
         </MyPageHeaderSection>
         <MyPageContentSection>
-          <MyPageCategoryBox>
+          <MyPageCategoryBox onSubmit={onSubmitCategory}>
             <MyPageCategoryInput
               type="text"
               placeholder="원하는 카테고리를 입력해주세요."
+              name="category"
+              onChange={onChangeCategory}
+              value={newCategory}
             />
             <MyPageCategoryInputButton>등록</MyPageCategoryInputButton>
           </MyPageCategoryBox>

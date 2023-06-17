@@ -97,11 +97,14 @@ export const MyPageInfoBox = styled.section`
 `;
 
 export const MyPageInfo = styled.h1`
-  width: calc(100% - 200px);
+  width: calc(100% - 150px);
   height: 100%;
   display: flex;
   align-items: center;
   font-family: 'GmarketSansTTFBold';
+  @media all and (max-width: 485px) {
+    width: calc(100% - 80px);
+  }
 `;
 
 export const MyPageThemeToggle = styled.section`
@@ -112,6 +115,9 @@ export const MyPageThemeToggle = styled.section`
   border: 1px solid ${primaryColor};
   border-radius: 25px;
   cursor: pointer;
+  @media all and (max-width: 485px) {
+    width: 80px;
+  }
 `;
 
 export const MypageThemeLight = styled.button`
@@ -131,6 +137,7 @@ export const MypageThemeDark = styled.button`
   border-radius: 25px;
   background-color: ${primaryBoldColor};
   color: ${bgColor};
+  cursor: pointer;
 `;
 
 export const MyPageCheckList = styled.section`
@@ -154,7 +161,7 @@ export const MyPageContentSection = styled.section`
   border: 1px solid black;
 `;
 
-export const MyPageCategoryBox = styled.div`
+export const MyPageCategoryBox = styled.form`
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -198,11 +205,21 @@ export const MyPageCategorySection = styled.section`
 export const MyPageCategoryButton = styled.button`
   width: 250px;
   height: 40px;
-  border: none;
+  position: relative;
+  border: 1px solid ${primaryBoldColor};
   border-radius: 10px;
-  background-color: ${primaryColor};
-  color: ${bgColor};
+  background-color: transparent;
+  color: ${primaryBoldColor};
   @media all and (max-width: 650px) {
     width: 200px;
   }
+`;
+
+export const CategoryDeleteButton = styled.span`
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  display: ${(props) => (props.idx < 5 ? 'none' : '')};
 `;
