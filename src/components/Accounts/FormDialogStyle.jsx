@@ -21,3 +21,8 @@ export const ButtonInput = styled.button`
         margin : 0px 0px 10px 10px;
     }
 `;
+
+export const SelectedVariantsSpending = styled.div`
+    display: flex;
+    flex-direction: row;
+`
