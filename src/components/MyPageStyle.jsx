@@ -216,7 +216,6 @@ export const MyPageCategorySection = styled.section`
   height: 80%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-content: flex-start;
   gap: 30px;
   padding: 15px;
