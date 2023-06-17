@@ -289,6 +289,7 @@ export const NewsTextBox = styled.section`
   flex-direction: column;
   justify-content: center;
   padding: 5px;
+  color: ${(props)=>props.theme.textColor};
 `;
 
 export const NewsHeaderLine = styled.span`
@@ -297,6 +298,7 @@ export const NewsHeaderLine = styled.span`
   font-family: 'GmarketSansTTFBold';
   font-size: 14px;
   font-weight: 500;
+  
 `;
 
 export const NewsDescription = styled.span`
