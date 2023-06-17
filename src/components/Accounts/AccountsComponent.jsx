@@ -12,10 +12,14 @@ AccountsContainer,
 AccountsAmountColorSpending,
 AccountsAmountColorIncome,
 AccountsBtnClose,
+EmptyTable,
+EmptySpan
 } from '../AccountsStyle';
 
 import DatePicker from './DatePickers';
 import FormDialog from './FormDialog';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSmile } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect, useState, useRef } from 'react';
 import { useCallback } from 'react';
 import dayjs from 'dayjs';
@@ -124,7 +128,13 @@ return (
         </AccountsGroupFromTo>
         </AccountsContHeader>
         <AccountsContBody className="contBody">
-        <AccountsTable className="tableWidth">
+            {tableData.length === 0? (
+                <EmptyTable className = "emptyTableMessage">
+                    <FontAwesomeIcon icon={faBoxOpen} size="10x" />
+                    <EmptySpan>테이블이 비어 있습니다.</EmptySpan>
+                </EmptyTable>
+            ):(
+                <AccountsTable className="tableWidth">
             <thead>
             <tr>
                 <AccountsTableHeadTh className="widthFixed">날짜</AccountsTableHeadTh>
@@ -153,7 +163,9 @@ return (
                 </tr>
             ))}
             </tbody>
-        </AccountsTable>
+            </AccountsTable>
+            )}
+        
         </AccountsContBody>
     </AccountsContainer>
     </>

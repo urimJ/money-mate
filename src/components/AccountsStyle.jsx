@@ -417,7 +417,7 @@ export const AccountsContBody = styled.div`
   // background-color: rgb(33, 236, 169);
   border: 3px solid ${primaryColor};
   height: 450px;
-  overflow: auto;
+  overflow: scroll;
 
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
@@ -482,4 +482,15 @@ export const AccountsBtnClose = styled.button`
   border: 0px solid ${primaryColor};
   border-radius: 10px;
   cursor: pointer;
+`
+
+export const EmptyTable = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+export const EmptySpan = styled.span`
+  margin : 20px;
 `
