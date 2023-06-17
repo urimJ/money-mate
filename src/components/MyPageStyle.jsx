@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { bgColor, primaryBoldColor, primaryColor } from '../../GlobalStyle';
+import { primaryBoldColor } from '../../GlobalStyle';
 
 export const MyPageContainer = styled.div`
   width: 100%;
@@ -15,7 +15,7 @@ export const MyPageContainer = styled.div`
 // ---------------------------------------------------------
 export const MyPageHeaderSection = styled.section`
   width: 90%;
-  height: 20%;
+  height: 35%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -81,7 +81,6 @@ export const MyPageRightSection = styled.section`
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
   transition: all 0.5s;
   @media all and (max-width: 620px) {
   }
@@ -92,26 +91,34 @@ export const MyPageRightSection = styled.section`
 
 export const MyPageInfoBox = styled.section`
   height: 100%;
-  height: 18%;
+  height: 20%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
 export const MyPageInfo = styled.h1`
-  width: calc(100% - 150px);
+  width: ${(props) => props.navToggle ? `calc(100% - 14vw)` : `calc(100% - 150px)`};
   height: 100%;
   display: flex;
   align-items: center;
+  font-size: ${(props) => props.navToggle ? '1.2vw' : '16px'};
   font-family: 'GmarketSansTTFBold';
+  @media all and (max-width: 520px) {
+    font-size: 14px;
+  }
   @media all and (max-width: 485px) {
     width: calc(100% - 80px);
   }
+  @media all and (max-width: 380px) {
+    font-size: 12px;
+  }
+  transition: all 0.3s;
 `;
 
 export const MyPageThemeToggle = styled.section`
-  width: 150px;
-  height: 100%;
+  width: ${(props) => props.navToggle ? '14vw' : '150px'};
+  height: 90%;
   display: flex;
   justify-content: space-between;
   border: 1px solid ${(props) => props.theme.primaryColor};
@@ -153,6 +160,7 @@ export const MyPageCheckList = styled.section`
   height: 80%;
   padding: 10px;
   font-size: 12px;
+  transition: all 0.3s;
   border: 1px solid black;
 `;
 
@@ -208,6 +216,7 @@ export const MyPageCategorySection = styled.section`
   height: 80%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   align-content: flex-start;
   gap: 30px;
   padding: 15px;
