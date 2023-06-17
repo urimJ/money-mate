@@ -32,7 +32,7 @@ export const SideNavBar = styled.section`
     width: 300px;
     left: ${(props) => (props.navToggle ? '0' : '-300px')};
   }
-  @media (max-height: 450px) or (max-width: 678px) {
+  @media (max-height: 450px) or (max-width: 500px) {
     left: -500px;
   }
 `;
@@ -55,7 +55,7 @@ export const SideNavBarButton = styled.section`
   @media all and (max-width: 1280px) {
     left: ${(props) => (props.navToggle ? '240px' : '5px')};
   }
-  @media (max-height: 450px) or (max-width: 678px) {
+  @media (max-height: 450px) or (max-width: 500px) {
     display: none;
   }
 `;
@@ -176,6 +176,47 @@ export const ThirdNavigator = styled.button`
   cursor: pointer;
 `;
 
+export const MyPageNavigator = styled.button`
+  width: 90%;
+  height: 70px;
+  position: absolute;
+  top: 340px;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${(props) =>
+    props.currentPage === 3 ? `${primaryColor}` : `${bgColor}`};
+  background-color: ${(props) =>
+    props.currentPage === 3 ? `${bgColor}` : `${primaryColor}`};
+  border: ${(props) =>
+    props.currentPage === 3 ? 'none' : `1px solid ${bgColor}`};
+  border-right: none;
+  border-radius: 10px 0 0 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+`;
+
+export const MypageTextBox = styled.section`
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  &:hover {
+    animation: rotate 2s infinite alternate;
+  }
+`;
+
 export const NavNewsHeader = styled.p`
   color: ${primaryBoldColor};
   font-family: 'GmarketSansTTFBold';
@@ -199,13 +240,19 @@ export const NavNewsSection = styled.section`
   padding: 5px;
   overflow-y: auto;
   transition: all 0.5s;
-  @media all and (max-height: 900px) {
-    height: 400px;
+  @media all and (max-height: 940px) {
+    height: 50vh;
   }
-  @media all and (max-height: 800px) {
-    height: 300px;
+  @media all and (max-height: 880px) {
+    height: 40vh;
   }
-  @media all and (max-height: 670px) {
+  @media all and (max-height: 748px) {
+    height: 35vh;
+  }
+  @media all and (max-height: 678px) {
+    height: 25vh;
+  }
+  @media all and (max-height: 578px) {
     display: none;
   }
   ::-webkit-scrollbar {
@@ -236,7 +283,7 @@ export const NewsBox = styled.section`
 export const NewsThumbnailSection = styled.section`
   width: 60px;
   height: 60px;
-  border: 1px solid brown;
+  border-radius: 15px;
   background-image: url(${(props) => props.newsThumbnail});
   background-position: center;
   background-size: cover;
@@ -249,6 +296,7 @@ export const NewsTextBox = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 5px;
 `;
 
 export const NewsHeaderLine = styled.span`
@@ -308,7 +356,7 @@ export const AccountsSection = styled.section`
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
   }
-  @media (max-height: 450px) or (max-width: 678px) {
+  @media (max-height: 450px) or (max-width: 500px) {
     width: 100%;
   }
 `;

@@ -23,6 +23,9 @@ import {
   AccountsSection,
   AccountsTableHeadTh,
   AccountsTableBodyTd,
+  MyPageNavigator,
+  MypageTextBox,
+
 } from './components/AccountsStyle';
 
 
@@ -32,9 +35,14 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import NewsList from './components/Accounts/NewsList';
 import AccountsComponent from './components/Accounts/AccountsComponent';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGear } from '@fortawesome/free-solid-svg-icons';
+import MypageComponent from './components/MyPage/MypageComponent';
+
 
 const Accounts = () => {
   // 변수 관리-------------------------------------
+  const userName = localStorage.getItem('username');
   const navigate = useNavigate();
   
 
@@ -70,6 +78,7 @@ const Accounts = () => {
   const handleNavigator0 = useCallback(() => setCurrentPage(0), [currentPage]);
   const handleNavigator1 = useCallback(() => setCurrentPage(1), [currentPage]);
   const handleNavigator2 = useCallback(() => setCurrentPage(2), [currentPage]);
+  const handleNavigator3 = useCallback(() => setCurrentPage(3), [currentPage]);
   const handleNavToHome = () => navigate('/guide');
 
 
@@ -94,20 +103,29 @@ const Accounts = () => {
           <ThirdNavigator currentPage={currentPage} onClick={handleNavigator2}>
             차트
           </ThirdNavigator>
-
+          <MyPageNavigator currentPage={currentPage} onClick={handleNavigator3}>
+            <MypageTextBox>
+              <FontAwesomeIcon icon={faGear} />
+            </MypageTextBox>
+          </MyPageNavigator>
           <NavNewsSection>
             <NavNewsHeader>WORLDWIDE HOT NEWS</NavNewsHeader>
             {newsList}
           </NavNewsSection>
         </SideNavBar>
         <AccountsSection navToggle={navToggle}>
-          {currentPage === 0
-            ? <AccountsComponent />
-            : currentPage === 1
-            ? '달력 페이지'
-            : currentPage === 2
-            ? '차트 페이지'
-            : ''}
+          {currentPage === 0 ? (
+            <AccountsComponent />
+          ) : currentPage === 1 ? (
+            '달력 페이지'
+          ) : currentPage === 2 ? (
+            '차트 페이지'
+          ) : currentPage === 3 ? (
+            <MypageComponent />
+          ) : (
+            ''
+          )}
+
         </AccountsSection>
       </AccountsContainer>
     </>
