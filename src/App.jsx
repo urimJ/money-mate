@@ -7,6 +7,13 @@ import { useEffect } from 'react';
 function App() {
   // User Default Category---------------------------
   const [category, setCategory] = useState([]);
+
+  // User Theme--------------------------------------
+  const [darkTheme, setDarkTheme] = useState(Boolean);
+
+  // User LoggedIn-----------------------------------
+  const [isLoggedIn, setIsLoggedIn] = useState(Boolean);
+
   // ComponentDidMount-------------------------------
   useEffect(() => {
     const storedCategory = localStorage.getItem('category');
@@ -24,14 +31,25 @@ function App() {
     } else {
       setCategory(JSON.parse(storedCategory));
     }
+
+    // 초기 테마 설정
+    const storedDarkTheme = localStorage.getItem('dark-theme');
+    if (!storedDarkTheme) {
+      const initialDarkTheme = false;
+      localStorage.setItem('dark-theme', initialDarkTheme);
+      setDarkTheme(initialDarkTheme);
+    } else {
+      setDarkTheme(storedDarkTheme);
+    }
+
+    // 초기 로그인 유무 설정
+    const storedUsername = localStorage.getItem('username');
+    if (!storedUsername) {
+      setIsLoggedIn(false);
+    } else {
+      setIsLoggedIn(true);
+    }
   }, []);
-
-  // User LoggedIn-----------------------------------
-  const auth = localStorage.getItem('username');
-  const [isLoggedIn, setIsLoggedIn] = useState(auth);
-
-  // User Theme--------------------------------------
-  const [darkTheme, setDarkTheme] = useState(false);
 
   return (
     <>
