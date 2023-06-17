@@ -30,7 +30,8 @@ import { Context } from '../../context/Context';
 const MypageComponent = () => {
   // 변수 선언------------------------------------------------
   const userName = localStorage.getItem('username');
-  const { category, setCategory } = useContext(Context);
+  const { themeMode, setThemeMode, category, setCategory } =
+    useContext(Context);
   const [newCategory, setNewCategory] = useState('');
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -102,10 +103,16 @@ const MypageComponent = () => {
             <MyPageInfoBox>
               <MyPageInfo>{userName}님의 프로필</MyPageInfo>
               <MyPageThemeToggle>
-                <MypageThemeLight>
+                <MypageThemeLight
+                  onClick={() => setThemeMode(false)}
+                  themeMode={themeMode}
+                >
                   <FontAwesomeIcon icon={faSun} />
                 </MypageThemeLight>
-                <MypageThemeDark>
+                <MypageThemeDark
+                  onClick={() => setThemeMode(true)}
+                  themeMode={themeMode}
+                >
                   <FontAwesomeIcon icon={faMoon} />
                 </MypageThemeDark>
               </MyPageThemeToggle>
