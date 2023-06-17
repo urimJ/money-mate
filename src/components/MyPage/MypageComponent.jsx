@@ -30,7 +30,8 @@ import { Context } from '../../context/Context';
 const MypageComponent = () => {
   // 변수 선언------------------------------------------------
   const userName = localStorage.getItem('username');
-  const { category, setCategory } = useContext(Context);
+  const { themeMode, setThemeMode, category, setCategory } =
+    useContext(Context);
   const [newCategory, setNewCategory] = useState('');
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -44,6 +45,16 @@ const MypageComponent = () => {
     };
 
     reader.readAsDataURL(file);
+  };
+
+  const handleThemeLight = () => {
+    setThemeMode(false);
+    localStorage.setItem('theme', false);
+  };
+
+  const handleThemeDark = () => {
+    setThemeMode(true);
+    localStorage.setItem('theme', true);
   };
 
   const onChangeCategory = (e) => {
@@ -102,10 +113,16 @@ const MypageComponent = () => {
             <MyPageInfoBox>
               <MyPageInfo>{userName}님의 프로필</MyPageInfo>
               <MyPageThemeToggle>
-                <MypageThemeLight>
+                <MypageThemeLight
+                  onClick={handleThemeLight}
+                  themeMode={themeMode}
+                >
                   <FontAwesomeIcon icon={faSun} />
                 </MypageThemeLight>
-                <MypageThemeDark>
+                <MypageThemeDark
+                  onClick={handleThemeDark}
+                  themeMode={themeMode}
+                >
                   <FontAwesomeIcon icon={faMoon} />
                 </MypageThemeDark>
               </MyPageThemeToggle>
