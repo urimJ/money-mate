@@ -20,7 +20,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useCallback } from 'react';
 import dayjs from 'dayjs';
 
-const AccountsComponent = (props) => {
+const AccountsComponent = (navToggle) => {
 const userName = localStorage.getItem('username');
 
 const [startDate, setStartDate] = useState('');
@@ -112,7 +112,7 @@ return (
                 <AccountsSorting className="sorting">까지</AccountsSorting>
             </>
             )}
-            <AccountsBtnSearch className="btnSearch" onClick={handleSearch}>
+            <AccountsBtnSearch className="btnSearch" onClick={handleSearch} navToggle={navToggle}>
             보기
             </AccountsBtnSearch>
             {isTableUpdated && (
