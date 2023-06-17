@@ -72,8 +72,13 @@ const [tableData, setTableData] = useState(
     JSON.parse(localStorage.getItem('tableData')) || []
 );
 const updateTableData = useCallback((newData) => {
-    setTableData(newData);
-    localStorage.setItem('tableData', JSON.stringify(newData));
+    const sortedData = newData.sort((a, b) => {
+        const dateA = dayjs(a.date);
+        const dateB = dayjs(b.date);
+        return dateA.isBefore(dateB) ? -1 : 1;
+    });
+    setTableData(sortedData);
+    localStorage.setItem('tableData', JSON.stringify(sortedData));
 }, []);
 
 useEffect(() => {
