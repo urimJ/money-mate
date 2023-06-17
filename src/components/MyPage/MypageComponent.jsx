@@ -47,6 +47,16 @@ const MypageComponent = () => {
     reader.readAsDataURL(file);
   };
 
+  const handleThemeLight = () => {
+    setThemeMode(false);
+    localStorage.setItem('theme', false);
+  };
+
+  const handleThemeDark = () => {
+    setThemeMode(true);
+    localStorage.setItem('theme', true);
+  };
+
   const onChangeCategory = (e) => {
     setNewCategory(e.target.value);
   };
@@ -104,13 +114,13 @@ const MypageComponent = () => {
               <MyPageInfo>{userName}님의 프로필</MyPageInfo>
               <MyPageThemeToggle>
                 <MypageThemeLight
-                  onClick={() => setThemeMode(false)}
+                  onClick={handleThemeLight}
                   themeMode={themeMode}
                 >
                   <FontAwesomeIcon icon={faSun} />
                 </MypageThemeLight>
                 <MypageThemeDark
-                  onClick={() => setThemeMode(true)}
+                  onClick={handleThemeDark}
                   themeMode={themeMode}
                 >
                   <FontAwesomeIcon icon={faMoon} />

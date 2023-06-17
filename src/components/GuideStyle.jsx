@@ -37,7 +37,7 @@ export const FirstScenebackground1 = styled.span`
   top: 5%;
   left: -20vw;
   font-size: 40vw;
-  color: ${primaryColor};
+  color: ${(props) => props.theme.primaryColor};
   transform: rotate(-15deg);
   animation: fadeIn1 1s linear forwards;
 `;
@@ -60,7 +60,7 @@ export const FirstScenebackground2 = styled.section`
   top: 40%;
   right: -15vw;
   font-size: 35vw;
-  color: ${primaryColor};
+  color: ${(props) => props.theme.primaryColor};
   transform: rotate(0deg);
   animation: fadeIn2 2s linear forwards;
 `;
@@ -113,9 +113,9 @@ export const GuideNextButton = styled.button`
   top: 10px;
   border: none;
   border-radius: 25px;
-  background-color: ${bgColor};
+  background-color: ${(props) => props.theme.bgColor};
   font-family: 'GmarketSansTTFLight';
-  color: ${primaryColor};
+  color: ${(props) => props.theme.primaryColor};
   cursor: pointer;
   z-index: 1;
   @media all and (max-width: 720px) {
@@ -184,7 +184,7 @@ export const Section1LeftBox = styled.section`
   justify-content: center;
   align-items: center;
   font-size: 80px;
-  color: ${primaryColor};
+  color: ${(props) => props.theme.primaryColor};
 `;
 
 export const Section1RightBox = styled.section`
@@ -252,7 +252,7 @@ export const Section2RightBox = styled.section`
   justify-content: center;
   align-items: center;
   font-size: 80px;
-  color: ${primaryColor};
+  color: ${(props) => props.theme.primaryColor};
 `;
 
 export const SecondSection3 = styled.section`
@@ -302,7 +302,7 @@ export const Section3LeftBox = styled.section`
   justify-content: center;
   align-items: center;
   font-size: 80px;
-  color: ${primaryColor};
+  color: ${(props) => props.theme.primaryColor};
 `;
 
 export const Section3RightBox = styled.section`

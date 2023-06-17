@@ -112,7 +112,7 @@ export const MyPageThemeToggle = styled.section`
   height: 100%;
   display: flex;
   justify-content: space-between;
-  border: 1px solid ${primaryColor};
+  border: 1px solid ${(props) => props.theme.primaryColor};
   border-radius: 25px;
   cursor: pointer;
   @media all and (max-width: 485px) {
@@ -123,13 +123,14 @@ export const MyPageThemeToggle = styled.section`
 export const MypageThemeLight = styled.button`
   width: 50%;
   height: 100%;
-  border: 1px solid ${primaryBoldColor};
+  border: 1px solid ${(props) => props.theme.primaryBoldColor};
   border-radius: 25px;
   background-color: ${(props) =>
     props.themeMode ? props.theme.primaryColor : props.theme.primaryBoldColor};
   color: ${(props) =>
     props.themeMode ? props.theme.bgBoldColor : props.theme.bgColor};
   cursor: pointer;
+  transition: all 0.3s;
 `;
 
 export const MypageThemeDark = styled.button`
@@ -140,8 +141,9 @@ export const MypageThemeDark = styled.button`
   background-color: ${(props) =>
     props.themeMode ? props.theme.bgBoldColor : props.theme.bgColor};
   color: ${(props) =>
-    props.themeMode ? props.theme.primaryColor : props.theme.bgBoldColor};
+    props.themeMode ? props.theme.primaryColor : props.theme.primaryBoldColor};
   cursor: pointer;
+  transition: all 0.3s;
 `;
 
 export const MyPageCheckList = styled.section`
@@ -178,6 +180,7 @@ export const MyPageCategoryInput = styled.input`
   border: 1px solid ${(props) => props.theme.primaryColor};
   border-radius: 10px;
   background-color: ${(props) => props.theme.bgColor};
+  color: ${(props) => props.theme.primaryColor};
   padding: 5px;
   font-family: 'GmarketSansTTFLight';
   &:focus {
