@@ -50,13 +50,43 @@ const Calendar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (list == null) {
-      setList([{ title: content, date: date }]);
-    } else {
-      setList([...list, { title: content, date: date }]);
-    }
+    setList([...list, { title: content, date: date }]);
     setEventList([...eventList, { title: content, date: date }]);
     closeInputModal();
+  };
+
+  // 모달에서 리스트 삭제 관련 함수------------------------------------------------------------
+  const [isScheduleModalOpen, setIsScheduleModalOpen] = useState(false);
+  const openScheduleModal = (e) => {
+    setIsScheduleModalOpen(true);
+    const clickedDate = dayjs(e.event.start).format('YYYY-MM-DD');
+    setDate(clickedDate);
+  };
+  const closeScheduleModal = () => setIsScheduleModalOpen(false);
+
+  function Schedule({ schedule }) {
+    return schedule.date == date ? (
+      <div>
+        <span>
+          {schedule.date}&nbsp;&nbsp;&nbsp;&nbsp;{schedule.title}{' '}
+          &nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+        <ModalButton onClick={() => deleteSchedule(schedule)}>삭제</ModalButton>
+      </div>
+    ) : (
+      <div></div>
+    );
+  }
+
+  const deleteSchedule = (sche) => {
+    const newEvent = eventList.filter((el) => {
+      return el.date != sche.date || el.title != sche.title;
+    });
+    setEventList(newEvent);
+    const newSchedule = list.filter((el) => {
+      return el.date != sche.date || el.title != sche.title;
+    });
+    setList(newSchedule);
   };
 
   return (
@@ -72,6 +102,8 @@ const Calendar = () => {
             selectMirror={true}
             events={eventList}
             contentHeight={630}
+            aspectRatio={5}
+            eventClick={openScheduleModal}
           />
         </CalendarContainer>
 
@@ -96,6 +128,23 @@ const Calendar = () => {
             ></TextField>
             <ModalButton type="submit">추가</ModalButton>
             <ModalButton onClick={closeInputModal}>닫기</ModalButton>
+          </ModalForm>
+        </Modal>
+
+        <Modal
+          isOpen={isScheduleModalOpen}
+          onRequestClose={closeScheduleModal}
+          style={ModalStyle}
+          ariaHideApp={false}
+        >
+          <h1>일정 리스트</h1>
+          <ModalForm>
+            <div>
+              {list?.map((sche, idx) => (
+                <Schedule key={idx} schedule={sche} />
+              ))}
+            </div>
+            <ModalButton onClick={closeScheduleModal}>닫기</ModalButton>
           </ModalForm>
         </Modal>
       </PageContainer>
