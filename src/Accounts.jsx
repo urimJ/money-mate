@@ -38,6 +38,7 @@ import AccountsComponent from './components/Accounts/AccountsComponent';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
 import MypageComponent from './components/MyPage/MypageComponent';
+import AcountsStatistics from './Statistics';
 
 
 
@@ -120,7 +121,7 @@ const Accounts = () => {
           ) : currentPage === 1 ? (
             '달력 페이지'
           ) : currentPage === 2 ? (
-            '차트 페이지'
+            <AcountsStatistics/>
           ) : currentPage === 3 ? (
             <MypageComponent />
           ) : (
