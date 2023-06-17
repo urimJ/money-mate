@@ -124,11 +124,12 @@ export const NavHeader = styled.span`
 `;
 
 export const FirstNavigator = styled.button`
-  width: 90%;
-  height: 70px;
+  width: 80%;
+  height: 40px;
   position: absolute;
   top: 100px;
   right: 0;
+  font-family: "GmarketSansTTFLight";
   color: ${(props) =>
     props.currentPage === 0 ? props.theme.primaryColor : props.theme.bgColor};
   background-color: ${(props) =>
@@ -142,11 +143,12 @@ export const FirstNavigator = styled.button`
 `;
 
 export const SecondNavigator = styled.button`
-  width: 90%;
-  height: 70px;
+  width: 80%;
+  height: 40px;
   position: absolute;
-  top: 180px;
+  top: 150px;
   right: 0;
+  font-family: "GmarketSansTTFLight";
   color: ${(props) =>
     props.currentPage === 1 ? props.theme.primaryColor : props.theme.bgColor};
   background-color: ${(props) =>
@@ -160,11 +162,12 @@ export const SecondNavigator = styled.button`
 `;
 
 export const ThirdNavigator = styled.button`
-  width: 90%;
-  height: 70px;
+  width: 80%;
+  height: 40px;
   position: absolute;
-  top: 260px;
+  top: 200px;
   right: 0;
+  font-family: "GmarketSansTTFLight";
   color: ${(props) =>
     props.currentPage === 2 ? props.theme.primaryColor : props.theme.bgColor};
   background-color: ${(props) =>
@@ -178,10 +181,10 @@ export const ThirdNavigator = styled.button`
 `;
 
 export const MyPageNavigator = styled.button`
-  width: 90%;
-  height: 70px;
+  width: 80%;
+  height: 40px;
   position: absolute;
-  top: 340px;
+  top: 250px;
   right: 0;
   display: flex;
   justify-content: center;
@@ -214,7 +217,7 @@ export const MypageTextBox = styled.section`
   align-items: center;
   font-size: 16px;
   &:hover {
-    animation: rotate 2s infinite alternate;
+    animation: rotate 2s linear infinite;
   }
 `;
 
@@ -251,9 +254,9 @@ export const NavNewsSection = styled.section`
     height: 35vh;
   }
   @media all and (max-height: 678px) {
-    height: 25vh;
+    height: 30vh;
   }
-  @media all and (max-height: 578px) {
+  @media all and (max-height: 500px) {
     display: none;
   }
 `;

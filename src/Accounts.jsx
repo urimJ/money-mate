@@ -1,14 +1,5 @@
 import {
-  AccountsBtnSearch,
-  AccountsContHeader,
   AccountsContainer,
-  AccountsGroupFromTo,
-  AccountsSorting,
-  AccountsTitle,
-  AccountsContBody,
-  AccountsTable,
-  AccountsAmountColorIncome,
-  AccountsAmountColorSpending,
   SideNavBar,
   NavItem1,
   NavItem2,
@@ -21,10 +12,9 @@ import {
   NavNewsSection,
   NavNewsHeader,
   AccountsSection,
-  AccountsTableHeadTh,
-  AccountsTableBodyTd,
   MyPageNavigator,
   MypageTextBox,
+  
 
 } from './components/AccountsStyle';
 
@@ -121,7 +111,7 @@ const Accounts = () => {
           ) : currentPage === 2 ? (
             '차트 페이지'
           ) : currentPage === 3 ? (
-            <MypageComponent />
+            <MypageComponent navToggle={navToggle} />
           ) : (
             ''
           )}
