@@ -405,15 +405,15 @@ export const AccountsSorting = styled.p`
 
 export const AccountsBtnSearch = styled.button`
   margin: 0px 0px 0px 20px;
-  background-color: rgb(65, 120, 203);
-  color: white;
+  background-color:${primaryColor};
+  color: ${bgColor};
   width: 114px;
   height: 50px;
   border: 0px solid ${primaryColor};
   border-radius: 10px;
   cursor: pointer;
   &:hover {
-    background-color: black;
+    background-color: ${textColor};
     cursor: pointer;
   }
 
@@ -429,7 +429,7 @@ export const AccountsBtnSearch = styled.button`
 export const AccountsContBody = styled.div`
   margin: 0px 160px;
   // background-color: rgb(33, 236, 169);
-  border: 3px solid rgb(65, 120, 203);
+  border: 3px solid ${primaryColor};
   height: 450px;
   overflow: auto;
 
@@ -442,7 +442,7 @@ export const AccountsContBody = styled.div`
 `;
 
 export const AccountsTable = styled.table`
-  border: 1px solid rgb(65, 120, 203);
+  border: 1px solid ${primaryColor};
   // font-family: 'Nanum Gothic', sans-serif;
   font-size: 18px;
   padding: 0 0px;
@@ -457,9 +457,9 @@ export const AccountsTable = styled.table`
 `;
 
 export const AccountsTableHeadTh = styled.th`
-  border-bottom: 2px solid rgb(65, 120, 203);
-  border-left: 3px solid rgb(65, 120, 203);
-  border-right: 3px solid rgb(65, 120, 203);
+  border-bottom: 2px solid ${primaryColor};
+  border-left: 3px solid ${primaryColor};
+  border-right: 3px solid ${primaryColor};
   padding: 10px 30px;
   border-collapse: collapse;
   font-weight: bold;
@@ -469,26 +469,26 @@ export const AccountsTableHeadTh = styled.th`
 
 export const AccountsTableBodyTd = styled.td`
   padding: 8px 30px;
-  border-left: 1px solid rgb(65, 120, 203);
-  border-right: 1px solid rgb(65, 120, 203);
-  //border-bottom: 1px solid rgb(65, 120, 203);
+  border-left: 1px solid ${primaryColor};
+  border-right: 1px solid ${primaryColor};
+  //border-bottom: 1px solid ${primaryColor};
   border-collapse: collapse;
 `;
 
 export const AccountsAmountColorSpending = styled.td`
   color: rgb(248, 77, 77);
   padding: 8px 30px;
-  border-left: 1px solid rgb(65, 120, 203);
-  border-right: 1px solid rgb(65, 120, 203);
-  //border-bottom: 1px solid rgb(65, 120, 203);
+  border-left: 1px solid ${primaryColor};
+  border-right: 1px solid ${primaryColor};
+  //border-bottom: 1px solid ${primaryColor};
   border-collapse: collapse;
 `;
 
 export const AccountsAmountColorIncome = styled.td`
   color: rgb(45, 103, 251);
   padding: 8px 30px;
-  border-left: 1px solid rgb(65, 120, 203);
-  border-right: 1px solid rgb(65, 120, 203);
-  //border-bottom: 1px solid rgb(65, 120, 203);
+  border-left: 1px solid ${primaryColor};
+  border-right: 1px solid ${primaryColor};
+  //border-bottom: 1px solid ${primaryColor};
   border-collapse: collapse;
 `;
