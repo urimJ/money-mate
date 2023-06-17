@@ -1,5 +1,4 @@
 import {
-  AccountsBtnInput,
   AccountsBtnSearch,
   AccountsContHeader,
   AccountsContainer,
@@ -23,20 +22,30 @@ import {
   NavNewsHeader,
   AccountsSection,
   AccountsTableHeadTh,
+  AccountsTableBodyTd,
+  MyPageNavigator,
+  MypageTextBox,
+
 } from './components/AccountsStyle';
-import DatePicker from './components/Accounts/DatePickers';
-import FormDialog from './components/Accounts/FormDialog';
+
 
 import React, { useEffect, useState } from 'react';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import NewsList from './components/Accounts/NewsList';
+import AccountsComponent from './components/Accounts/AccountsComponent';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGear } from '@fortawesome/free-solid-svg-icons';
+import MypageComponent from './components/MyPage/MypageComponent';
 import AcountsStatistics from './Statistics';
+
 
 const Accounts = () => {
   // 변수 관리-------------------------------------
+  const userName = localStorage.getItem('username');
   const navigate = useNavigate();
+  
 
   // News API-------------------------------------
   const API_KEY = '06288e3f326849a5a788730118439d3c';
@@ -70,14 +79,10 @@ const Accounts = () => {
   const handleNavigator0 = useCallback(() => setCurrentPage(0), [currentPage]);
   const handleNavigator1 = useCallback(() => setCurrentPage(1), [currentPage]);
   const handleNavigator2 = useCallback(() => setCurrentPage(2), [currentPage]);
+  const handleNavigator3 = useCallback(() => setCurrentPage(3), [currentPage]);
   const handleNavToHome = () => navigate('/guide');
 
-  // const [list, setList] = useState()
-  // const group = [];
-  // const lists = [
-  //   {date: "", content:"", amount: "", group :"" },
-  //   {},
-  // ];
+
 
   return (
     <>
@@ -99,76 +104,30 @@ const Accounts = () => {
           <ThirdNavigator currentPage={currentPage} onClick={handleNavigator2}>
             차트
           </ThirdNavigator>
-
+          <MyPageNavigator currentPage={currentPage} onClick={handleNavigator3}>
+            <MypageTextBox>
+              <FontAwesomeIcon icon={faGear} />
+            </MypageTextBox>
+          </MyPageNavigator>
           <NavNewsSection>
             <NavNewsHeader>WORLDWIDE HOT NEWS</NavNewsHeader>
             {newsList}
           </NavNewsSection>
         </SideNavBar>
         <AccountsSection navToggle={navToggle}>
-          {currentPage === 0
-          // 유림 컴포넌트
-            ? '가계부 페이지'
-            : currentPage === 1
-            // 수련 컴포넌트
-            // <AccountsCalendar />
-            ? '달력 페이지'
-            : currentPage === 2
-            // 승훈 컴포넌트
-            ? <AcountsStatistics/>
-            : ''}
+          {currentPage === 0 ? (
+            <AccountsComponent />
+          ) : currentPage === 1 ? (
+            '달력 페이지'
+          ) : currentPage === 2 ? (
+            <AcountsStatistics/>
+          ) : currentPage === 3 ? (
+            <MypageComponent />
+          ) : (
+            ''
+          )}
+
         </AccountsSection>
-        {/* <AccountsContHeader className="contHeader">
-          <AccountsTitle className="title">{userName}님의 가계부</AccountsTitle>
-          <AccountsGroupFromTo className="groupFromTo">
-            <DatePicker
-              className="btnFrom"
-              label={'시작 날짜'}
-              // value={startDate}
-              // onChange={(value)=>{
-              //   setStartDate(value)
-              //   console.log(userName, value);}}
-            />
-            <AccountsSorting>부터</AccountsSorting>
-            <DatePicker
-              className="btnTo"
-              label={'종료 날짜'}
-              // value={endDate}
-              // onChange={(newValue) => {
-              //   setEndDate(newValue);
-              // }}
-            />
-            <AccountsSorting className="sorting">까지</AccountsSorting>
-            <AccountsBtnSearch className="btnSearch">보기</AccountsBtnSearch>
-            <FormDialog />
-          </AccountsGroupFromTo>
-        </AccountsContHeader>
-        <AccountsContBody className="contBody">
-          <AccountsTable className="tableWidth">
-            <thead>
-              <tr>
-                <AccountsTableHeadTh className="widthFixed">
-                  날짜
-                </AccountsTableHeadTh>
-                <AccountsTableHeadTh>내용</AccountsTableHeadTh>
-                <AccountsTableHeadTh>금액</AccountsTableHeadTh>
-                <AccountsTableHeadTh>그룹A</AccountsTableHeadTh>
-                <AccountsTableHeadTh>그룹B</AccountsTableHeadTh>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="widthFixed">2023-05-17</td>
-                <td>박수련장인 베개</td>
-                <AccountsAmountColorSpending className="colorAmount income">
-                  50,000
-                </AccountsAmountColorSpending>
-                <td>생활용품</td>
-                <td>카카오뱅크카드</td>
-              </tr>
-            </tbody>
-          </AccountsTable>
-        </AccountsContBody> */}
       </AccountsContainer>
     </>
   );
