@@ -53,7 +53,8 @@ function App() {
     }
   }, []);
 
-  const theme = themeMode === false ? light : dark;
+  const theme = themeMode === true ? dark : light;
+  
   return (
     <>
       <ThemeProvider theme={theme}>

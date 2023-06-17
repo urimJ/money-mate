@@ -5,6 +5,8 @@ import { bgColor, primaryColor } from '../../GlobalStyle';
 export const GuideContainer = styled.div`
   width: 100%;
   min-height: 100vh;
+  background-color: ${(props) => props.theme.bgColor};
+  color: ${(props) => props.theme.textColor};
 `;
 
 // First Scene-----------------------------------
