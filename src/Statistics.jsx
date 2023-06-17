@@ -20,13 +20,13 @@ import {
   StatisticsDatePicker,
 } from './components/StatisticsStyle';
 import { useState } from 'react';
-import DatePickers from './components/Accounts/DatePickers';
+import StatisticsDatePickers from './components/Statistics/StatisticsDatePicker';
 import ChartTable from './components/Statistics/Table';
 import DropdownGroup from './components/Statistics/DropdownGroup';
 import DropdownChart from './components/Statistics/DropdownChart';
 import PieChart from './components/Statistics/ChartType/Pie';
 import LineChart from './components/Statistics/ChartType/Line';
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 
 const AcountsStatistics = () => {
   const userName = localStorage.getItem('username');
@@ -79,7 +79,7 @@ const AcountsStatistics = () => {
             <StatisticsGroupBtn>
               <StatisticsGroupFromTo>
                 <StatisticsDatePicker>
-                  <DatePickers
+                  <StatisticsDatePickers
                     className="btnFrom"
                     label={'시작 날짜'}
                     value={startDate}
@@ -90,7 +90,7 @@ const AcountsStatistics = () => {
                 <StatisticsSorting>부터</StatisticsSorting>
 
                 <StatisticsDatePicker>
-                  <DatePickers
+                  <StatisticsDatePickers
                     className="btnFrom"
                     label={'종료 날짜'}
                     value={endDate}
