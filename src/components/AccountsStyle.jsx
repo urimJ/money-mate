@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { primaryColor } from '../../GlobalStyle';
+import { bgColor, primaryColor } from '../../GlobalStyle';
 
 // Accounts 페이지와 관련된 styled component
 export const blink = keyframes`
@@ -396,14 +396,13 @@ export const AccountsSorting = styled.p`
 
 export const AccountsBtnSearch = styled.button`
   margin: 0px 0px 0px 20px;
-  background-color:${primaryColor};
+  background-color: ${primaryColor};
   color: ${bgColor};
   width: 114px;
   height: 50px;
   border: 0px solid ${primaryColor};
   border-radius: 10px;
   cursor: pointer;
-  
 
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? '100px' : '114px')};
@@ -412,7 +411,6 @@ export const AccountsBtnSearch = styled.button`
     width: 10vw;
   }
 `;
-
 
 export const AccountsContBody = styled.div`
   margin: 0px 160px;
@@ -438,10 +436,6 @@ export const AccountsTable = styled.table`
   width: 100%;
   border-spacing: 5px;
   border-collapse: collapse;
-  
-  
-
-  
 `;
 
 export const AccountsTableHeadTh = styled.th`
@@ -451,8 +445,6 @@ export const AccountsTableHeadTh = styled.th`
   padding: 10px 30px;
   border-collapse: collapse;
   font-weight: bold;
-
-  
 `;
 
 export const AccountsTableBodyTd = styled.td`

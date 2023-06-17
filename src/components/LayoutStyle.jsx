@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { bgColor, primaryColor, secondaryColor } from '../../GlobalStyle';
 
 // Layout 컴포넌트와 관련된 styled component
 export const Container = styled.div`

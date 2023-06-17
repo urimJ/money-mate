@@ -40,6 +40,6 @@ export const LandingInputButton = styled.button`
   background-color: ${(props) => props.theme.primaryColor};
   color: ${(props) => props.theme.bgColor};
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
 `;
