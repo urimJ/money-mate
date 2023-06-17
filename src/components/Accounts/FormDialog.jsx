@@ -14,6 +14,7 @@ import { useState, useEffect } from 'react';
 import { stepContentClasses } from '@mui/material';
 import SelectVariantG from './SelectVariantG';
 import SelectVariantG2 from './SelectVariantG2';
+import dayjs from 'dayjs';
 
 const FormDialog = (props) => {
   const [open, setOpen] = useState(false);
@@ -30,7 +31,7 @@ const FormDialog = (props) => {
   useEffect(() => {
     if (amnt && cntnt && inOut) {
       // inOut 값이 'spending'인 경우에만 g1 값이 존재해야 합니다.
-      if (inOut === 'spending' && !g1 && !g2) {
+      if (inOut === 'spending' && !(g1 && g2)) {
         setDisableSubmit(true);
       } else {
         setDisableSubmit(false);
@@ -109,8 +110,8 @@ const FormDialog = (props) => {
     setOpen(false);
     localStorage.setItem('amnt', amnt);
     localStorage.setItem('cntnt', cntnt);
-    
-    
+    console.log(selectedDate);
+    const formattedDate = dayjs(selectedDate).format('YYYY-MM-DD');
     
 
     localStorage.setItem('g1', g1);
@@ -120,7 +121,7 @@ const FormDialog = (props) => {
     const newData = [
       ...props.tableData,
       {
-        date: selectedDate,
+        date: formattedDate,
         content: cntnt, 
         amount: amnt, 
         group1: g1,

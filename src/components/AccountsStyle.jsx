@@ -489,3 +489,14 @@ export const AccountsAmountColorIncome = styled.td`
   //border-bottom: 1px solid ${primaryColor};
   border-collapse: collapse;
 `;
+
+export const AccountsBtnClose = styled.button`
+  margin: 0px 0px 0px 20px;
+  background-color:${primaryColor};
+  color: ${bgColor};
+  width: 114px;
+  height: 50px;
+  border: 0px solid ${primaryColor};
+  border-radius: 10px;
+  cursor: pointer;
+`
