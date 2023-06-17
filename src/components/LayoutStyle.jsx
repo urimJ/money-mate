@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { bgColor, primaryColor, secondaryColor } from '../../GlobalStyle';
 
 // Layout 컴포넌트와 관련된 styled component
 export const Container = styled.div`
@@ -15,12 +14,15 @@ export const HeaderSection = styled.section`
   align-items: center;
   position: fixed;
   top: 0;
-  background-color: ${primaryColor};
-  color: ${secondaryColor};
+  background-color: ${(props) => props.theme.primaryColor};
+  color: ${(props) => props.theme.bgColor};
   font-family: 'Kaushan Script', cursive;
   font-size: 36px;
   border: none;
-  box-shadow: 0px 10px 55px -4px rgba(65, 120, 203, 0.75);
+  box-shadow: ${(props) =>
+    props.themeMode
+      ? `0px 10px 55px -4px rgba(255, 255, 255, 0.75);`
+      : `0px 10px 55px -4px rgba(65, 120, 203, 0.75);`};
   z-index: 1;
 `;
 
@@ -44,13 +46,16 @@ export const LogoutButton = styled.button`
   right: 5px;
   border: none;
   border-radius: 50%;
-  background-color: ${primaryColor};
-  color: ${bgColor};
-  transition: all 0.5s;
+  background-color: ${(props) => props.theme.primaryColor};
+  color: ${(props) => props.theme.bgColor};
+  transition: all 0.3s;
   cursor: pointer;
   display: ${(props) => (props.isLoggedIn ? '' : 'none')};
   &:hover {
-    box-shadow: 0 0 15px -4px rgba(65, 120, 203, 0.75);
-    font-size: 16px;
+    box-shadow: ${(props) =>
+      props.themeMode
+        ? `0 0 15px -4px rgba(255, 255, 255, 0.75);`
+        : `0 0 15px -4px rgba(65, 120, 203, 0.75);`};
+    font-size: 15px;
   }
 `;

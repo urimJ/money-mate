@@ -3,13 +3,15 @@ import GlobalStyle from '../GlobalStyle';
 import Layout from './components/Layout/Layout';
 import { Context } from './context/Context';
 import { useEffect } from 'react';
+import { ThemeProvider } from 'styled-components';
+import { dark, light } from '../theme';
 
 function App() {
   // User Default Category---------------------------
   const [category, setCategory] = useState([]);
 
   // User Theme--------------------------------------
-  const [darkTheme, setDarkTheme] = useState(Boolean);
+  const [themeMode, setThemeMode] = useState(Boolean);
 
   // User LoggedIn-----------------------------------
   const [isLoggedIn, setIsLoggedIn] = useState(Boolean);
@@ -33,13 +35,13 @@ function App() {
     }
 
     // 초기 테마 설정
-    const storedDarkTheme = localStorage.getItem('dark-theme');
-    if (!storedDarkTheme) {
-      const initialDarkTheme = false;
-      localStorage.setItem('dark-theme', initialDarkTheme);
-      setDarkTheme(initialDarkTheme);
+    const storedTheme = localStorage.getItem('theme');
+    if (!storedTheme) {
+      const initialTheme = false;
+      localStorage.setItem('theme', initialTheme);
+      setThemeMode(initialTheme);
     } else {
-      setDarkTheme(storedDarkTheme);
+      setThemeMode(storedTheme);
     }
 
     // 초기 로그인 유무 설정
@@ -51,21 +53,25 @@ function App() {
     }
   }, []);
 
+  const theme = themeMode === true ? dark : light;
+  
   return (
     <>
-      <Context.Provider
-        value={{
-          isLoggedIn,
-          setIsLoggedIn,
-          darkTheme,
-          setDarkTheme,
-          category,
-          setCategory,
-        }}
-      >
-        <GlobalStyle />
-        <Layout />
-      </Context.Provider>
+      <ThemeProvider theme={theme}>
+        <Context.Provider
+          value={{
+            isLoggedIn,
+            setIsLoggedIn,
+            themeMode,
+            setThemeMode,
+            category,
+            setCategory,
+          }}
+        >
+          <GlobalStyle />
+          <Layout />
+        </Context.Provider>
+      </ThemeProvider>
     </>
   );
 }

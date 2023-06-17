@@ -8,6 +8,8 @@ export const MyPageContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: ${(props) => props.theme.bgColor};
+  color: ${(props) => props.theme.textColor};
 `;
 
 // ---------------------------------------------------------
@@ -57,16 +59,16 @@ export const MyPageProfileInput = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid ${primaryColor};
+  border: 1px solid ${(props) => props.theme.primaryColor};
   border-radius: 10px;
   background-color: transparent;
-  color: ${primaryColor};
+  color: ${(props) => props.theme.primaryColor};
   font-size: 12px;
   cursor: pointer;
   transition: all 0.3s;
   &:hover {
-    color: ${bgColor};
-    background-color: ${primaryColor};
+    color: ${(props) => props.theme.bgColor};
+    background-color: ${(props) => props.theme.primaryColor};
   }
 `;
 
@@ -112,7 +114,7 @@ export const MyPageThemeToggle = styled.section`
   height: 100%;
   display: flex;
   justify-content: space-between;
-  border: 1px solid ${primaryColor};
+  border: 1px solid ${(props) => props.theme.primaryColor};
   border-radius: 25px;
   cursor: pointer;
   @media all and (max-width: 485px) {
@@ -123,11 +125,14 @@ export const MyPageThemeToggle = styled.section`
 export const MypageThemeLight = styled.button`
   width: 50%;
   height: 100%;
-  border: 1px solid ${primaryBoldColor};
+  border: 1px solid ${(props) => props.theme.primaryBoldColor};
   border-radius: 25px;
-  background-color: ${bgColor};
-  color: ${primaryBoldColor};
+  background-color: ${(props) =>
+    props.themeMode ? props.theme.primaryColor : props.theme.primaryBoldColor};
+  color: ${(props) =>
+    props.themeMode ? props.theme.bgBoldColor : props.theme.bgColor};
   cursor: pointer;
+  transition: all 0.3s;
 `;
 
 export const MypageThemeDark = styled.button`
@@ -135,9 +140,12 @@ export const MypageThemeDark = styled.button`
   height: 100%;
   border: 1px solid ${primaryBoldColor};
   border-radius: 25px;
-  background-color: ${primaryBoldColor};
-  color: ${bgColor};
+  background-color: ${(props) =>
+    props.themeMode ? props.theme.bgBoldColor : props.theme.bgColor};
+  color: ${(props) =>
+    props.themeMode ? props.theme.primaryColor : props.theme.primaryBoldColor};
   cursor: pointer;
+  transition: all 0.3s;
 `;
 
 export const MyPageCheckList = styled.section`
@@ -171,13 +179,18 @@ export const MyPageCategoryBox = styled.form`
 export const MyPageCategoryInput = styled.input`
   width: calc(98% - 80px);
   height: 40px;
-  border: 1px solid ${primaryColor};
+  border: 1px solid ${(props) => props.theme.primaryColor};
   border-radius: 10px;
+  background-color: ${(props) => props.theme.bgColor};
+  color: ${(props) => props.theme.primaryColor};
   padding: 5px;
   font-family: 'GmarketSansTTFLight';
   &:focus {
-    border: 2px solid ${primaryBoldColor};
+    border: 2px solid ${(props) => props.theme.primaryBoldColor};
     outline: none;
+  }
+  &::placeholder {
+    color: ${(props) => props.theme.primaryColor};
   }
 `;
 
@@ -186,8 +199,8 @@ export const MyPageCategoryInputButton = styled.button`
   height: 40px;
   border: none;
   border-radius: 10px;
-  background-color: ${primaryColor};
-  color: ${bgColor};
+  background-color: ${(props) => props.theme.primaryColor};
+  color: ${(props) => props.theme.bgColor};
 `;
 
 export const MyPageCategorySection = styled.section`
@@ -206,13 +219,14 @@ export const MyPageCategoryButton = styled.button`
   width: 250px;
   height: 40px;
   position: relative;
-  border: 1px solid ${primaryBoldColor};
+  border: 1px solid ${(props) => props.theme.primaryBoldColor};
   border-radius: 10px;
   background-color: transparent;
-  color: ${primaryBoldColor};
+  color: ${(props) => props.theme.primaryBoldColor};
   @media all and (max-width: 650px) {
     width: 200px;
   }
+  transition: all 0.5s;
 `;
 
 export const CategoryDeleteButton = styled.span`

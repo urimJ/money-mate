@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { bgColor, primaryBoldColor, primaryColor } from '../../GlobalStyle';
+import { bgColor, primaryColor } from '../../GlobalStyle';
 
 // Accounts 페이지와 관련된 styled component
 export const blink = keyframes`
@@ -24,7 +24,7 @@ export const SideNavBar = styled.section`
   align-items: center;
   position: absolute;
   left: ${(props) => (props.navToggle ? '0' : '-500px')};
-  background-color: ${primaryColor};
+  background-color: ${(props) => props.theme.primaryColor};
   border-radius: 0 25px 25px 0;
   transition: all 0.4s;
   z-index: 1;
@@ -46,7 +46,8 @@ export const SideNavBarButton = styled.section`
   position: absolute;
   left: ${(props) => (props.navToggle ? '440px' : '5px')};
   top: 5px;
-  color: ${(props) => (props.navToggle ? '#fff' : { primaryColor })};
+  color: ${(props) =>
+    props.navToggle ? props.theme.bgColor : props.theme.primaryColor};
   border: none;
   background-color: transparent;
   transition: all 0.5s;
@@ -110,9 +111,9 @@ export const NavHeader = styled.span`
   align-items: center;
   font-size: 24px;
   font-family: 'Kaushan Script';
-  color: ${bgColor};
-  border-left: 7px solid ${bgColor};
-  border-right: 7px solid ${bgColor};
+  color: ${(props) => props.theme.bgColor};
+  border-left: 7px solid ${(props) => props.theme.bgColor};
+  border-right: 7px solid ${(props) => props.theme.bgColor};
   margin-top: 20px;
   cursor: pointer;
   transition: all 0.5s;
@@ -129,11 +130,11 @@ export const FirstNavigator = styled.button`
   top: 100px;
   right: 0;
   color: ${(props) =>
-    props.currentPage === 0 ? `${primaryColor}` : `${bgColor}`};
+    props.currentPage === 0 ? props.theme.primaryColor : props.theme.bgColor};
   background-color: ${(props) =>
-    props.currentPage === 0 ? `${bgColor}` : `${primaryColor}`};
+    props.currentPage === 0 ? props.theme.bgColor : props.theme.primaryColor};
   border: ${(props) =>
-    props.currentPage === 0 ? 'none' : `1px solid ${bgColor}`};
+    props.currentPage === 0 ? 'none' : `1px solid ${props.theme.bgColor}`};
   border-right: none;
   border-radius: 10px 0 0 10px;
   transition: all 0.5s;
@@ -147,11 +148,11 @@ export const SecondNavigator = styled.button`
   top: 180px;
   right: 0;
   color: ${(props) =>
-    props.currentPage === 1 ? `${primaryColor}` : `${bgColor}`};
+    props.currentPage === 1 ? props.theme.primaryColor : props.theme.bgColor};
   background-color: ${(props) =>
-    props.currentPage === 1 ? `${bgColor}` : `${primaryColor}`};
+    props.currentPage === 1 ? props.theme.bgColor : props.theme.primaryColor};
   border: ${(props) =>
-    props.currentPage === 1 ? 'none' : `1px solid ${bgColor}`};
+    props.currentPage === 1 ? 'none' : `1px solid ${props.theme.bgColor}`};
   border-right: none;
   border-radius: 10px 0 0 10px;
   transition: all 0.5s;
@@ -165,11 +166,11 @@ export const ThirdNavigator = styled.button`
   top: 260px;
   right: 0;
   color: ${(props) =>
-    props.currentPage === 2 ? `${primaryColor}` : `${bgColor}`};
+    props.currentPage === 2 ? props.theme.primaryColor : props.theme.bgColor};
   background-color: ${(props) =>
-    props.currentPage === 2 ? `${bgColor}` : `${primaryColor}`};
+    props.currentPage === 2 ? props.theme.bgColor : props.theme.primaryColor};
   border: ${(props) =>
-    props.currentPage === 2 ? 'none' : `1px solid ${bgColor}`};
+    props.currentPage === 2 ? 'none' : `1px solid ${props.theme.bgColor}`};
   border-right: none;
   border-radius: 10px 0 0 10px;
   transition: all 0.5s;
@@ -186,11 +187,11 @@ export const MyPageNavigator = styled.button`
   justify-content: center;
   align-items: center;
   color: ${(props) =>
-    props.currentPage === 3 ? `${primaryColor}` : `${bgColor}`};
+    props.currentPage === 3 ? props.theme.primaryColor : props.theme.bgColor};
   background-color: ${(props) =>
-    props.currentPage === 3 ? `${bgColor}` : `${primaryColor}`};
+    props.currentPage === 3 ? props.theme.bgColor : props.theme.primaryColor};
   border: ${(props) =>
-    props.currentPage === 3 ? 'none' : `1px solid ${bgColor}`};
+    props.currentPage === 3 ? 'none' : `1px solid ${props.theme.bgColor}`};
   border-right: none;
   border-radius: 10px 0 0 10px;
   transition: all 0.5s;
@@ -218,7 +219,7 @@ export const MypageTextBox = styled.section`
 `;
 
 export const NavNewsHeader = styled.p`
-  color: ${primaryBoldColor};
+  color: ${(props) => props.theme.primaryBoldColor};
   font-family: 'GmarketSansTTFBold';
   font-weight: 700;
 `;
@@ -235,7 +236,7 @@ export const NavNewsSection = styled.section`
   left: 50%;
   bottom: 20px;
   transform: translate(-50%, 0);
-  background-color: ${bgColor};
+  background-color: ${(props) => props.theme.bgColor};
   border-radius: 10px;
   padding: 5px;
   overflow-y: auto;
@@ -254,15 +255,6 @@ export const NavNewsSection = styled.section`
   }
   @media all and (max-height: 578px) {
     display: none;
-  }
-  ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-    background: ${bgColor};
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: ${primaryColor};
   }
 `;
 
@@ -333,8 +325,7 @@ export const Newspublished = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: ${primaryColor};
-
+  color: ${(props) => props.theme.primaryColor};
   font-weight: 100;
   font-size: 10px;
 `;
@@ -405,14 +396,13 @@ export const AccountsSorting = styled.p`
 
 export const AccountsBtnSearch = styled.button`
   margin: 0px 0px 0px 20px;
-  background-color:${primaryColor};
+  background-color: ${primaryColor};
   color: ${bgColor};
   width: 114px;
   height: 50px;
   border: 0px solid ${primaryColor};
   border-radius: 10px;
   cursor: pointer;
-  
 
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? '100px' : '114px')};
@@ -421,7 +411,6 @@ export const AccountsBtnSearch = styled.button`
     width: 10vw;
   }
 `;
-
 
 export const AccountsContBody = styled.div`
   margin: 0px 160px;
@@ -447,10 +436,6 @@ export const AccountsTable = styled.table`
   width: 100%;
   border-spacing: 5px;
   border-collapse: collapse;
-  
-  
-
-  
 `;
 
 export const AccountsTableHeadTh = styled.th`
@@ -460,8 +445,6 @@ export const AccountsTableHeadTh = styled.th`
   padding: 10px 30px;
   border-collapse: collapse;
   font-weight: bold;
-
-  
 `;
 
 export const AccountsTableBodyTd = styled.td`
