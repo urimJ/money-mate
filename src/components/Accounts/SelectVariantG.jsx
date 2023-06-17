@@ -4,13 +4,13 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-const SelectVariant = ({ handleInOutChange }) => {
-  const [inOut, setInOut] = React.useState('');
+const SelectVariantG = ({ handleGChange }) => {
+  const [g1, setg1] = React.useState('');
 
   const handleChange = (event) =>{
     const selectedValue = event.target.value;
-    setInOut(selectedValue);
-    handleInOutChange(selectedValue);
+    setg1(selectedValue);
+    handleGChange(selectedValue);
   };
 
   
@@ -18,20 +18,23 @@ const SelectVariant = ({ handleInOutChange }) => {
   return (
     <div>
       <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="demo-simple-select-standard-label">분류</InputLabel>
+        <InputLabel id="demo-simple-select-standard-label">항목</InputLabel>
         <Select
           labelId="demo-simple-select-standard-label"
           id="demo-simple-select-standard"
-          value={inOut}
+          value={g1}
           onChange={handleChange}
           label="분류"
         >
-          <MenuItem value={'income'}>수입</MenuItem>
-          <MenuItem value={'spending'}>지출</MenuItem>
+          <MenuItem value={'a'}>식비</MenuItem>
+          <MenuItem value={'b'}>교통비</MenuItem>
+          <MenuItem value={'c'}>문화여가비</MenuItem>
+          <MenuItem value={'d'}>유흥비</MenuItem>
+          <MenuItem value={'e'}>교육비</MenuItem>
         </Select>
       </FormControl>
     </div>
   );
 };
 
-export default SelectVariant
+export default SelectVariantG

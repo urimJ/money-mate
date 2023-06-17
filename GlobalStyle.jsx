@@ -82,8 +82,6 @@ const GlobalStyle = createGlobalStyle`
   }
   // 추가2. 가져온 폰트를 body태그 안에 있으면 다 적용
   body{
-    background-color: ${bgColor};
-    color: ${textColor};
     font-family: "GmarketSansTTFLight";
   }
   // 추가3. 링크에 모든 밑줄 삭제

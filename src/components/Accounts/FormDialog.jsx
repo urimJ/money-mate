@@ -9,43 +9,174 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 import SelectVariants from './SelectVariants'
 import DatePicker from './DatePickers'
-import { ButtonInput } from './FormDialogStyle';
-import { useState } from 'react';
+import { ButtonInput, SelectedVariantsSpending } from './FormDialogStyle';
+import { useState, useEffect } from 'react';
+import { stepContentClasses } from '@mui/material';
+import SelectVariantG from './SelectVariantG';
+import SelectVariantG2 from './SelectVariantG2';
+import dayjs from 'dayjs';
 
-const FormDialog = () => {
-  const [open, setOpen] = React.useState(false);
+const FormDialog = (props) => {
+  const [open, setOpen] = useState(false);
   const [amnt, setAmnt] = useState();
-  const amount = localStorage.getItem('amnt');
+  const [cntnt, setCntnt] = useState();
+  const [inOut, setInOut] = useState(''); //수입인지 지출인지 값을 저장하는 변수
+  const [g1, setG1] = useState('');
+  const [g2, setG2] =useState('');
+  //const amount = localStorage.getItem('amnt');
+  //const content = localStorage.getItem('cntnt');
+  const [disableSubmit, setDisableSubmit] = useState(true); // 입력 버튼 비활성화 상태를 저장하는 변수
+  const [selectedDate, setSelectedDate] = useState(null); // 선택한 날짜를 저장하는 상태 추가
+
+  useEffect(() => {
+    if (amnt && cntnt && inOut) {
+      // inOut 값이 'spending'인 경우에만 g1 값이 존재해야 합니다.
+      if (inOut === 'spending' && !(g1 && g2)) {
+        setDisableSubmit(true);
+      } else {
+        setDisableSubmit(false);
+      }
+    } else {
+      setDisableSubmit(true);
+    }
+  }, [amnt, cntnt, inOut, g1, g2]);
+
+  const handleInOutChange = (value) => {
+    setInOut(value);
+  };
+  const handleGChange = (value) =>{
+    let groupContent = value;
+
+    if (inOut === 'spending') {
+      if (groupContent === 'a') {
+        setG1('식비');
+      } else if (groupContent === 'b') {
+        setG1('교통비');
+      } else if (groupContent === 'c') {
+        setG1('문화여가비');
+      } else if (groupContent === 'd') {
+        setG1('유흥비');
+      } else if (groupContent === 'e') {
+        setG1('기타');
+      }
+    } else {
+      setG1('-'); // 수입인 경우 그룹을 비웁니다.
+    }
+
+
+    
+  }
+
+  const handleG2Change = (value) =>{
+    let groupContent = value;
+
+    if (inOut === 'spending') {
+      if (groupContent === 'a') {
+        setG2('신한카드');
+      } else if (groupContent === 'b') {
+        setG2('카카오뱅크카드');
+      } else if (groupContent === 'c') {
+        setG2('BC카드');
+      } else if (groupContent === 'd') {
+        setG2('현대카드');
+      } else if (groupContent === 'e') {
+        setG2('현금');
+      }
+    } else {
+      setG2('-'); // 수입인 경우 그룹을 비웁니다.
+    }
+  }
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
-  const handleChange = (e) => {
-    setAmnt(e.target.value);
+  const handleChangeAmnt = (e) => {
+    if (inOut === 'spending') {
+      setAmnt(-e.target.value); // '지출'이 선택된 경우 amnt 값을 -amnt로 변경
+    }else if(inOut ==='income'){
+      setAmnt(e.target.value);
+    }
   }
+
+  
+  const handleChangeCntnt = (e) => {
+    setCntnt(e.target.value);
+    
+  }
+  
+
   const handleClose = (e) => {
     setOpen(false);
     localStorage.setItem('amnt', amnt);
+    localStorage.setItem('cntnt', cntnt);
+    console.log(selectedDate);
+    const formattedDate = dayjs(selectedDate).format('YYYY-MM-DD');
     
+
+    localStorage.setItem('g1', g1);
+    localStorage.setItem('g2', g2);
+
+
+    const newData = [
+      ...props.tableData,
+      {
+        date: formattedDate,
+        content: cntnt, 
+        amount: amnt, 
+        group1: g1,
+        paymentMethod: g2,
+      }
+    ];
+
+    props.updateTableData(newData);
+    setAmnt('');
+    setCntnt('');
+    setG1('');
+    setG2('')
+    setInOut('');
+    setSelectedDate();
   };
 
   const handleCloseDialog = () => {
     setOpen(false);
   };
 
-  // const amount = amount
+  const handleDateChange = (date) => {
+    setSelectedDate(date); // 선택한 날짜 업데이트
+  };
+  
 
   return (
     <div>
-      <ButtonInput className = "btnInput" onClick={handleClickOpen}>
+
+      <ButtonInput  onClick={handleClickOpen}>
         입력
       </ButtonInput>
       <Dialog open={open} onClose={handleCloseDialog}>
         <DialogTitle></DialogTitle>
         <DialogContent>
-            <DatePicker />
-            <SelectVariants />
+            <DatePicker 
+              value={selectedDate} // 선택한 날짜를 제어되는 값으로 설정
+              onDateChange={handleDateChange}/>
+            <SelectVariants handleInOutChange={handleInOutChange}/>
+            {inOut === 'spending' && (
+              <SelectedVariantsSpending>
+                <SelectVariantG handleGChange={handleGChange} />
+                <SelectVariantG2 handleG2Change={handleG2Change} />
+              </SelectedVariantsSpending>
+            )}
+            <TextField
+                autoFocus
+                margin="dense"
+                id="name"
+                label="내용"
+                type="content"
+                fullWidth
+                variant="standard"
+                //value={content}
+                onChange={handleChangeCntnt}
+            />
             <TextField
                 autoFocus
                 margin="dense"
@@ -54,13 +185,13 @@ const FormDialog = () => {
                 type="amount"
                 fullWidth
                 variant="standard"
-                value={amount}
-                onChange={handleChange}
+                //value={amount}
+                onChange={handleChangeAmnt}
             />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseDialog}>취소</Button>
-          <Button onClick={handleClose}>입력</Button>
+          <Button onClick={handleClose} disabled={disableSubmit}>입력</Button>
         </DialogActions>
       </Dialog>
     </div>

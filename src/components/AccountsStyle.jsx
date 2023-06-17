@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { bgColor, primaryBoldColor, primaryColor } from '../../GlobalStyle';
+import { bgColor, primaryColor } from '../../GlobalStyle';
 
 // Accounts 페이지와 관련된 styled component
 export const blink = keyframes`
@@ -24,7 +24,7 @@ export const SideNavBar = styled.section`
   align-items: center;
   position: absolute;
   left: ${(props) => (props.navToggle ? '0' : '-500px')};
-  background-color: ${primaryColor};
+  background-color: ${(props) => props.theme.primaryColor};
   border-radius: 0 25px 25px 0;
   transition: all 0.4s;
   z-index: 1;
@@ -32,7 +32,7 @@ export const SideNavBar = styled.section`
     width: 300px;
     left: ${(props) => (props.navToggle ? '0' : '-300px')};
   }
-  @media (max-height: 450px) or (max-width: 678px) {
+  @media (max-height: 450px) or (max-width: 500px) {
     left: -500px;
   }
 `;
@@ -46,7 +46,8 @@ export const SideNavBarButton = styled.section`
   position: absolute;
   left: ${(props) => (props.navToggle ? '440px' : '5px')};
   top: 5px;
-  color: ${(props) => (props.navToggle ? '#fff' : { primaryColor })};
+  color: ${(props) =>
+    props.navToggle ? props.theme.bgColor : props.theme.primaryColor};
   border: none;
   background-color: transparent;
   transition: all 0.5s;
@@ -55,7 +56,7 @@ export const SideNavBarButton = styled.section`
   @media all and (max-width: 1280px) {
     left: ${(props) => (props.navToggle ? '240px' : '5px')};
   }
-  @media (max-height: 450px) or (max-width: 678px) {
+  @media (max-height: 450px) or (max-width: 500px) {
     display: none;
   }
 `;
@@ -110,9 +111,9 @@ export const NavHeader = styled.span`
   align-items: center;
   font-size: 24px;
   font-family: 'Kaushan Script';
-  color: ${bgColor};
-  border-left: 7px solid ${bgColor};
-  border-right: 7px solid ${bgColor};
+  color: ${(props) => props.theme.bgColor};
+  border-left: 7px solid ${(props) => props.theme.bgColor};
+  border-right: 7px solid ${(props) => props.theme.bgColor};
   margin-top: 20px;
   cursor: pointer;
   transition: all 0.5s;
@@ -123,17 +124,18 @@ export const NavHeader = styled.span`
 `;
 
 export const FirstNavigator = styled.button`
-  width: 90%;
-  height: 70px;
+  width: 80%;
+  height: 40px;
   position: absolute;
   top: 100px;
   right: 0;
+  font-family: "GmarketSansTTFLight";
   color: ${(props) =>
-    props.currentPage === 0 ? `${primaryColor}` : `${bgColor}`};
+    props.currentPage === 0 ? props.theme.primaryColor : props.theme.bgColor};
   background-color: ${(props) =>
-    props.currentPage === 0 ? `${bgColor}` : `${primaryColor}`};
+    props.currentPage === 0 ? props.theme.bgColor : props.theme.primaryColor};
   border: ${(props) =>
-    props.currentPage === 0 ? 'none' : `1px solid ${bgColor}`};
+    props.currentPage === 0 ? 'none' : `1px solid ${props.theme.bgColor}`};
   border-right: none;
   border-radius: 10px 0 0 10px;
   transition: all 0.5s;
@@ -141,17 +143,18 @@ export const FirstNavigator = styled.button`
 `;
 
 export const SecondNavigator = styled.button`
-  width: 90%;
-  height: 70px;
+  width: 80%;
+  height: 40px;
   position: absolute;
-  top: 180px;
+  top: 150px;
   right: 0;
+  font-family: "GmarketSansTTFLight";
   color: ${(props) =>
-    props.currentPage === 1 ? `${primaryColor}` : `${bgColor}`};
+    props.currentPage === 1 ? props.theme.primaryColor : props.theme.bgColor};
   background-color: ${(props) =>
-    props.currentPage === 1 ? `${bgColor}` : `${primaryColor}`};
+    props.currentPage === 1 ? props.theme.bgColor : props.theme.primaryColor};
   border: ${(props) =>
-    props.currentPage === 1 ? 'none' : `1px solid ${bgColor}`};
+    props.currentPage === 1 ? 'none' : `1px solid ${props.theme.bgColor}`};
   border-right: none;
   border-radius: 10px 0 0 10px;
   transition: all 0.5s;
@@ -159,25 +162,67 @@ export const SecondNavigator = styled.button`
 `;
 
 export const ThirdNavigator = styled.button`
-  width: 90%;
-  height: 70px;
+  width: 80%;
+  height: 40px;
   position: absolute;
-  top: 260px;
+  top: 200px;
   right: 0;
+  font-family: "GmarketSansTTFLight";
   color: ${(props) =>
-    props.currentPage === 2 ? `${primaryColor}` : `${bgColor}`};
+    props.currentPage === 2 ? props.theme.primaryColor : props.theme.bgColor};
   background-color: ${(props) =>
-    props.currentPage === 2 ? `${bgColor}` : `${primaryColor}`};
+    props.currentPage === 2 ? props.theme.bgColor : props.theme.primaryColor};
   border: ${(props) =>
-    props.currentPage === 2 ? 'none' : `1px solid ${bgColor}`};
+    props.currentPage === 2 ? 'none' : `1px solid ${props.theme.bgColor}`};
   border-right: none;
   border-radius: 10px 0 0 10px;
   transition: all 0.5s;
   cursor: pointer;
 `;
 
+export const MyPageNavigator = styled.button`
+  width: 80%;
+  height: 40px;
+  position: absolute;
+  top: 250px;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${(props) =>
+    props.currentPage === 3 ? props.theme.primaryColor : props.theme.bgColor};
+  background-color: ${(props) =>
+    props.currentPage === 3 ? props.theme.bgColor : props.theme.primaryColor};
+  border: ${(props) =>
+    props.currentPage === 3 ? 'none' : `1px solid ${props.theme.bgColor}`};
+  border-right: none;
+  border-radius: 10px 0 0 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+`;
+
+export const MypageTextBox = styled.section`
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  &:hover {
+    animation: rotate 2s linear infinite;
+  }
+`;
+
 export const NavNewsHeader = styled.p`
-  color: ${primaryBoldColor};
+  color: ${(props) => props.theme.primaryBoldColor};
   font-family: 'GmarketSansTTFBold';
   font-weight: 700;
 `;
@@ -194,28 +239,25 @@ export const NavNewsSection = styled.section`
   left: 50%;
   bottom: 20px;
   transform: translate(-50%, 0);
-  background-color: ${bgColor};
+  background-color: ${(props) => props.theme.bgColor};
   border-radius: 10px;
   padding: 5px;
   overflow-y: auto;
   transition: all 0.5s;
-  @media all and (max-height: 900px) {
-    height: 400px;
+  @media all and (max-height: 940px) {
+    height: 50vh;
   }
-  @media all and (max-height: 800px) {
-    height: 300px;
+  @media all and (max-height: 880px) {
+    height: 40vh;
   }
-  @media all and (max-height: 670px) {
+  @media all and (max-height: 748px) {
+    height: 35vh;
+  }
+  @media all and (max-height: 678px) {
+    height: 30vh;
+  }
+  @media all and (max-height: 500px) {
     display: none;
-  }
-  ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-    background: ${bgColor};
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: ${primaryColor};
   }
 `;
 
@@ -236,7 +278,7 @@ export const NewsBox = styled.section`
 export const NewsThumbnailSection = styled.section`
   width: 60px;
   height: 60px;
-  border: 1px solid brown;
+  border-radius: 15px;
   background-image: url(${(props) => props.newsThumbnail});
   background-position: center;
   background-size: cover;
@@ -249,6 +291,8 @@ export const NewsTextBox = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 5px;
+  color: ${(props)=>props.theme.textColor};
 `;
 
 export const NewsHeaderLine = styled.span`
@@ -257,6 +301,7 @@ export const NewsHeaderLine = styled.span`
   font-family: 'GmarketSansTTFBold';
   font-size: 14px;
   font-weight: 500;
+  
 `;
 
 export const NewsDescription = styled.span`
@@ -285,8 +330,7 @@ export const Newspublished = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: ${primaryColor};
-
+  color: ${(props) => props.theme.primaryColor};
   font-weight: 100;
   font-size: 10px;
 `;
@@ -308,7 +352,7 @@ export const AccountsSection = styled.section`
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
   }
-  @media (max-height: 450px) or (max-width: 678px) {
+  @media (max-height: 450px) or (max-width: 500px) {
     width: 100%;
   }
 `;
@@ -316,17 +360,24 @@ export const AccountsSection = styled.section`
 // Yurim------------------------------------------
 export const AccountsTitle = styled.p`
   font-family: 'Nanum Gothic', sans-serif;
-  font-size: 36px;
+  font-size: 30px;
   font-weight: bold;
   color: ${primaryColor};
   margin: 0px 20px 10px 160px;
-  padding: 80px 0px 0px 0px;
+  padding: 40px 0px 0px 0px;
 `;
 
 export const AccountsContHeader = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+  @media all and (max-width: 1280px) {
+    width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
+  }
+  @media (max-height: 450px) or (max-width: 678px) {
+    width: 100%;
+  }
 `;
 
 export const AccountsGroupFromTo = styled.div`
@@ -335,6 +386,13 @@ export const AccountsGroupFromTo = styled.div`
   justify-content: flex-end;
   align-items: baseline;
   margin: 0px 160px 20px 0px;
+
+  @media all and (max-width: 1280px) {
+    width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
+  }
+  @media (max-height: 450px) or (max-width: 678px) {
+    width: 100%;
+  }
 `;
 
 export const AccountsSorting = styled.p`
@@ -343,29 +401,39 @@ export const AccountsSorting = styled.p`
 
 export const AccountsBtnSearch = styled.button`
   margin: 0px 0px 0px 20px;
-  background-color: rgb(65, 120, 203);
-  color: white;
+  background-color: ${primaryColor};
+  color: ${bgColor};
   width: 114px;
   height: 50px;
   border: 0px solid ${primaryColor};
   border-radius: 10px;
-`;
+  cursor: pointer;
 
-export const AccountsBtnInput = styled.button`
-  margin: 0px 0px 20px 20px;
-  background-color: rgb(65, 120, 203);
-  color: white;
+  @media all and (max-width: 1280px) {
+    width: ${(props) => (props.navToggle ? '100px' : '114px')};
+  }
+  @media (max-height: 450px) or (max-width: 678px) {
+    width: 10vw;
+  }
 `;
 
 export const AccountsContBody = styled.div`
   margin: 0px 160px;
   // background-color: rgb(33, 236, 169);
-  border: 3px solid rgb(65, 120, 203);
+  border: 3px solid ${primaryColor};
   height: 450px;
+  overflow: auto;
+
+  @media all and (max-width: 1280px) {
+    width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
+  }
+  @media (max-height: 450px) or (max-width: 678px) {
+    width: 100%;
+  }
 `;
 
 export const AccountsTable = styled.table`
-  border: 1px solid rgb(65, 120, 203);
+  border: 1px solid ${primaryColor};
   // font-family: 'Nanum Gothic', sans-serif;
   font-size: 18px;
   padding: 0 0px;
@@ -376,17 +444,47 @@ export const AccountsTable = styled.table`
 `;
 
 export const AccountsTableHeadTh = styled.th`
-  border-bottom: 2px solid rgb(65, 120, 203);
-  border-left: 3px solid rgb(65, 120, 203);
-  border-right: 3px solid rgb(65, 120, 203);
+  border-bottom: 2px solid ${primaryColor};
+  border-left: 3px solid ${primaryColor};
+  border-right: 3px solid ${primaryColor};
   padding: 10px 30px;
+  border-collapse: collapse;
+  font-weight: bold;
+`;
+
+export const AccountsTableBodyTd = styled.td`
+  padding: 8px 30px;
+  border-left: 1px solid ${primaryColor};
+  border-right: 1px solid ${primaryColor};
+  //border-bottom: 1px solid ${primaryColor};
   border-collapse: collapse;
 `;
 
 export const AccountsAmountColorSpending = styled.td`
   color: rgb(248, 77, 77);
+  padding: 8px 30px;
+  border-left: 1px solid ${primaryColor};
+  border-right: 1px solid ${primaryColor};
+  //border-bottom: 1px solid ${primaryColor};
+  border-collapse: collapse;
 `;
 
 export const AccountsAmountColorIncome = styled.td`
   color: rgb(45, 103, 251);
+  padding: 8px 30px;
+  border-left: 1px solid ${primaryColor};
+  border-right: 1px solid ${primaryColor};
+  //border-bottom: 1px solid ${primaryColor};
+  border-collapse: collapse;
 `;
+
+export const AccountsBtnClose = styled.button`
+  margin: 0px 0px 0px 20px;
+  background-color:${primaryColor};
+  color: ${bgColor};
+  width: 114px;
+  height: 50px;
+  border: 0px solid ${primaryColor};
+  border-radius: 10px;
+  cursor: pointer;
+`

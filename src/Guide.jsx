@@ -84,9 +84,9 @@ const Guide = () => {
         }
       }
     };
-    containerRef.current.addEventListener('wheel', handleScroll);
+    containerRef.current.addEventListener('scroll', handleScroll);
     return () => {
-      containerRef.current?.removeEventListener('wheel', handleScroll);
+      containerRef.current?.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
