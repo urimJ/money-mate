@@ -69,7 +69,7 @@ const Landing = () => {
                   width: '440px',
                   backgroundColor: 'transparent',
                   borderRadius: '10px',
-                  border: themeMode ? '1px solid #fff' : '1px solid #4178CB',
+                  border: themeMode ? '1px solid #4178CB' : '1px solid #fff',
                   '& .MuiOutlinedInput-root': {
                     '& fieldset': {
                       border: 'none', // fieldset border 없애기
@@ -78,11 +78,15 @@ const Landing = () => {
                       border: 'none', // hover 시 fieldset border 없애기
                     },
                     '& input': {
-                      color: themeMode ? '#fff' : '#4178CB', // 입력하는 글자의 색상 설정
+                      color: themeMode ? '#4178CB' : '#fff', // 입력하는 글자의 색상 설정
+                    },
+                    '& input::placeholder': {
+                      color: themeMode ? '#4178CB' : '#fff', // placeholder의 색상 설정
+                      opacity: 1, // placeholder 투명도 설정
                     },
                   },
                   '& .MuiInputLabel-root': {
-                    color: themeMode ? '#fff' : '#4178CB',
+                    color: themeMode ? '#4178CB' : '#fff',
                   },
                 }}
               />
