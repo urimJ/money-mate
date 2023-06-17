@@ -81,7 +81,7 @@ const Landing = () => {
                       color: themeMode ? '#4178CB' : '#fff', // 입력하는 글자의 색상 설정
                     },
                     '& input::placeholder': {
-                      color: themeMode ? '#4178CB' : '#fff', // placeholder의 색상 설정
+                      color: themeMode ? '#fff' : '#4178CB', // placeholder의 색상 설정
                       opacity: 1, // placeholder 투명도 설정
                     },
                   },

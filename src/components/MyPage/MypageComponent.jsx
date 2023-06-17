@@ -27,7 +27,7 @@ import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
 import { Context } from '../../context/Context';
 
-const MypageComponent = () => {
+const MypageComponent = ({navToggle}) => {
   // 변수 선언------------------------------------------------
   const userName = localStorage.getItem('username');
   const { themeMode, setThemeMode, category, setCategory } =
@@ -36,15 +36,41 @@ const MypageComponent = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   // Function------------------------------------------------
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
+  const handleImageUpload = (e) => {
+    let file = e.target.files[0];
+    // 비동기적으로 파일 내용 읽어들이는 객체 선언
     const reader = new FileReader();
 
     reader.onload = (e) => {
-      setSelectedImage(e.target.result);
+      setSelectedImage(reader.result);
     };
-
+    // base64로 이루어진 데이터 반환
     reader.readAsDataURL(file);
+    console.log(reader.readAsDataURL(file));
+  };
+  // console.log(selectedImage);
+  const handleImageSubmit = () => {
+    // 등록 버튼 클릭 시 처리할 로직을 작성
+    // 예를 들어, 등록된 사진을 서버에 전송하거나 다른 처리를 수행할 수 있음
+
+    // 처리 완료 후 localStorage에서 등록 대기 중인 사진 제거
+    localStorage.removeItem('pendingImage');
+  };
+
+  const handleImageCancel = () => {
+    // 등록 취소 버튼 클릭 시 처리할 로직을 작성
+    // 예를 들어, 등록 대기 중인 사진을 삭제하거나 다른 처리를 수행할 수 있음
+
+    // 처리 완료 후 localStorage에서 등록 대기 중인 사진 제거
+    localStorage.removeItem('pendingImage');
+  };
+
+  const handleImageLoad = () => {
+    // 등록 대기 중인 사진이 localStorage에 있는지 확인
+    const pendingImage = localStorage.getItem('pendingImage');
+    if (pendingImage) {
+      setSelectedImage(pendingImage);
+    }
   };
 
   const handleThemeLight = () => {
@@ -111,8 +137,8 @@ const MypageComponent = () => {
           </MyPageProfileSection>
           <MyPageRightSection>
             <MyPageInfoBox>
-              <MyPageInfo>{userName}님의 프로필</MyPageInfo>
-              <MyPageThemeToggle>
+              <MyPageInfo navToggle={navToggle}>{userName}님의 프로필</MyPageInfo>
+              <MyPageThemeToggle navToggle={navToggle}>
                 <MypageThemeLight
                   onClick={handleThemeLight}
                   themeMode={themeMode}
