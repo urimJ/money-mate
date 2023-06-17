@@ -40,6 +40,7 @@ const handleEndDateChange = (date) => {
 
 const handleSearch = () => {
     if (startDate === '' || endDate === '') {
+        alert('날짜를 모두 선택해야 합니다.');
     return; // 선택된 날짜가 없으면 아무 동작도 하지 않음
     }
 

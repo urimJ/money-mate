@@ -39,7 +39,7 @@ const FormDialog = (props) => {
     } else {
       setDisableSubmit(true);
     }
-  }, [amnt, cntnt, inOut, g1, g2]);
+  }, [selectedDate, amnt, cntnt, inOut, g1, g2]);
 
   const handleInOutChange = (value) => {
     setInOut(value);
@@ -107,10 +107,15 @@ const FormDialog = (props) => {
   
 
   const handleClose = (e) => {
+    if (selectedDate === null) {
+      alert("날짜를 선택하세요.");
+      return;
+    }
     setOpen(false);
     localStorage.setItem('amnt', amnt);
     localStorage.setItem('cntnt', cntnt);
     console.log(selectedDate);
+    
     const formattedDate = dayjs(selectedDate).format('YYYY-MM-DD');
     
 
@@ -135,7 +140,7 @@ const FormDialog = (props) => {
     setG1('');
     setG2('')
     setInOut('');
-    setSelectedDate();
+    setSelectedDate(null);
   };
 
   const handleCloseDialog = () => {
@@ -191,7 +196,7 @@ const FormDialog = (props) => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseDialog}>취소</Button>
-          <Button onClick={handleClose} disabled={disableSubmit}>입력</Button>
+          <Button onClick={handleClose} disabled={disableSubmit}>확인</Button>
         </DialogActions>
       </Dialog>
     </div>
