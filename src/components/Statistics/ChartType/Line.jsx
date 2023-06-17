@@ -10,7 +10,8 @@ import {
     Legend,
   } from 'chart.js';
   import { Line } from 'react-chartjs-2';
-  import { Chartdata, options } from '../Chartdata';
+  import { Chartdata1, options1 } from '../Group1data';
+  import { Chartdata2, options2 } from '../Group2data';
   
   
   ChartJS.register(
@@ -24,11 +25,13 @@ import {
     Legend
   );
   
+  export default function LineChart({ selectedGroup }) {
+    const Chartdata = selectedGroup === 'Group1' ? Chartdata1 : selectedGroup === 'Group2' ? Chartdata2 : null;
+    const Chartoptions = selectedGroup === 'Group1' ? options1 : selectedGroup === 'Group2' ? options2 : null;
   
-  export default function LineChart() {
     return (
       <>
-        <Line data={Chartdata} options={options}/>
+        {Chartdata && Chartoptions && <Line data={Chartdata} options={Chartoptions} />}
       </>
     );
   }

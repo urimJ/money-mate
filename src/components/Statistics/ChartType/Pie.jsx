@@ -10,7 +10,8 @@ import {
   Legend,
 } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
-import { Chartdata } from '../Chartdata';
+import { Chartdata1 } from '../Group1data';
+import { Chartdata2 } from '../Group2data';
 
 
 ChartJS.register(
@@ -25,10 +26,12 @@ ChartJS.register(
 );
 
 
-export default function PieChart() {
+export default function PieChart({ selectedGroup }) {
+  const Chartdata = selectedGroup === 'Group1' ? Chartdata1 : selectedGroup === 'Group2' ? Chartdata2 : null;
+
   return (
     <>
-      <Pie data={Chartdata}/>
+      {Chartdata && <Pie data={Chartdata} />}
     </>
   );
 }

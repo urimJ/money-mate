@@ -32,6 +32,7 @@ import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import NewsList from './components/Accounts/NewsList';
+import AcountsStatistics from './Statistics';
 
 const Accounts = () => {
   // 변수 관리-------------------------------------
@@ -106,11 +107,15 @@ const Accounts = () => {
         </SideNavBar>
         <AccountsSection navToggle={navToggle}>
           {currentPage === 0
+          // 유림 컴포넌트
             ? '가계부 페이지'
             : currentPage === 1
+            // 수련 컴포넌트
+            // <AccountsCalendar />
             ? '달력 페이지'
             : currentPage === 2
-            ? '차트 페이지'
+            // 승훈 컴포넌트
+            ? <AcountsStatistics/>
             : ''}
         </AccountsSection>
         {/* <AccountsContHeader className="contHeader">

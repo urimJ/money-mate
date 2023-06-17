@@ -70,7 +70,7 @@ export const StatisticsBtnGroup = styled.div`
 
 
 export const StatisticsBtnChart = styled.div`
-  margin-left: 70px;
+  margin-left: 75px;
   background-color: ${bgColor};
   font-size: 16px;
 `
