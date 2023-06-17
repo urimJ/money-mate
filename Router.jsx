@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Landing from './src/Landing';
 import Guide from './src/Guide';
 import Accounts from './src/Accounts';
-import Calendar from './src/Calendar';
+import Calendar from './src/components/Calendar/Calendar';
 import Statistics from './src/Statistics';
 import NotFound from './src/NotFound';
 
