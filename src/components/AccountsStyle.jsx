@@ -364,17 +364,24 @@ export const AccountsSection = styled.section`
 // Yurim------------------------------------------
 export const AccountsTitle = styled.p`
   font-family: 'Nanum Gothic', sans-serif;
-  font-size: 36px;
+  font-size: 30px;
   font-weight: bold;
   color: ${primaryColor};
   margin: 0px 20px 10px 160px;
-  padding: 80px 0px 0px 0px;
+  padding: 40px 0px 0px 0px;
 `;
 
 export const AccountsContHeader = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+  @media all and (max-width: 1280px) {
+    width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
+  }
+  @media (max-height: 450px) or (max-width: 678px) {
+    width: 100%;
+  }
 `;
 
 export const AccountsGroupFromTo = styled.div`
@@ -383,6 +390,13 @@ export const AccountsGroupFromTo = styled.div`
   justify-content: flex-end;
   align-items: baseline;
   margin: 0px 160px 20px 0px;
+
+  @media all and (max-width: 1280px) {
+    width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
+  }
+  @media (max-height: 450px) or (max-width: 678px) {
+    width: 100%;
+  }
 `;
 
 export const AccountsSorting = styled.p`
@@ -391,29 +405,41 @@ export const AccountsSorting = styled.p`
 
 export const AccountsBtnSearch = styled.button`
   margin: 0px 0px 0px 20px;
-  background-color: rgb(65, 120, 203);
-  color: white;
+  background-color:${primaryColor};
+  color: ${bgColor};
   width: 114px;
   height: 50px;
   border: 0px solid ${primaryColor};
   border-radius: 10px;
+  cursor: pointer;
+  
+
+  @media all and (max-width: 1280px) {
+    width: ${(props) => (props.navToggle ? '100px' : '114px')};
+  }
+  @media (max-height: 450px) or (max-width: 678px) {
+    width: 10vw;
+  }
 `;
 
-export const AccountsBtnInput = styled.button`
-  margin: 0px 0px 20px 20px;
-  background-color: rgb(65, 120, 203);
-  color: white;
-`;
 
 export const AccountsContBody = styled.div`
   margin: 0px 160px;
   // background-color: rgb(33, 236, 169);
-  border: 3px solid rgb(65, 120, 203);
+  border: 3px solid ${primaryColor};
   height: 450px;
+  overflow: auto;
+
+  @media all and (max-width: 1280px) {
+    width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
+  }
+  @media (max-height: 450px) or (max-width: 678px) {
+    width: 100%;
+  }
 `;
 
 export const AccountsTable = styled.table`
-  border: 1px solid rgb(65, 120, 203);
+  border: 1px solid ${primaryColor};
   // font-family: 'Nanum Gothic', sans-serif;
   font-size: 18px;
   padding: 0 0px;
@@ -421,20 +447,45 @@ export const AccountsTable = styled.table`
   width: 100%;
   border-spacing: 5px;
   border-collapse: collapse;
+  
+  
+
+  
 `;
 
 export const AccountsTableHeadTh = styled.th`
-  border-bottom: 2px solid rgb(65, 120, 203);
-  border-left: 3px solid rgb(65, 120, 203);
-  border-right: 3px solid rgb(65, 120, 203);
+  border-bottom: 2px solid ${primaryColor};
+  border-left: 3px solid ${primaryColor};
+  border-right: 3px solid ${primaryColor};
   padding: 10px 30px;
+  border-collapse: collapse;
+  font-weight: bold;
+
+  
+`;
+
+export const AccountsTableBodyTd = styled.td`
+  padding: 8px 30px;
+  border-left: 1px solid ${primaryColor};
+  border-right: 1px solid ${primaryColor};
+  //border-bottom: 1px solid ${primaryColor};
   border-collapse: collapse;
 `;
 
 export const AccountsAmountColorSpending = styled.td`
   color: rgb(248, 77, 77);
+  padding: 8px 30px;
+  border-left: 1px solid ${primaryColor};
+  border-right: 1px solid ${primaryColor};
+  //border-bottom: 1px solid ${primaryColor};
+  border-collapse: collapse;
 `;
 
 export const AccountsAmountColorIncome = styled.td`
   color: rgb(45, 103, 251);
+  padding: 8px 30px;
+  border-left: 1px solid ${primaryColor};
+  border-right: 1px solid ${primaryColor};
+  //border-bottom: 1px solid ${primaryColor};
+  border-collapse: collapse;
 `;
