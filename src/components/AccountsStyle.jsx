@@ -412,10 +412,7 @@ export const AccountsBtnSearch = styled.button`
   border: 0px solid ${primaryColor};
   border-radius: 10px;
   cursor: pointer;
-  &:hover {
-    background-color: ${textColor};
-    cursor: pointer;
-  }
+  
 
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? '100px' : '114px')};
