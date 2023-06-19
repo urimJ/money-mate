@@ -25,7 +25,7 @@ import { useCallback } from 'react';
 import dayjs from 'dayjs';
 import { primaryColor } from '../../../GlobalStyle';
 
-const AccountsComponent = (navToggle) => {
+const AccountsComponent = ({ navToggle }) => {
 const userName = localStorage.getItem('username');
 
 const [startDate, setStartDate] = useState('');
@@ -36,17 +36,35 @@ const prevTableDataRef = useRef();
 const handleStartDateChange = (date) => {
     const formattedStartDate = dayjs(date).format('YYYY-MM-DD');
     setStartDate(formattedStartDate);
+    setEndDate('');
 };
 
 const handleEndDateChange = (date) => {
     const formattedEndDate = dayjs(date).format('YYYY-MM-DD');
     setEndDate(formattedEndDate);
+    // if (dayjs(date).isSame(startDate, 'day') || dayjs(date).isAfter(startDate, 'day')) {
+        
+    // }else{
+        
+    // }
 };
+
+const updatedEndDate = startDate !== '' ? dayjs(startDate).add(1, 'day').format('YYYY-MM-DD') : '';
+
+useEffect(() => {
+    if (!isTableUpdated) {
+    setEndDate(updatedEndDate);
+    }
+}, [startDate, isTableUpdated]);
 
 const handleSearch = () => {
     if (startDate === '' || endDate === '') {
         alert('날짜를 모두 선택해야 합니다.');
-    return; // 선택된 날짜가 없으면 아무 동작도 하지 않음
+        return; // 선택된 날짜가 없으면 아무 동작도 하지 않음
+    }
+    if (dayjs(endDate).isBefore(startDate, 'day') ) {
+        alert("종료 날짜는 시작 날짜 이후로만 선택 가능합니다.")
+        return;
     }
 
     const filteredData = tableData.filter((row) => {
@@ -113,6 +131,7 @@ return (
                 label={'종료 날짜'}
                 value={endDate}
                 onDateChange={handleEndDateChange}
+                minDate={startDate} 
                 />
                 <AccountsSorting className="sorting">까지</AccountsSorting>
             </>
@@ -131,7 +150,7 @@ return (
         <AccountsContBody className="contBody">
             {tableData.length === 0? (
                 <EmptyTable className = "emptyTableMessage">
-                    <FontAwesomeIcon icon={faSmile} size="2x" style={{color: {primaryColor}}} />
+                    <FontAwesomeIcon icon={faBoxOpen} size="8x" color= {primaryColor} />
                     <EmptySpan>테이블이 비어 있습니다.</EmptySpan>
                 </EmptyTable>
             ):(
