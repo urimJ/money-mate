@@ -71,19 +71,20 @@ export const ModalStyle = {
 };
 
 export const ModalForm = styled.form`
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
 `;
 
 export const SubmitButton = styled.button`
   width: 80px;
   height: 25px;
   margin: 25px;
-  position: relative;
-  left: 152px;
+  position: absolute;
+  right: -5px;
+  bottom: 35px;
   background-color: ${primaryColor};
   color: ${bgColor};
   border-radius: 5px;
@@ -106,7 +107,7 @@ export const CloseButton = styled.button`
 
 export const ModalTitle = styled.h1`
   font-size: 20px;
-  margin-top: 20px;
+  margin-bottom: 15px;
 `;
 
 export const ModalList = styled.div`

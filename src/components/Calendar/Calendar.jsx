@@ -55,7 +55,6 @@ const Calendar = () => {
 
   const submitSchedule = (e) => {
     e.preventDefault();
-    console.log('handleSubmit');
     setList([...list, { title: content, date: date }]);
     setEventList([...eventList, { title: content, date: date }]);
     closeInputModal();
@@ -119,9 +118,10 @@ const Calendar = () => {
           style={ModalStyle}
           ariaHideApp={false}
         >
-          <h1>일정 추가</h1>
+          <ModalTitle>일정추가</ModalTitle>
           <ModalForm onSubmit={submitSchedule}>
             <TextField type="date" onChange={dateChange}></TextField>
+            <br />
             <TextField
               label="일정을 입력해주세요."
               variant="outlined"
