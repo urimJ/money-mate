@@ -13,13 +13,15 @@ AccountsAmountColorSpending,
 AccountsAmountColorIncome,
 AccountsBtnClose,
 EmptyTable,
-EmptySpan
+EmptySpan,
+DatePickerWrapper, 
+Group
 } from '../AccountsStyle';
 
 import DatePicker from './DatePickers';
 import FormDialog from './FormDialog';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSmile, faBoxOpen } from '@fortawesome/free-solid-svg-icons';
+import { faBoxOpen } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect, useState, useRef } from 'react';
 import { useCallback } from 'react';
 import dayjs from 'dayjs';
@@ -33,8 +35,11 @@ const [endDate, setEndDate] = useState('');
 const [isTableUpdated, setIsTableUpdated] = useState(false);
 const prevTableDataRef = useRef();
 
+
+
 const handleStartDateChange = (date) => {
     const formattedStartDate = dayjs(date).format('YYYY-MM-DD');
+    console.log(formattedStartDate);
     setStartDate(formattedStartDate);
     setEndDate('');
 };
@@ -42,11 +47,7 @@ const handleStartDateChange = (date) => {
 const handleEndDateChange = (date) => {
     const formattedEndDate = dayjs(date).format('YYYY-MM-DD');
     setEndDate(formattedEndDate);
-    // if (dayjs(date).isSame(startDate, 'day') || dayjs(date).isAfter(startDate, 'day')) {
-        
-    // }else{
-        
-    // }
+    
 };
 
 const updatedEndDate = startDate !== '' ? dayjs(startDate).add(1, 'day').format('YYYY-MM-DD') : '';
@@ -117,33 +118,40 @@ return (
         <AccountsContHeader className="contHeader">
         <AccountsTitle className="title">{userName}님의 가계부</AccountsTitle>
         <AccountsGroupFromTo className="groupFromTo">
+            <Group>
             {!isTableUpdated && (
             <>
+            <DatePickerWrapper>
                 <DatePicker
-                className="btnFrom"
-                label={'시작 날짜'}
+                //className={btnFrom.datePicker}
+                label='시작 날짜'
                 value={startDate}
                 onDateChange={handleStartDateChange}
                 />
+            </DatePickerWrapper>
                 <AccountsSorting>부터</AccountsSorting>
+            <DatePickerWrapper>
                 <DatePicker
-                className="btnTo"
-                label={'종료 날짜'}
+                //className={btnTo.datePicker}
+                label='종료 날짜'
                 value={endDate}
                 onDateChange={handleEndDateChange}
                 minDate={startDate} 
                 />
+            </DatePickerWrapper>
                 <AccountsSorting className="sorting">까지</AccountsSorting>
+                <AccountsBtnSearch className="btnSearch" onClick={handleSearch} navToggle={navToggle}>
+                보기
+                </AccountsBtnSearch>
             </>
             )}
-            <AccountsBtnSearch className="btnSearch" onClick={handleSearch} navToggle={navToggle}>
-            보기
-            </AccountsBtnSearch>
+            
             {isTableUpdated && (
             <AccountsBtnClose className="closeButton" onClick={handleReset}>
                 닫기
             </AccountsBtnClose>
             )}
+            </Group>
             <FormDialog updateTableData={updateTableData} tableData={tableData} />
         </AccountsGroupFromTo>
         </AccountsContHeader>
@@ -151,7 +159,7 @@ return (
             {tableData.length === 0? (
                 <EmptyTable className = "emptyTableMessage">
                     <FontAwesomeIcon icon={faBoxOpen} size="8x" color= {primaryColor} />
-                    <EmptySpan>테이블이 비어 있습니다.</EmptySpan>
+                    <EmptySpan>내용이 없습니다.</EmptySpan>
                 </EmptyTable>
             ):(
                 <AccountsTable className="tableWidth">
@@ -161,7 +169,7 @@ return (
                 <AccountsTableHeadTh>내용</AccountsTableHeadTh>
                 <AccountsTableHeadTh>금액</AccountsTableHeadTh>
                 <AccountsTableHeadTh>항목</AccountsTableHeadTh>
-                <AccountsTableHeadTh>결제 수단</AccountsTableHeadTh>
+                <AccountsTableHeadTh>비고</AccountsTableHeadTh>
             </tr>
             </thead>
             <tbody>
