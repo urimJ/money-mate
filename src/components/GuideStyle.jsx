@@ -80,12 +80,12 @@ export const GuideHeader = styled.h1`
 export const GoToNextSection = styled.section`
   @keyframes moved {
     from {
-      bottom: 1%;
+      bottom: 0.5%;
       opacity: 0.8;
     }
     to {
-      bottom: 5%;
-      opacity: 0.2;
+      bottom: 3%;
+      opacity: 0.1;
     }
   }
   width: 30px;
@@ -96,7 +96,7 @@ export const GoToNextSection = styled.section`
   align-items: center;
   position: absolute;
   left: 50%;
-  bottom: 3%;
+  bottom: 1%;
   font-size: 14px;
   font-family: 'Kaushan Script';
   display: ${(props) => (props.arrow ? '' : 'none')};
@@ -324,6 +324,7 @@ export const GuideThirdScene = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
   font-family: 'GmarketSansTTFLight';
 `;
 
@@ -334,6 +335,13 @@ export const InfoHeader = styled.h1`
   font-family: 'GmarketSansTTFBold';
   position: relative;
   margin-top: 5%;
+  @media all and (max-width: 970px) {
+    width: 800px;
+  }
+  @media all and (max-width: 768px) {
+    width: 600px;
+  }
+  transition: all 0.3s;
 `;
 
 export const InfoTeamNum = styled.span`
@@ -350,7 +358,8 @@ export const InfoCardSection = styled.section`
     from {
       height: 0px;
       opacity: 0;
-    } to {
+    }
+    to {
       opacity: 1;
     }
   }
@@ -368,10 +377,14 @@ export const InfoCardSection = styled.section`
     width: 600px;
     height: 400px;
   }
+  @media all and (max-width: 620px) {
+    grid-template-rows: repeat(4, 1fr);
+    overflow-y: auto;
+  }
   @media all and (max-height: 600px) {
     height: 400px;
   }
-  opacity: ${(props) => props.inView ? 1 : 0};
+  opacity: ${(props) => (props.inView ? 1 : 0)};
   animation: ${(props) =>
     props.inView
       ? css`
@@ -390,6 +403,11 @@ export const InfoCard1 = styled.div`
   border-radius: 15px;
   border: none;
   box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+  @media all and (max-width: 620px) {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
 `;
 
 export const InfoCard2 = styled.div`
@@ -401,6 +419,11 @@ export const InfoCard2 = styled.div`
   border-radius: 15px;
   border: none;
   box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+  @media all and (max-width: 620px) {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+  }
 `;
 
 export const InfoCard3 = styled.div`
@@ -412,6 +435,11 @@ export const InfoCard3 = styled.div`
   border-radius: 15px;
   border: none;
   box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+  @media all and (max-width: 620px) {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+  }
 `;
 
 export const InfoCard4 = styled.div`
@@ -423,6 +451,11 @@ export const InfoCard4 = styled.div`
   border-radius: 15px;
   border: none;
   box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+  @media all and (max-width: 620px) {
+    grid-column: 1 / 3;
+    grid-row: 4 / 5;
+  }
 `;
 
 export const InfoProfile = styled.section`
@@ -471,8 +504,74 @@ export const InfoSubIcon = styled.section`
   left: 0;
   bottom: 15px;
   font-size: 22px;
+  @media all and (max-width: 620px) {
+    width: 95%;
+    justify-content: flex-end;
+  }
   @media all and (max-height: 600px) {
     bottom: 1px;
     font-size: 14px;
   }
+`;
+
+// Fourth Scene-----------------------------------
+export const GuideFourthScene = styled.section`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  font-family: 'GmarketSansTTFLight';
+`;
+
+export const ProposalGridBox = styled.div`
+  width: 100%;
+  height: 90%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 5fr;
+  position: absolute;
+  bottom: 0;
+  border: 5px solid black;
+`;
+
+export const ProposalGridItem1 = styled.section`
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  padding: 5px;
+  line-height: 1.2;
+  border: 1px solid black;
+`;
+
+export const ProposalGridItem2 = styled.section`
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  border: 1px solid black;
+  padding: 5px;
+`;
+
+export const ProposalGridItem3 = styled.section`
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  border: 1px solid black;
+  padding: 5px;
+`;
+
+export const ProposalGridItem4 = styled.section`
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  border: 1px solid black;
+`;
+
+// FirstGridSection----------------------------
+export const ProposalHeader = styled.h1`
+  width: 100%;
+  font-family: 'GmarketSansTTFBold';
+`;
+
+export const ProposalDescription = styled.span`
+  width: 100%;
+  font-size: 14px;
 `;

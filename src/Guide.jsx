@@ -6,6 +6,7 @@ import {
   GoToNextSection,
   GuideContainer,
   GuideFirstScene,
+  GuideFourthScene,
   GuideHeader,
   GuideNextButton,
   GuideSecondScene,
@@ -22,6 +23,13 @@ import {
   InfoSubIcon,
   InfoSubText,
   InfoTeamNum,
+  ProposalDescription,
+  ProposalGridBox,
+  ProposalGridItem1,
+  ProposalGridItem2,
+  ProposalGridItem3,
+  ProposalGridItem4,
+  ProposalHeader,
   SecondSection1,
   SecondSection2,
   SecondSection3,
@@ -176,6 +184,10 @@ const Guide = () => {
               차트 파이을 통해 분석할 수 있어요.
             </Section3RightBox>
           </SecondSection3>
+          <GoToNextSection arrow={arrow}>
+            Scroll
+            <FontAwesomeIcon icon={faSortDown} />
+          </GoToNextSection>
         </GuideSecondScene>
         <GuideThirdScene>
           <InfoHeader>
@@ -290,7 +302,39 @@ const Guide = () => {
               </InfoRightSection>
             </InfoCard4>
           </InfoCardSection>
+          <GoToNextSection arrow={arrow}>
+            Scroll
+            <FontAwesomeIcon icon={faSortDown} />
+          </GoToNextSection>
         </GuideThirdScene>
+        <GuideFourthScene>
+          <ProposalGridBox>
+            <ProposalGridItem1>
+              <ProposalHeader>프로젝트 소개와 기대효과</ProposalHeader>
+              <br />
+              <ProposalDescription>
+                Money Mate는 총 자산을 관리할 수 있는 가계부 웹사이트입니다.
+                <br />
+                사용자의 자산 관리 효율성을 높이고, 사용자가 자신의 소비습관을
+                파악해 합리적인 소비를 할 수 있도록 돕는데 의의가 있습니다.
+              </ProposalDescription>
+            </ProposalGridItem1>
+            <ProposalGridItem2>
+              <ProposalHeader>디자인</ProposalHeader>
+              <br />
+              <ProposalDescription>
+                금전과 관련된 서비스임을 고려,
+                <br />
+                신뢰성과 편안함을 줄 수 있으며 눈의 피로감을 줄여줄 수 있는
+                파랑을 메인 컬러로 지정.
+              </ProposalDescription>
+            </ProposalGridItem2>
+            <ProposalGridItem3>
+              <ProposalHeader>페이지별 기능</ProposalHeader>
+            </ProposalGridItem3>
+            <ProposalGridItem4></ProposalGridItem4>
+          </ProposalGridBox>
+        </GuideFourthScene>
       </GuideContainer>
       <GuideNextButton onClick={handleClick}>NEXT</GuideNextButton>
     </>
