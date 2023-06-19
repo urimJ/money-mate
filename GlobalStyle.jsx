@@ -69,11 +69,11 @@ const GlobalStyle = createGlobalStyle`
   }
   /* 스크롤바 없애기 */
   *::-webkit-scrollbar {
-    display: none;
+    /* color: ${(props) => props.theme.primaryColor} */
   }
 
   *::-webkit-scrollbar-thumb {
-    background: ${primaryColor};
+    /* background: ${primaryColor}; */
   }
 
   *::selection {
