@@ -31,6 +31,7 @@ import MypageComponent from './components/MyPage/MypageComponent';
 import AcountsStatistics from './Statistics';
 
 
+
 const Accounts = () => {
   // 변수 관리-------------------------------------
   const userName = localStorage.getItem('username');
@@ -106,7 +107,7 @@ const Accounts = () => {
         </SideNavBar>
         <AccountsSection navToggle={navToggle}>
           {currentPage === 0 ? (
-            <AccountsComponent />
+            <AccountsComponent navToggle={navToggle} />
           ) : currentPage === 1 ? (
             '달력 페이지'
           ) : currentPage === 2 ? (

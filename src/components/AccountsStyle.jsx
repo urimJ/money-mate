@@ -384,14 +384,15 @@ export const AccountsGroupFromTo = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  align-items: baseline;
+  align-items: center;
   margin: 0px 160px 20px 0px;
 
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
   }
   @media (max-height: 450px) or (max-width: 678px) {
-    width: 100%;
+    width: 10vw;
+    margin : 0px 0px 10px 10px;
   }
 `;
 
@@ -422,7 +423,7 @@ export const AccountsContBody = styled.div`
   // background-color: rgb(33, 236, 169);
   border: 3px solid ${primaryColor};
   height: 450px;
-  overflow: auto;
+  overflow: scroll;
 
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
@@ -487,4 +488,47 @@ export const AccountsBtnClose = styled.button`
   border: 0px solid ${primaryColor};
   border-radius: 10px;
   cursor: pointer;
+`
+
+export const EmptyTable = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+export const EmptySpan = styled.span`
+  margin : 20px;
+`
+
+export const DatePickerWrapper = styled.div`
+    margin: 0px 0px 0px 20px;
+    width: 200px;
+    height: 50px;
+
+    @media all and (max-width: 1280px) {
+        width: ${(props) => (props.navToggle ? '100px' : '200px')};
+        margin : 0px 0px 0px 20px;
+    }
+    @media (max-height: 450px) or (max-width: 980px) {
+        width: 10vw;
+        margin : 0px 0px 10px 10px;
+    }
+`;
+
+export const Group = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0px 405px 0px 0px;
+
+  @media all and (max-width: 1280px) {
+    margin-right: ${(props) => (props.navToggle ? '405px' : '105px')};
+        margin : 0px 405px 0px 0px;
+    }
+    @media (max-height: 450px) or (max-width: 980px) {
+      width: ${(props) => (props.navToggle ? '100px' : '200px')};
+        margin : 0px 105px 0px 0px;
+    }
 `
