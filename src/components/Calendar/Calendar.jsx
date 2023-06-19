@@ -30,7 +30,6 @@ const Calendar = () => {
 
   // useEffect--------------------------------------------------------------------------------------------
   useEffect(() => {
-    console.log(eventList);
     setList(schedule);
     setEventList((prev) => prev.concat(schedule, accountList));
   }, []);
@@ -100,13 +99,13 @@ const Calendar = () => {
     const existingEntry = result.find(
       (entry) =>
         entry.date == date &&
-        ((entry.color == '#48b3ff' && amount > 0) ||
+        ((entry.color == '#48b3ff' && parseInt(amount) > 0) ||
           (entry.color == '#ff8383' && amount < 0))
     );
     if (existingEntry) {
       existingEntry['title'] =
         existingEntry.color == '#48b3ff'
-          ? existingEntry['title'] + amount
+          ? existingEntry['title'] + parseInt(amount)
           : existingEntry['title'] - amount;
       result[result.indexOf(existingEntry)] = existingEntry;
       return result;
@@ -114,28 +113,13 @@ const Calendar = () => {
       return result.concat([
         {
           date: date,
-          title: amount > 0 ? amount : -amount,
+          title: amount > 0 ? parseInt(amount) : -amount,
           color: amount > 0 ? '#48b3ff' : '#ff8383',
         },
       ]);
     }
   }, []);
 
-  const [calendarRef, setCalendarRef] = useState(null);
-
-  useEffect(() => {
-    const handleWindowResize = () => {
-      if (calendarRef) {
-        calendarRef.fullCalendar('render');
-      }
-    };
-
-    window.addEventListener('resize', handleWindowResize);
-
-    return () => {
-      window.removeEventListener('resize', handleWindowResize);
-    };
-  }, [calendarRef]);
   return (
     <>
       <PageContainer>
