@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { bgColor, primaryColor } from '../../GlobalStyle';
 
 // Guide 페이지와 관련된 styled component
 export const GuideContainer = styled.div`
@@ -7,6 +6,7 @@ export const GuideContainer = styled.div`
   min-height: 100vh;
   background-color: ${(props) => props.theme.bgColor};
   color: ${(props) => props.theme.textColor};
+  overflow: hidden;
 `;
 
 // First Scene-----------------------------------
@@ -333,6 +333,7 @@ export const InfoHeader = styled.h1`
   font-size: 24px;
   font-family: 'GmarketSansTTFBold';
   position: relative;
+  margin-top: 5%;
 `;
 
 export const InfoTeamNum = styled.span`
@@ -352,6 +353,16 @@ export const InfoCardSection = styled.section`
   grid-template-rows: repeat(2, 1fr);
   justify-items: center;
   align-items: center;
+  @media all and (max-width: 970px) {
+    width: 800px;
+  }
+  @media all and (max-width: 768px) {
+    width: 600px;
+    height: 400px;
+  }
+  @media all and (max-height: 600px) {
+    height: 400px;
+  }
 `;
 
 export const InfoCard1 = styled.div`
@@ -427,6 +438,12 @@ export const InfoSubText = styled.span`
   width: 100%;
   font-size: 14px;
   line-height: 2;
+  @media all and (max-width: 768px) {
+    font-size: 10px;
+  }
+  @media all and (max-height: 600px) {
+    font-size: 10px;
+  }
 `;
 
 export const InfoSubIcon = styled.section`
@@ -438,4 +455,8 @@ export const InfoSubIcon = styled.section`
   left: 0;
   bottom: 15px;
   font-size: 22px;
+  @media all and (max-height: 600px) {
+    bottom: 1px;
+    font-size: 14px;
+  }
 `;

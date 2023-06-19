@@ -70,7 +70,7 @@ const Guide = () => {
     return new Promise(() => {
       setTimeout(() => {
         setArrow(true);
-      }, 15000);
+      }, 3000);
     });
   };
 
@@ -178,12 +178,11 @@ const Guide = () => {
             <InfoTeamNum>TEAM 4</InfoTeamNum>
             Who We Are?
           </InfoHeader>
-          <InfoCardSection>
+          <InfoCardSection ref={ref} inView={inView}>
             <InfoCard1>
               <InfoProfile profile={Junseo} />
               <InfoRightSection>
                 <InfoName>오준서</InfoName>
-                <br />
                 <br />
                 <InfoSubText>
                   팀장
@@ -216,7 +215,6 @@ const Guide = () => {
               <InfoRightSection>
                 <InfoName>박수련</InfoName>
                 <br />
-                <br />
                 <InfoSubText>
                   팀원
                   <br />
@@ -246,7 +244,6 @@ const Guide = () => {
               <InfoRightSection>
                 <InfoName>장유림</InfoName>
                 <br />
-                <br />
                 <InfoSubText>
                   팀원
                   <br />
@@ -275,7 +272,6 @@ const Guide = () => {
               <InfoProfile profile={Seunghun} />
               <InfoRightSection>
                 <InfoName>이승훈</InfoName>
-                <br />
                 <br />
                 <InfoSubText>
                   팀원
