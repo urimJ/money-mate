@@ -71,20 +71,22 @@ export const ModalStyle = {
 };
 
 export const ModalForm = styled.form`
-  width: 80%;
+  width: 100%;
   height: 80%;
   display: flex;
+  margin-bottom: 50px;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
 `;
 
 export const SubmitButton = styled.button`
-  width: 80px;
-  height: 25px;
+  width: 70px;
+  height: 27px;
   margin: 25px;
   position: absolute;
+  bottom: 25px;
   right: -5px;
-  bottom: 35px;
   background-color: ${primaryColor};
   color: ${bgColor};
   border-radius: 5px;
@@ -93,8 +95,8 @@ export const SubmitButton = styled.button`
 `;
 
 export const CloseButton = styled.button`
-  width: 80px;
-  height: 25px;
+  width: 70px;
+  height: 27px;
   position: absolute;
   bottom: 17px;
   right: 20px;
@@ -107,7 +109,7 @@ export const CloseButton = styled.button`
 
 export const ModalTitle = styled.h1`
   font-size: 20px;
-  margin-bottom: 15px;
+  margin: 10px 0px;
 `;
 
 export const ModalList = styled.div`
@@ -116,15 +118,18 @@ export const ModalList = styled.div`
 `;
 
 export const ModalListItem = styled.div`
-  font-size: 20px;
+  font-size: 17px;
   margin: 10px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const DeleteButton = styled.button`
   width: 80px;
   height: 25px;
-  position: absolute;
-  right: 20px;
+  position: relative;
   background-color: ${primaryColor};
   color: ${bgColor};
   border-radius: 5px;
