@@ -9,6 +9,16 @@ import {
   GuideHeader,
   GuideNextButton,
   GuideSecondScene,
+  GuideThirdScene,
+  InfoCard1,
+  InfoCard2,
+  InfoCard3,
+  InfoCard4,
+  InfoCardSection,
+  InfoHeader,
+  InfoName1,
+  InfoProfile1,
+  InfoRightSection1,
   SecondSection1,
   SecondSection2,
   SecondSection3,
@@ -31,6 +41,10 @@ import {
   faSortDown,
 } from '@fortawesome/free-solid-svg-icons';
 import { useInView } from 'react-intersection-observer';
+import Junseo from '../public/images/Junseo.jpg';
+import Suryun from '../public/images/Suryun.jpg';
+import Seunghun from '../public/images/Seunghun.jpg';
+import Yurim from '../public/images/Yurim.jpg';
 
 const Guide = () => {
   // 변수 관리---------------------------------------------
@@ -155,6 +169,20 @@ const Guide = () => {
             </Section3RightBox>
           </SecondSection3>
         </GuideSecondScene>
+        <GuideThirdScene>
+          <InfoHeader>Who We Are?</InfoHeader>
+          <InfoCardSection>
+            <InfoCard1>
+              <InfoProfile1 Junseo={Junseo} />
+              <InfoRightSection1>
+                <InfoName1>오준서</InfoName1>
+              </InfoRightSection1>
+            </InfoCard1>
+            <InfoCard2></InfoCard2>
+            <InfoCard3></InfoCard3>
+            <InfoCard4></InfoCard4>
+          </InfoCardSection>
+        </GuideThirdScene>
       </GuideContainer>
       <GuideNextButton onClick={handleClick}>NEXT</GuideNextButton>
     </>

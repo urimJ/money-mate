@@ -315,3 +315,96 @@ export const Section3RightBox = styled.section`
   align-items: center;
   text-align: center;
 `;
+
+// Third Scene-----------------------------------
+export const GuideThirdScene = styled.section`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'GmarketSansTTFLight';
+`;
+
+export const InfoHeader = styled.h1`
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  font-family: 'GmarketSansTTFBold';
+`;
+
+export const InfoCardSection = styled.section`
+  width: 1000px;
+  height: 700px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+  border: 2px solid black;
+`;
+
+export const InfoCard1 = styled.div`
+  width: 90%;
+  height: 90%;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  display: flex;
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.3);
+`;
+
+export const InfoCard2 = styled.div`
+  width: 90%;
+  height: 90%;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.3);
+`;
+
+export const InfoCard3 = styled.div`
+  width: 90%;
+  height: 90%;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.3);
+`;
+
+export const InfoCard4 = styled.div`
+  width: 90%;
+  height: 90%;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.3);
+`;
+
+export const InfoProfile1 = styled.section`
+  width: 50%;
+  height: 100%;
+  background-image: url(${(props) => props.Junseo});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.3);
+`;
+
+export const InfoRightSection1 = styled.section`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const InfoName1 = styled.p`
+  font-family: 'GmarketSansTTFBold';
+`;
