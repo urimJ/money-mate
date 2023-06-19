@@ -59,7 +59,11 @@ const Guide = () => {
   // React fullpage ref-----------------------------------
   const containerRef = useRef();
   // InterSection Observer--------------------------------
-  const [ref, inView] = useInView({
+  const [ref2, inView2] = useInView({
+    triggerOnce: true, // 한 번만 트리거
+    threshold: 0.5, // 요소가 화면의 50% 이상 보일 때 트리거
+  });
+  const [ref3, inView3] = useInView({
     triggerOnce: true, // 한 번만 트리거
     threshold: 0.5, // 요소가 화면의 50% 이상 보일 때 트리거
   });
@@ -142,7 +146,7 @@ const Guide = () => {
           </GuideHeader>
         </GuideFirstScene>
         <GuideSecondScene>
-          <SecondSection1 ref={ref} inView={inView}>
+          <SecondSection1 ref={ref2} inView={inView2}>
             <Section1LeftBox>
               <FontAwesomeIcon icon={faHandHoldingDollar} />
             </Section1LeftBox>
@@ -152,7 +156,7 @@ const Guide = () => {
               한눈에 보기 쉽게 정리할 수 있어요.
             </Section1RightBox>
           </SecondSection1>
-          <SecondSection2 ref={ref} inView={inView}>
+          <SecondSection2 ref={ref2} inView={inView2}>
             <Section2LeftBox>
               내 자산 통계를
               <br />
@@ -162,7 +166,7 @@ const Guide = () => {
               <FontAwesomeIcon icon={faChartLine} />
             </Section2RightBox>
           </SecondSection2>
-          <SecondSection3 ref={ref} inView={inView}>
+          <SecondSection3 ref={ref2} inView={inView2}>
             <Section3LeftBox>
               <FontAwesomeIcon icon={faChartPie} />
             </Section3LeftBox>
@@ -178,7 +182,7 @@ const Guide = () => {
             <InfoTeamNum>TEAM 4</InfoTeamNum>
             Who We Are?
           </InfoHeader>
-          <InfoCardSection ref={ref} inView={inView}>
+          <InfoCardSection ref={ref3} inView={inView3}>
             <InfoCard1>
               <InfoProfile profile={Junseo} />
               <InfoRightSection>
@@ -191,7 +195,7 @@ const Guide = () => {
                   <br />
                   학번 : 2017112636
                   <br />
-                  키워드 : 창업, 사진, 책, 스포츠
+                  키워드 : 여행, 사진, 책, 스포츠
                   <br />
                   TMI : 종강하고도 못 쉬는 중
                   <br />
@@ -222,19 +226,15 @@ const Guide = () => {
                   <br />
                   학번 : 2019112132
                   <br />
-                  키워드 :
+                  키워드 : 셀카, 힙합, 축구
                   <br />
-                  TMI :
+                  TMI : 일본여행 가서 코딩 중
                   <br />
                 </InfoSubText>
                 <InfoSubIcon>
                   <FontAwesomeIcon
                     icon={faGithub}
-                    onClick={() => window.open('')}
-                  />
-                  <FontAwesomeIcon
-                    icon={faInstagram}
-                    onClick={() => window.open('')}
+                    onClick={() => window.open('https://github.com/tnfus916')}
                   />
                 </InfoSubIcon>
               </InfoRightSection>
@@ -251,19 +251,15 @@ const Guide = () => {
                   <br />
                   학번 : 2017113051
                   <br />
-                  키워드 :
+                  키워드 : 걷기, 어학, 음악, 개발
                   <br />
-                  TMI :
+                  TMI : 대만에 가보고 싶습니다.
                   <br />
                 </InfoSubText>
                 <InfoSubIcon>
                   <FontAwesomeIcon
                     icon={faGithub}
-                    onClick={() => window.open('')}
-                  />
-                  <FontAwesomeIcon
-                    icon={faInstagram}
-                    onClick={() => window.open('')}
+                    onClick={() => window.open('https://github.com/urimJ')}
                   />
                 </InfoSubIcon>
               </InfoRightSection>
@@ -280,19 +276,15 @@ const Guide = () => {
                   <br />
                   학번 : 2018111871
                   <br />
-                  키워드 :
+                  키워드 : 러닝, 복싱, 독서, 축구
                   <br />
-                  TMI :
+                  TMI : -
                   <br />
                 </InfoSubText>
                 <InfoSubIcon>
                   <FontAwesomeIcon
                     icon={faGithub}
-                    onClick={() => window.open('')}
-                  />
-                  <FontAwesomeIcon
-                    icon={faInstagram}
-                    onClick={() => window.open('')}
+                    onClick={() => window.open('https://github.com/bbanset')}
                   />
                 </InfoSubIcon>
               </InfoRightSection>

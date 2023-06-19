@@ -346,6 +346,14 @@ export const InfoTeamNum = styled.span`
 `;
 
 export const InfoCardSection = styled.section`
+  @keyframes PopOut {
+    from {
+      height: 0px;
+      opacity: 0;
+    } to {
+      opacity: 1;
+    }
+  }
   width: 1000px;
   height: 700px;
   display: grid;
@@ -363,6 +371,14 @@ export const InfoCardSection = styled.section`
   @media all and (max-height: 600px) {
     height: 400px;
   }
+  opacity: ${(props) => props.inView ? 1 : 0};
+  animation: ${(props) =>
+    props.inView
+      ? css`
+          PopOut 1s linear forwards
+        `
+      : ''};
+  transition: all 0.3s;
 `;
 
 export const InfoCard1 = styled.div`
