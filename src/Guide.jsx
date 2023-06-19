@@ -81,6 +81,10 @@ const Guide = () => {
     triggerOnce: true, // 한 번만 트리거
     threshold: 0.5, // 요소가 화면의 50% 이상 보일 때 트리거
   });
+  const [ref4, inView4] = useInView({
+    triggerOnce: true, // 한 번만 트리거
+    threshold: 0.5, // 요소가 화면의 50% 이상 보일 때 트리거
+  });
 
   // 함수 관리---------------------------------------------
   const handleClick = () => navigate(`/accounts/${userName}`);
@@ -196,7 +200,7 @@ const Guide = () => {
           </GoToNextSection>
         </GuideSecondScene>
         <GuideThirdScene>
-          <InfoHeader>
+          <InfoHeader ref={ref3} inView={inView3}>
             <InfoTeamNum>TEAM 4</InfoTeamNum>
             Who We Are?
           </InfoHeader>
@@ -314,7 +318,7 @@ const Guide = () => {
           </GoToNextSection>
         </GuideThirdScene>
         <GuideFourthScene>
-          <ProposalGridBox>
+          <ProposalGridBox ref={ref4} inView={inView4}>
             <ProposalGridItem1>
               <ProposalHeader>프로젝트 소개와 기대효과</ProposalHeader>
               <br />

@@ -226,7 +226,7 @@ export const SecondSection2 = styled.section`
   animation: ${(props) =>
     props.inView
       ? css`
-          slideRight 1s 1s linear forwards
+          slideRight 1s 0.5s linear forwards
         `
       : ''};
   @media all and (min-width: 1280px) {
@@ -288,7 +288,7 @@ export const SecondSection3 = styled.section`
   animation: ${(props) =>
     props.inView
       ? css`
-          slideLeft2 1s 2s linear forwards
+          slideLeft2 1s 1s linear forwards
         `
       : ''};
   @media all and (min-width: 1280px) {
@@ -338,6 +338,14 @@ export const GuideThirdScene = styled.section`
 `;
 
 export const InfoHeader = styled.h1`
+  @keyframes FadeFrom {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
   width: 1000px;
   text-align: center;
   font-size: 24px;
@@ -351,6 +359,13 @@ export const InfoHeader = styled.h1`
     width: 600px;
   }
   transition: all 0.3s;
+  opacity: 0;
+  animation: ${(props) =>
+    props.inView
+      ? css`
+          FadeFrom 2s linear forwards
+        `
+      : ''};
 `;
 
 export const InfoTeamNum = styled.span`
@@ -393,11 +408,11 @@ export const InfoCardSection = styled.section`
   @media all and (max-height: 600px) {
     height: 400px;
   }
-  opacity: ${(props) => (props.inView ? 1 : 0)};
+  opacity: 0;
   animation: ${(props) =>
     props.inView
       ? css`
-          PopOut 1s linear forwards
+          PopOut 2s linear forwards
         `
       : ''};
   transition: all 0.3s;
@@ -536,6 +551,14 @@ export const GuideFourthScene = styled.section`
 `;
 
 export const ProposalGridBox = styled.div`
+  @keyframes FadeFrom {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
   width: 100%;
   height: 90%;
   display: grid;
@@ -547,6 +570,14 @@ export const ProposalGridBox = styled.div`
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 3fr 3fr;
   }
+  opacity: 0;
+  animation: ${(props) =>
+    props.inView
+      ? css`
+          FadeFrom 2s linear forwards
+        `
+      : ''};
+  transition: all 0.3s;
 `;
 
 export const ProposalGridItem1 = styled.section`
