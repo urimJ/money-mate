@@ -9,6 +9,19 @@ import {
   GuideHeader,
   GuideNextButton,
   GuideSecondScene,
+  GuideThirdScene,
+  InfoCard1,
+  InfoCard2,
+  InfoCard3,
+  InfoCard4,
+  InfoCardSection,
+  InfoHeader,
+  InfoName,
+  InfoProfile,
+  InfoRightSection,
+  InfoSubIcon,
+  InfoSubText,
+  InfoTeamNum,
   SecondSection1,
   SecondSection2,
   SecondSection3,
@@ -31,6 +44,11 @@ import {
   faSortDown,
 } from '@fortawesome/free-solid-svg-icons';
 import { useInView } from 'react-intersection-observer';
+import Junseo from '../public/images/Junseo.jpg';
+import Suryun from '../public/images/Suryun.jpg';
+import Seunghun from '../public/images/Seunghun.jpg';
+import Yurim from '../public/images/Yurim.jpg';
+import { faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 const Guide = () => {
   // 변수 관리---------------------------------------------
@@ -155,6 +173,136 @@ const Guide = () => {
             </Section3RightBox>
           </SecondSection3>
         </GuideSecondScene>
+        <GuideThirdScene>
+          <InfoHeader>
+            <InfoTeamNum>TEAM 4</InfoTeamNum>
+            Who We Are?
+          </InfoHeader>
+          <InfoCardSection>
+            <InfoCard1>
+              <InfoProfile profile={Junseo} />
+              <InfoRightSection>
+                <InfoName>오준서</InfoName>
+                <br />
+                <br />
+                <InfoSubText>
+                  팀장
+                  <br />
+                  전공 : 융합에너지신소재공학과
+                  <br />
+                  학번 : 2017112636
+                  <br />
+                  키워드 : 창업, 사진, 책, 스포츠
+                  <br />
+                  TMI : 종강하고도 못 쉬는 중
+                  <br />
+                </InfoSubText>
+                <InfoSubIcon>
+                  <FontAwesomeIcon
+                    icon={faGithub}
+                    onClick={() => window.open('https://github.com/AsherOh')}
+                  />
+                  <FontAwesomeIcon
+                    icon={faInstagram}
+                    onClick={() =>
+                      window.open('https://www.instagram.com/way_to_focus/')
+                    }
+                  />
+                </InfoSubIcon>
+              </InfoRightSection>
+            </InfoCard1>
+            <InfoCard2>
+              <InfoProfile profile={Suryun} />
+              <InfoRightSection>
+                <InfoName>박수련</InfoName>
+                <br />
+                <br />
+                <InfoSubText>
+                  팀원
+                  <br />
+                  전공 : 정보통신공학과
+                  <br />
+                  학번 : 2019112132
+                  <br />
+                  키워드 :
+                  <br />
+                  TMI :
+                  <br />
+                </InfoSubText>
+                <InfoSubIcon>
+                  <FontAwesomeIcon
+                    icon={faGithub}
+                    onClick={() => window.open('')}
+                  />
+                  <FontAwesomeIcon
+                    icon={faInstagram}
+                    onClick={() => window.open('')}
+                  />
+                </InfoSubIcon>
+              </InfoRightSection>
+            </InfoCard2>
+            <InfoCard3>
+              <InfoProfile profile={Yurim} />
+              <InfoRightSection>
+                <InfoName>장유림</InfoName>
+                <br />
+                <br />
+                <InfoSubText>
+                  팀원
+                  <br />
+                  전공 : 영화영상학과 / 융합SW
+                  <br />
+                  학번 : 2017113051
+                  <br />
+                  키워드 :
+                  <br />
+                  TMI :
+                  <br />
+                </InfoSubText>
+                <InfoSubIcon>
+                  <FontAwesomeIcon
+                    icon={faGithub}
+                    onClick={() => window.open('')}
+                  />
+                  <FontAwesomeIcon
+                    icon={faInstagram}
+                    onClick={() => window.open('')}
+                  />
+                </InfoSubIcon>
+              </InfoRightSection>
+            </InfoCard3>
+            <InfoCard4>
+              <InfoProfile profile={Seunghun} />
+              <InfoRightSection>
+                <InfoName>이승훈</InfoName>
+                <br />
+                <br />
+                <InfoSubText>
+                  팀원
+                  <br />
+                  전공 : 전자전기공학부
+                  <br />
+                  학번 : 2018111871
+                  <br />
+                  키워드 :
+                  <br />
+                  TMI :
+                  <br />
+                </InfoSubText>
+                <InfoSubIcon>
+                  <FontAwesomeIcon
+                    icon={faGithub}
+                    onClick={() => window.open('')}
+                  />
+                  <FontAwesomeIcon
+                    icon={faInstagram}
+                    onClick={() => window.open('')}
+                  />
+                </InfoSubIcon>
+              </InfoRightSection>
+            </InfoCard4>
+          </InfoCardSection>
+        </GuideThirdScene>
       </GuideContainer>
       <GuideNextButton onClick={handleClick}>NEXT</GuideNextButton>
     </>
