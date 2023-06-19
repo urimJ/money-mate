@@ -1,5 +1,33 @@
 import { useState } from 'react';
+import styled from 'styled-components';
 import { bgColor } from '../../../GlobalStyle';
+
+const DropdownButton = styled.button`
+  background-color: ${(props) => props.theme.bgColor};
+  width: 200px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid ${(props) => props.theme.StatisticButtonColor};
+  font-size: 16px;
+  font-family: 'GmarketSansTTFLight';
+  &:hover {
+    border: 1px solid black;
+  }
+`;
+
+const DropdownMenu = styled.ul`
+  background-color: ${(props) => props.theme.bgColor};
+  width: 200px;
+  border-radius: 5px;
+  border: 1px solid ${(props) => props.theme.StatisticButtonColor};
+  text-align: center;
+`;
+
+const DropdownItem = styled.li`
+  border-bottom: 1px solid ${(props) => props.theme.StatisticButtonColor};
+  height: 50px;
+  padding: 15px;
+`;
 
 const DropdownChart = ({ handleChartSelect, selectedChart }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,59 +36,38 @@ const DropdownChart = ({ handleChartSelect, selectedChart }) => {
     setIsOpen(!isOpen);
   };
 
-  
-
   return (
     <div className="dropdown">
-      <button
-        style={{
-          backgroundColor: bgColor,
-          width: '200px',
-          height: '50px',
-          borderRadius: '5px',
-          border: '1px solid gray',
-          fontSize: '16px',
-        }}
-        className="dropdown-button"
-        onClick={toggleDropdown}
-      >
+      <DropdownButton className="dropdown-button" onClick={toggleDropdown}>
         {selectedChart || '차트 선택'}
-      </button>
+      </DropdownButton>
       {isOpen && (
-        <ul
-          style={{
-            backgroundColor: bgColor,
-            width: '200px',
-            borderRadius: '5px',
-            border: '1px solid gray',
-            textAlign: 'center',
-          }}
-          className="dropdown-menu"
-        >
-          <li
-            onClick={() => {handleChartSelect('Pie'); setIsOpen(false);}}
-            style={{
-              borderBottom: '1px solid grey',
-              height: '50px',
-              padding: '15px',
-            }}
-          >
+        <DropdownMenu className="dropdown-menu">
+          <DropdownItem onClick={() => {handleChartSelect('Pie'); setIsOpen(false);}}>
             Pie
-          </li>
-          <li
-            onClick={() => {handleChartSelect('Line'); setIsOpen(false);}}
-            style={{
-              borderBottom: '1px solid grey',
-              height: '50px',
-              padding: '15px',
-            }}
-          >
+          </DropdownItem>
+          <DropdownItem onClick={() => {handleChartSelect('Bar'); setIsOpen(false);}}>
+            Bar
+          </DropdownItem>
+          <DropdownItem onClick={() => {handleChartSelect('Line'); setIsOpen(false);}}>
             Line
-          </li>
-        </ul>
+          </DropdownItem>
+          <DropdownItem onClick={() => {handleChartSelect('PolarArea'); setIsOpen(false);}}>
+            PolarArea
+          </DropdownItem>
+          <DropdownItem onClick={() => {handleChartSelect('Radar'); setIsOpen(false);}}>
+            Radar
+          </DropdownItem>
+        </DropdownMenu>
       )}
     </div>
   );
 };
 
 export default DropdownChart;
+
+
+
+
+
+

@@ -100,11 +100,11 @@ const Accounts = () => {
         </SideNavBar>
         <AccountsSection navToggle={navToggle}>
           {currentPage === 0 ? (
-            <AccountsComponent />
+            <AccountsComponent navToggle={navToggle} />
           ) : currentPage === 1 ? (
             <Calendar />
           ) : currentPage === 2 ? (
-            <AcountsStatistics />
+            <AcountsStatistics navToggle={navToggle} />
           ) : currentPage === 3 ? (
             <MypageComponent navToggle={navToggle} />
           ) : (

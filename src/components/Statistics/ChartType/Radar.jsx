@@ -1,4 +1,5 @@
 import {
+  RadialLinearScale,
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
@@ -9,13 +10,12 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { Pie } from 'react-chartjs-2';
-import { useLocalData,sumSpendByLabel } from '../DataManagement';
+import { Radar } from 'react-chartjs-2';
+import { useLocalData, sumSpendByLabel } from '../DataManagement';
 import { Chartdata } from '../ChartConfig';
 
-
-
 ChartJS.register(
+  RadialLinearScale,
   CategoryScale,
   LinearScale,
   PointElement,
@@ -25,7 +25,27 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+
 export const options = {
+  responsive: true,
+  scales: {
+    r: {
+      offset: true,
+      beginAtZero: true,
+      min: 0,
+      ticks: {
+        font: {
+          family: "GmarketSansTTFLight",
+        }
+      },
+      pointLabels: {
+        font: {
+          family: "GmarketSansTTFLight",
+        }
+    }
+    },
+    
+  },
   plugins: {
     legend: {
       labels: {
@@ -38,11 +58,11 @@ export const options = {
       bodyFont: {
         family: "GmarketSansTTFLight",
       }
-    }
-  }
+    },
+  },
 };
 
-export default function PieChart() {
+export default function RadarChart() {
   const localData = useLocalData();
   const ReduceLabels = [...new Set(localData.Group)];
   const startDate = localStorage.getItem('startDate');
@@ -53,11 +73,10 @@ export default function PieChart() {
   const labels = ReduceLabels;
   const spendData = SpendData;
   const data = Chartdata(labels, spendData);
-  
 
   return (
     <>
-      <Pie data={data} options={options} />
+      <Radar data={data} options={options} />
     </>
   );
 }

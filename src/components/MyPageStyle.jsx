@@ -98,11 +98,12 @@ export const MyPageInfoBox = styled.section`
 `;
 
 export const MyPageInfo = styled.h1`
-  width: ${(props) => props.navToggle ? `calc(100% - 14vw)` : `calc(100% - 150px)`};
+  width: ${(props) =>
+    props.navToggle ? `calc(100% - 14vw)` : `calc(100% - 150px)`};
   height: 100%;
   display: flex;
   align-items: center;
-  font-size: ${(props) => props.navToggle ? '1.2vw' : '16px'};
+  font-size: ${(props) => (props.navToggle ? '1.2vw' : '16px')};
   font-family: 'GmarketSansTTFBold';
   @media all and (max-width: 520px) {
     font-size: 14px;
@@ -117,8 +118,8 @@ export const MyPageInfo = styled.h1`
 `;
 
 export const MyPageThemeToggle = styled.section`
-  width: ${(props) => props.navToggle ? '14vw' : '150px'};
-  height: 90%;
+  width: ${(props) => (props.navToggle ? '14vw' : '150px')};
+  height: 30px;
   display: flex;
   justify-content: space-between;
   border: 1px solid ${(props) => props.theme.primaryColor};
@@ -216,7 +217,6 @@ export const MyPageCategorySection = styled.section`
   height: 80%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-content: flex-start;
   gap: 30px;
   padding: 15px;

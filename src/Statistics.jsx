@@ -1,7 +1,3 @@
-localStorage.setItem('Group1', JSON.stringify(['가','나','다','가','나','라']));
-localStorage.setItem('Group2', JSON.stringify(['안','녕','하','안','안','세']));
-localStorage.setItem('spend', JSON.stringify(['2000','3000','4000','5000','6000','7000']));
-localStorage.setItem('date', JSON.stringify(['2023-06-01', '2023-06-02', '2023-06-03', '2023-06-04', '2023-06-05', '2023-06-06']));
 import {
   Statisticschart,
   Statisticsbody,
@@ -18,6 +14,7 @@ import {
   StatisticsGroupBtn,
   StatisticsGroupChart,
   StatisticsDatePicker,
+  StatisticsMessage,
 } from './components/StatisticsStyle';
 import { useState } from 'react';
 import StatisticsDatePickers from './components/Statistics/StatisticsDatePicker';
@@ -27,16 +24,19 @@ import DropdownChart from './components/Statistics/DropdownChart';
 import PieChart from './components/Statistics/ChartType/Pie';
 import LineChart from './components/Statistics/ChartType/Line';
 import dayjs from 'dayjs';
+import PolarAreaChart from './components/Statistics/ChartType/Area';
+import RadarChart from './components/Statistics/ChartType/Radar';
+import BarChart from './components/Statistics/ChartType/Bar';
 
-const AcountsStatistics = () => {
+const AcountsStatistics = ({navToggle}) => {
   const userName = localStorage.getItem('username');
-
+  console.log(navToggle);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [selectedChart, setSelectedChart] = useState(null);
   const [selectedGroup, setSelectedGroup] = useState(null);
   const [showChart, setShowChart] = useState(false);
-
+  const [isVisible, setIsVisible] = useState(true);
 
   const handleStartDateChange = (date) => {
     setStartDate(date);
@@ -54,34 +54,54 @@ const AcountsStatistics = () => {
 
   const handleGroupSelect = (groupType) => {
     setSelectedGroup(groupType);
-    setShowChart(false);
     localStorage.setItem('selectedGroup', groupType);
   };
 
   const handleChartSelect = (chartType) => {
     setSelectedChart(chartType);
     setShowChart(false);
+    setIsVisible(true);
   };
 
   const handleChartSearch = () => {
+    if (startDate && endDate && endDate < startDate) {
+      alert('종료 날짜는 시작 날짜 이후여야 합니다.');
+      return;
+    }
+    else if (!startDate&&!endDate) {
+      alert('기간을 설정해주세요.');
+      return;
+    }
+    else if (!startDate) {
+      alert('시작 날짜를 선택해주세요.');
+      return;
+    }
+    else if (!endDate) {
+      alert('종료 날짜를 선택해주세요.');
+      return;
+    }
     setShowChart(true);
-    console.log('시작 날짜:', startDate);
-    console.log('종료 날짜:', endDate);
+    setIsVisible(false);  
   };
+
+  const handleClick = () => {
+    setShowChart(false);
+    setIsVisible(false);
+  }
 
   return (
     <>
       <Statisticscontainer>
         <StatisticsSection>
           <StatisticsHeader>
-            <StatisticsTitle>{userName}님의 가계부</StatisticsTitle>
+          {navToggle === false && (
+    <StatisticsTitle>{userName}님의 가계부</StatisticsTitle>
+  )}
 
             <StatisticsGroupBtn>
               <StatisticsGroupFromTo>
-                <StatisticsDatePicker>
+                <StatisticsDatePicker onClick={handleClick}>
                   <StatisticsDatePickers
-                    className="btnFrom"
-                    label={'시작 날짜'}
                     value={startDate}
                     onDateChange={handleStartDateChange}
                   />
@@ -89,10 +109,8 @@ const AcountsStatistics = () => {
 
                 <StatisticsSorting>부터</StatisticsSorting>
 
-                <StatisticsDatePicker>
+                <StatisticsDatePicker onClick={handleClick}>
                   <StatisticsDatePickers
-                    className="btnFrom"
-                    label={'종료 날짜'}
                     value={endDate}
                     onDateChange={handleEndDateChange}
                   />
@@ -102,13 +120,13 @@ const AcountsStatistics = () => {
               </StatisticsGroupFromTo>
 
               <StatisticsGroupChart>
-                <StatisticsBtnGroup>
+                <StatisticsBtnGroup onClick={handleClick}>
                   <DropdownGroup
                     handleGroupSelect={handleGroupSelect}
                     selectedGroup={selectedGroup}
                   />
                 </StatisticsBtnGroup>
-                <StatisticsBtnChart>
+                <StatisticsBtnChart onClick={handleClick}>
                   <DropdownChart
                     handleChartSelect={handleChartSelect}
                     selectedChart={selectedChart}
@@ -122,22 +140,32 @@ const AcountsStatistics = () => {
           </StatisticsHeader>
 
           <Statisticsbody>
-            <Statisticschart>
+          {isVisible&&<StatisticsMessage navToggle={navToggle}>원하시는 날짜, 그룹, 차트를 선택해주세요.</StatisticsMessage>}
+            <Statisticschart  navToggle={navToggle}>
               {showChart && selectedChart === 'Pie' && selectedGroup && (
                 <PieChart selectedGroup={selectedGroup} />
               )}
               {showChart && selectedChart === 'Line' && selectedGroup && (
                 <LineChart selectedGroup={selectedGroup} />
               )}
+              {showChart && selectedChart === 'Bar' && selectedGroup && (
+                <BarChart selectedGroup={selectedGroup} />
+              )}
+              {showChart && selectedChart === 'PolarArea' && selectedGroup && (
+                <PolarAreaChart selectedGroup={selectedGroup} />
+              )}
+              {showChart && selectedChart === 'Radar' && selectedGroup && (
+                <RadarChart selectedGroup={selectedGroup} />
+              )}
             </Statisticschart>
-            <Statisticstable>
+            {navToggle === false &&<Statisticstable>
               {showChart && selectedGroup === 'Group1' && selectedChart && (
                 <ChartTable selectedGroup={selectedGroup} />
               )}
               {showChart && selectedGroup === 'Group2' && selectedChart && (
                 <ChartTable selectedGroup={selectedGroup} />
               )}
-            </Statisticstable>
+            </Statisticstable>}
           </Statisticsbody>
         </StatisticsSection>
       </Statisticscontainer>

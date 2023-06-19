@@ -15,6 +15,8 @@ import { stepContentClasses } from '@mui/material';
 import SelectVariantG from './SelectVariantG';
 import SelectVariantG2 from './SelectVariantG2';
 import dayjs from 'dayjs';
+import { useContext } from 'react';
+import { Context } from '../../context/Context';
 
 const FormDialog = (props) => {
   const [open, setOpen] = useState(false);
@@ -28,9 +30,17 @@ const FormDialog = (props) => {
   const [disableSubmit, setDisableSubmit] = useState(true); // 입력 버튼 비활성화 상태를 저장하는 변수
   const [selectedDate, setSelectedDate] = useState(null); // 선택한 날짜를 저장하는 상태 추가
 
+  const amntList = JSON.parse(localStorage.getItem('amntList')) || [];
+  const cntntList = JSON.parse(localStorage.getItem('cntntList')) || [];
+  const dateList = JSON.parse(localStorage.getItem('dateList')) || [];
+  const g1List = JSON.parse(localStorage.getItem('g1List')) || [];
+  const g2List = JSON.parse(localStorage.getItem('g2List')) || [];
+  const { themeMode, setThemeMode, category, setCategory } =
+    useContext(Context);
+
   useEffect(() => {
     if (amnt && cntnt && inOut) {
-      // inOut 값이 'spending'인 경우에만 g1 값이 존재해야 합니다.
+      // inOut 값이 'spending'인 경우에만 g1, g2 값이 존재해야 합니다.
       if (inOut === 'spending' && !(g1 && g2)) {
         setDisableSubmit(true);
       } else {
@@ -39,7 +49,7 @@ const FormDialog = (props) => {
     } else {
       setDisableSubmit(true);
     }
-  }, [amnt, cntnt, inOut, g1, g2]);
+  }, [selectedDate, amnt, cntnt, inOut, g1, g2]);
 
   const handleInOutChange = (value) => {
     setInOut(value);
@@ -48,17 +58,18 @@ const FormDialog = (props) => {
     let groupContent = value;
 
     if (inOut === 'spending') {
-      if (groupContent === 'a') {
-        setG1('식비');
-      } else if (groupContent === 'b') {
-        setG1('교통비');
-      } else if (groupContent === 'c') {
-        setG1('문화여가비');
-      } else if (groupContent === 'd') {
-        setG1('유흥비');
-      } else if (groupContent === 'e') {
-        setG1('기타');
-      }
+      setG1(groupContent);
+      // if (groupContent === 'a') {
+      //   setG1('식비');
+      // } else if (groupContent === 'b') {
+      //   setG1('교통비');
+      // } else if (groupContent === 'c') {
+      //   setG1('문화여가비');
+      // } else if (groupContent === 'd') {
+      //   setG1('유흥비');
+      // } else if (groupContent === 'e') {
+      //   setG1('기타');
+      // }
     } else {
       setG1('-'); // 수입인 경우 그룹을 비웁니다.
     }
@@ -69,7 +80,7 @@ const FormDialog = (props) => {
 
   const handleG2Change = (value) =>{
     let groupContent = value;
-
+    
     if (inOut === 'spending') {
       if (groupContent === 'a') {
         setG2('신한카드');
@@ -85,6 +96,7 @@ const FormDialog = (props) => {
     } else {
       setG2('-'); // 수입인 경우 그룹을 비웁니다.
     }
+    
   }
 
   const handleClickOpen = () => {
@@ -92,11 +104,19 @@ const FormDialog = (props) => {
   };
 
   const handleChangeAmnt = (e) => {
-    if (inOut === 'spending') {
-      setAmnt(-e.target.value); // '지출'이 선택된 경우 amnt 값을 -amnt로 변경
-    }else if(inOut ==='income'){
-      setAmnt(e.target.value);
-    }
+    const value = e.target.value;
+    // if(value===String){
+    //   alert("금액 란에는 숫자만 입력 가능합니다.")
+    // }
+    const numericValue = value.replace(/[^0-9]/g, ''); // 숫자 이외의 문자 제거
+
+  if (inOut === 'spending') {
+    setAmnt(-numericValue); // '지출'이 선택된 경우 음수로 설정
+  } else if (inOut === 'income') {
+    setAmnt(numericValue);
+  } else {
+    setAmnt('');
+  }
   }
 
   
@@ -107,16 +127,28 @@ const FormDialog = (props) => {
   
 
   const handleClose = (e) => {
+    if (selectedDate === null) {
+      alert("날짜를 선택하세요.");
+      return;
+    }
     setOpen(false);
     localStorage.setItem('amnt', amnt);
     localStorage.setItem('cntnt', cntnt);
     console.log(selectedDate);
+    
     const formattedDate = dayjs(selectedDate).format('YYYY-MM-DD');
     
+    amntList.push(amnt);
+    cntntList.push(cntnt);
+    dateList.push(formattedDate);
+    g1List.push(g1);
+    g2List.push(g2);
 
-    localStorage.setItem('g1', g1);
-    localStorage.setItem('g2', g2);
-
+    localStorage.setItem('amntList', JSON.stringify(amntList));
+    localStorage.setItem('cntntList', JSON.stringify(cntntList));
+    localStorage.setItem('dateList', JSON.stringify(dateList));
+    localStorage.setItem('g1List', JSON.stringify(g1List));
+    localStorage.setItem('g2List', JSON.stringify(g2List));
 
     const newData = [
       ...props.tableData,
@@ -135,7 +167,7 @@ const FormDialog = (props) => {
     setG1('');
     setG2('')
     setInOut('');
-    setSelectedDate();
+    setSelectedDate(null);
   };
 
   const handleCloseDialog = () => {
@@ -181,17 +213,21 @@ const FormDialog = (props) => {
                 autoFocus
                 margin="dense"
                 id="name"
-                label="금액(원)"
+                label="금액(원) (숫자만 입력)"
                 type="amount"
                 fullWidth
                 variant="standard"
                 //value={amount}
                 onChange={handleChangeAmnt}
+                inputProps={{
+                  pattern: '[0-9]*', // 숫자만 입력 가능하도록 설정
+                  inputMode: 'numeric', // 모바일 키보드 형식 설정
+                }}
             />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseDialog}>취소</Button>
-          <Button onClick={handleClose} disabled={disableSubmit}>입력</Button>
+          <Button onClick={handleClose} disabled={disableSubmit}>확인</Button>
         </DialogActions>
       </Dialog>
     </div>
