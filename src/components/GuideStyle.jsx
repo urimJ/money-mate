@@ -592,12 +592,19 @@ export const ProposalGridItem4 = styled.section`
 // GridSection----------------------------
 export const ProposalHeader = styled.h1`
   width: 100%;
+  font-size: 18px;
   font-family: 'GmarketSansTTFBold';
+  @media all and (min-width: 1280px) {
+    font-size: 22px;
+  }
 `;
 
 export const ProposalDescription = styled.span`
   width: 100%;
   font-size: 14px;
+  @media all and (min-width: 1280px) {
+    font-size: 16px;
+  }
 `;
 
 //
@@ -643,8 +650,39 @@ export const FunctionBox = styled.section`
 export const FunctionList = styled.ul`
   font-size: 14px;
   font-weight: 900;
+  @media all and (min-width: 1280px) {
+    font-size: 18px;
+  }
 `;
 
 export const FunctionItem = styled.li`
   font-size: 12px;
+  @media all and (min-width: 1280px) {
+    font-size: 16px;
+  }
+`;
+
+export const TeamRole = styled.div`
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+`;
+
+export const RoleItem = styled.section`
+  width: 100%;
+  min-height: 80px;
+  font-size: 12px;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.3);
+  padding: 5px;
+  line-height: 1.5;
+  @media all and (min-width: 1280px) {
+    font-size: 16px;
+    line-height: 2.2;
+  }
 `;

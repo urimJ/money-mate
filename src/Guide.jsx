@@ -34,6 +34,7 @@ import {
   ProposalGridItem3,
   ProposalGridItem4,
   ProposalHeader,
+  RoleItem,
   SecondSection1,
   SecondSection2,
   SecondSection3,
@@ -43,6 +44,7 @@ import {
   Section2RightBox,
   Section3LeftBox,
   Section3RightBox,
+  TeamRole,
 } from './components/GuideStyle';
 import { useNavigate } from 'react-router-dom';
 import Header from './components/Layout/Header';
@@ -340,6 +342,9 @@ const Guide = () => {
                 <FunctionBox num={1}>
                   <FunctionList>랜딩 페이지</FunctionList>
                   <FunctionItem>사용자 이름 입력</FunctionItem>
+                  <FunctionItem>
+                    Media query를 이용한 모든 페이지 반응형 적용
+                  </FunctionItem>
                 </FunctionBox>
                 <FunctionBox num={2}>
                   <FunctionList>가이드 페이지</FunctionList>
@@ -409,6 +414,27 @@ const Guide = () => {
             </ProposalGridItem3>
             <ProposalGridItem4>
               <ProposalHeader>역할 분담</ProposalHeader>
+              <TeamRole>
+                <RoleItem>
+                  <FunctionList>오준서</FunctionList>
+                  프로젝트 총괄
+                  <br />
+                  레포 세팅, 슬랙 채널 개설, 피그마 디자인 초안, 랜딩 페이지,
+                  가이드 페이지, 팀 소개 페이지, 기획서 페이지, 네비게이션 바
+                </RoleItem>
+                <RoleItem>
+                  <FunctionList>장유림</FunctionList>
+                  가계부 컴포넌트 구현, 피그마 디자인
+                </RoleItem>
+                <RoleItem>
+                  <FunctionList>이승훈</FunctionList>
+                  통계 컴포넌트 구현, 피그마 디자인
+                </RoleItem>
+                <RoleItem>
+                  <FunctionList>박수련</FunctionList>
+                  캘린더 컴포넌트 구현, 피그마 디자인
+                </RoleItem>
+              </TeamRole>
             </ProposalGridItem4>
           </ProposalGridBox>
         </GuideFourthScene>
