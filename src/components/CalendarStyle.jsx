@@ -8,12 +8,14 @@ export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: ${(props) => props.theme.bgColor};
+  color: ${(props) => props.theme.primaryColor};
 `;
 
 export const Title = styled.div`
   font-size: 30px;
   font-family: 'AppleSDGothicNeoB';
-  color: ${primaryColor};
+  color: ${(props) => props.theme.primaryColor};
   margin-bottom: 10px;
   position: absolute;
   top: 50px;
@@ -23,8 +25,8 @@ export const Title = styled.div`
 export const CalendarButton = styled.button`
   width: 100px;
   height: 30px;
-  background-color: ${primaryColor};
-  color: ${bgColor};
+  background-color: ${(props) => props.theme.primaryColor};
+  color: ${(props) => props.theme.bgColor};
   border-radius: 5px;
   border: none;
   cursor: pointer;
@@ -56,12 +58,12 @@ export const ModalStyle = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: `${bgColor}`,
+    backgroundColor: ` ${bgColor}`,
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%,-50%)',
-    color: `${primaryColor}`,
+    color: ` ${primaryColor}`,
     fontFamily: 'AppleSDGothicNeoB',
     border: `2px solid ${primaryColor}`,
     '@media (minWidth: 300px)': {
@@ -87,10 +89,10 @@ export const SubmitButton = styled.button`
   position: absolute;
   bottom: 25px;
   right: -5px;
-  background-color: ${primaryColor};
-  color: ${bgColor};
+  background-color: ${(props) => props.theme.primaryColor};
+  color: ${(props) => props.theme.bgColor};
   border-radius: 5px;
-  border: 1px solid ${bgColor};
+  border: 1px solid ${(props) => props.theme.bgColor};
   cursor: pointer;
 `;
 
@@ -100,10 +102,10 @@ export const CloseButton = styled.button`
   position: absolute;
   bottom: 17px;
   right: 20px;
-  background-color: ${primaryColor};
-  color: ${bgColor};
+  background-color: ${(props) => props.theme.primaryColor};
+  color: ${(props) => props.theme.bgColor};
   border-radius: 5px;
-  border: 1px solid ${bgColor};
+  border: 1px solid ${(props) => props.theme.bgColor};
   cursor: pointer;
 `;
 
@@ -130,9 +132,9 @@ export const DeleteButton = styled.button`
   width: 80px;
   height: 25px;
   position: relative;
-  background-color: ${primaryColor};
-  color: ${bgColor};
+  background-color: ${(props) => props.theme.primaryColor};
+  color: ${(props) => props.theme.bgColor};
   border-radius: 5px;
-  border: 1px solid ${bgColor};
+  border: 1px solid ${(props) => props.theme.bgColor};
   cursor: pointer;
 `;
