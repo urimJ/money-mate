@@ -19,10 +19,11 @@ EmptySpan
 import DatePicker from './DatePickers';
 import FormDialog from './FormDialog';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSmile } from '@fortawesome/free-solid-svg-icons';
+import { faSmile, faBoxOpen } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect, useState, useRef } from 'react';
 import { useCallback } from 'react';
 import dayjs from 'dayjs';
+import { primaryColor } from '../../../GlobalStyle';
 
 const AccountsComponent = (navToggle) => {
 const userName = localStorage.getItem('username');
@@ -130,7 +131,7 @@ return (
         <AccountsContBody className="contBody">
             {tableData.length === 0? (
                 <EmptyTable className = "emptyTableMessage">
-                    <FontAwesomeIcon icon={faBoxOpen} size="10x" />
+                    <FontAwesomeIcon icon={faSmile} size="2x" style={{color: {primaryColor}}} />
                     <EmptySpan>테이블이 비어 있습니다.</EmptySpan>
                 </EmptyTable>
             ):(
