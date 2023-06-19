@@ -44,8 +44,8 @@ import { useNavigate } from 'react-router-dom';
 import Header from './components/Layout/Header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  faCalendarAlt,
   faChartLine,
-  faChartPie,
   faHandHoldingDollar,
   faMagnifyingGlassDollar,
   faPiggyBank,
@@ -166,22 +166,22 @@ const Guide = () => {
           </SecondSection1>
           <SecondSection2 ref={ref2} inView={inView2}>
             <Section2LeftBox>
-              내 자산 통계를
+              내 자산을
               <br />
-              차트 라인을 통해 분석할 수 있어요.
+              캘린더를 통해 보다 직관적으로 파악할 수 있어요.
             </Section2LeftBox>
             <Section2RightBox>
-              <FontAwesomeIcon icon={faChartLine} />
+              <FontAwesomeIcon icon={faCalendarAlt} />
             </Section2RightBox>
           </SecondSection2>
           <SecondSection3 ref={ref2} inView={inView2}>
             <Section3LeftBox>
-              <FontAwesomeIcon icon={faChartPie} />
+              <FontAwesomeIcon icon={faChartLine} />
             </Section3LeftBox>
             <Section3RightBox>
-              내 자산 통계를
+              내 자산을
               <br />
-              차트 파이을 통해 분석할 수 있어요.
+              다양한 통계 데이터를 통해 분석할 수 있어요.
             </Section3RightBox>
           </SecondSection3>
           <GoToNextSection arrow={arrow}>

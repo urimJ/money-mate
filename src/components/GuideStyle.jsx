@@ -196,6 +196,9 @@ export const Section1RightBox = styled.section`
   justify-content: center;
   align-items: center;
   text-align: center;
+  @media all and (max-width: 620px) {
+    font-size: 2vw;
+  }
 `;
 
 export const SecondSection2 = styled.section`
@@ -245,6 +248,9 @@ export const Section2LeftBox = styled.section`
   justify-content: center;
   align-items: center;
   text-align: center;
+  @media all and (max-width: 620px) {
+    font-size: 2vw;
+  }
 `;
 
 export const Section2RightBox = styled.section`
@@ -314,6 +320,9 @@ export const Section3RightBox = styled.section`
   justify-content: center;
   align-items: center;
   text-align: center;
+  @media all and (max-width: 620px) {
+    font-size: 2vw;
+  }
 `;
 
 // Third Scene-----------------------------------
