@@ -6,7 +6,12 @@ import {
   CalendarContainer,
   ModalStyle,
   ModalForm,
-  ModalButton,
+  SubmitButton,
+  CloseButton,
+  ModalTitle,
+  ModalList,
+  ModalListItem,
+  DeleteButton,
 } from '../CalendarStyle';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -25,7 +30,7 @@ const Calendar = () => {
   // useEffect--------------------------------------------------------------------------------------------
   useEffect(() => {
     setList(schedule);
-    setEventList((prevList) => prevList.concat(schedule));
+    setEventList((prev) => prev.concat(schedule));
   }, []);
 
   useEffect(() => {
@@ -48,8 +53,9 @@ const Calendar = () => {
     setContent(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const submitSchedule = (e) => {
     e.preventDefault();
+    console.log('handleSubmit');
     setList([...list, { title: content, date: date }]);
     setEventList([...eventList, { title: content, date: date }]);
     closeInputModal();
@@ -66,13 +72,12 @@ const Calendar = () => {
 
   function Schedule({ schedule }) {
     return schedule.date == date ? (
-      <div>
-        <span>
-          {schedule.date}&nbsp;&nbsp;&nbsp;&nbsp;{schedule.title}{' '}
-          &nbsp;&nbsp;&nbsp;&nbsp;
-        </span>
-        <ModalButton onClick={() => deleteSchedule(schedule)}>삭제</ModalButton>
-      </div>
+      <ModalListItem>
+        <span>{schedule.title} &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <DeleteButton onClick={() => deleteSchedule(schedule)}>
+          삭제
+        </DeleteButton>
+      </ModalListItem>
     ) : (
       <div></div>
     );
@@ -115,7 +120,7 @@ const Calendar = () => {
           ariaHideApp={false}
         >
           <h1>일정 추가</h1>
-          <ModalForm onSubmit={handleSubmit}>
+          <ModalForm onSubmit={submitSchedule}>
             <TextField type="date" onChange={dateChange}></TextField>
             <TextField
               label="일정을 입력해주세요."
@@ -126,9 +131,9 @@ const Calendar = () => {
               onChange={contentChange}
               sx={{ width: '200px' }}
             ></TextField>
-            <ModalButton type="submit">추가</ModalButton>
-            <ModalButton onClick={closeInputModal}>닫기</ModalButton>
+            <SubmitButton type="submit">추가</SubmitButton>
           </ModalForm>
+          <CloseButton onClick={closeInputModal}>닫기</CloseButton>
         </Modal>
 
         <Modal
@@ -137,14 +142,14 @@ const Calendar = () => {
           style={ModalStyle}
           ariaHideApp={false}
         >
-          <h1>일정 리스트</h1>
+          <ModalTitle>{date} &nbsp;일정 리스트</ModalTitle>
           <ModalForm>
-            <div>
+            <ModalList>
               {list?.map((sche, idx) => (
                 <Schedule key={idx} schedule={sche} />
               ))}
-            </div>
-            <ModalButton onClick={closeScheduleModal}>닫기</ModalButton>
+            </ModalList>
+            <CloseButton onClick={closeScheduleModal}>닫기</CloseButton>
           </ModalForm>
         </Modal>
       </PageContainer>

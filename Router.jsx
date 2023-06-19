@@ -13,8 +13,8 @@ function Router() {
         <Route path="/" element={<Landing />} />
         <Route path="/guide" element={<Guide />} />
         <Route path="/accounts/:username" element={<Accounts />} />
-        {/* <Route path="/calendar" element={<Calendar />} />
-        <Route path="/statisitcs" element={<Statistics />} /> */}
+        <Route path="/calendar" element={<Calendar />} />
+        <Route path="/statisitcs" element={<Statistics />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

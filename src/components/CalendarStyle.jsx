@@ -8,7 +8,6 @@ export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 2px solid blue;
 `;
 
 export const Title = styled.div`
@@ -16,9 +15,7 @@ export const Title = styled.div`
   font-family: 'AppleSDGothicNeoB';
   color: ${primaryColor};
   margin-bottom: 10px;
-  /* border: 2px solid green; */
   position: absolute;
-  /* top:-20px; */
   top: 50px;
   left: 53px;
 `;
@@ -46,11 +43,6 @@ export const CalendarContainer = styled.section`
   position: relative;
   top: 40px;
   z-index: 0;
-  /* border: 5px solid yellow; */
-
-  /* @media (max-width: 500px) or (max-height: 800px) {
-    display: none;
-  } */
   @media (min-width: 1400px) {
     padding: 0 100px;
   }
@@ -72,12 +64,9 @@ export const ModalStyle = {
     color: `${primaryColor}`,
     fontFamily: 'AppleSDGothicNeoB',
     border: `2px solid ${primaryColor}`,
-    // '@media (maxWidth: 150px)': {
-    //   display: 'none',
-    // },
-    // '@media (minWidth: 300px)': {
-    //   width: '300px',
-    // },
+    '@media (minWidth: 300px)': {
+      width: '300px',
+    },
   },
 };
 
@@ -89,9 +78,52 @@ export const ModalForm = styled.form`
   justify-content: space-around;
 `;
 
-export const ModalButton = styled.button`
+export const SubmitButton = styled.button`
   width: 80px;
   height: 25px;
+  margin: 25px;
+  position: relative;
+  left: 152px;
+  background-color: ${primaryColor};
+  color: ${bgColor};
+  border-radius: 5px;
+  border: 1px solid ${bgColor};
+  cursor: pointer;
+`;
+
+export const CloseButton = styled.button`
+  width: 80px;
+  height: 25px;
+  position: absolute;
+  bottom: 17px;
+  right: 20px;
+  background-color: ${primaryColor};
+  color: ${bgColor};
+  border-radius: 5px;
+  border: 1px solid ${bgColor};
+  cursor: pointer;
+`;
+
+export const ModalTitle = styled.h1`
+  font-size: 20px;
+  margin-top: 20px;
+`;
+
+export const ModalList = styled.div`
+  width: 80%;
+  height: 80%;
+`;
+
+export const ModalListItem = styled.div`
+  font-size: 20px;
+  margin: 10px 0px;
+`;
+
+export const DeleteButton = styled.button`
+  width: 80px;
+  height: 25px;
+  position: absolute;
+  right: 20px;
   background-color: ${primaryColor};
   color: ${bgColor};
   border-radius: 5px;
