@@ -24,7 +24,7 @@ import dayjs from 'dayjs';
 const Calendar = () => {
   const userName = localStorage.getItem('username');
   const schedule = JSON.parse(localStorage.getItem('schedule'));
-  const account = JSON.parse(localStorage.getItem('account'));
+  const account = JSON.parse(localStorage.getItem('tableData'));
   const [list, setList] = useState([]);
   const [eventList, setEventList] = useState([]);
 
@@ -38,7 +38,6 @@ const Calendar = () => {
   useEffect(() => {
     localStorage.setItem('schedule', JSON.stringify(list));
   }, [list]);
-
   // 모달에서 리스트 입력 관련 함수------------------------------------------------------------
   const [isInputModalOpen, setIsInputModalOpen] = useState(false);
   const openInputModal = () => setIsInputModalOpen(true);
@@ -97,26 +96,46 @@ const Calendar = () => {
 
   // 지출, 수입 불러와 합산 후 달력에 표시 관련 함수------------------------------------------------------------
   const accountList = account.reduce((result, item) => {
-    const { date, amount, inout } = item;
+    const { date, amount } = item;
     const existingEntry = result.find(
-      (entry) => entry.date == date && entry.inout == inout
+      (entry) =>
+        entry.date == date &&
+        ((entry.color == '#48b3ff' && amount > 0) ||
+          (entry.color == '#ff8383' && amount < 0))
     );
     if (existingEntry) {
-      existingEntry['title'] += amount;
-      existingEntry['color'] = inout == '수입' ? 'green' : 'pink';
+      existingEntry['title'] =
+        existingEntry.color == '#48b3ff'
+          ? existingEntry['title'] + amount
+          : existingEntry['title'] - amount;
       result[result.indexOf(existingEntry)] = existingEntry;
       return result;
     } else {
       return result.concat([
         {
           date: date,
-          title: amount,
-          inout: inout,
-          color: inout == '수입' ? '#71d876' : '#e38383',
+          title: amount > 0 ? amount : -amount,
+          color: amount > 0 ? '#48b3ff' : '#ff8383',
         },
       ]);
     }
   }, []);
+
+  const [calendarRef, setCalendarRef] = useState(null);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      if (calendarRef) {
+        calendarRef.fullCalendar('render');
+      }
+    };
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, [calendarRef]);
   return (
     <>
       <PageContainer>
@@ -125,12 +144,11 @@ const Calendar = () => {
           <FullCalendar
             plugins={[dayGridPlugin, interactionPlugin]}
             initialView="dayGridMonth"
-            editable={true}
+            editable={false}
             selectable={true}
-            selectMirror={true}
             events={eventList}
             contentHeight={630}
-            aspectRatio={5}
+            aspectRatio={2}
             eventClick={openScheduleModal}
           />
         </CalendarContainer>
