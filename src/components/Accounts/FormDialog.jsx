@@ -36,7 +36,7 @@ const FormDialog = (props) => {
 
   useEffect(() => {
     if (amnt && cntnt && inOut) {
-      // inOut 값이 'spending'인 경우에만 g1 값이 존재해야 합니다.
+      // inOut 값이 'spending'인 경우에만 g1, g2 값이 존재해야 합니다.
       if (inOut === 'spending' && !(g1 && g2)) {
         setDisableSubmit(true);
       } else {
@@ -45,7 +45,7 @@ const FormDialog = (props) => {
     } else {
       setDisableSubmit(true);
     }
-  }, [amnt, cntnt, inOut, g1, g2]);
+  }, [selectedDate, amnt, cntnt, inOut, g1, g2]);
 
   const handleInOutChange = (value) => {
     setInOut(value);
@@ -99,11 +99,19 @@ const FormDialog = (props) => {
   };
 
   const handleChangeAmnt = (e) => {
-    if (inOut === 'spending') {
-      setAmnt(-e.target.value); // '지출'이 선택된 경우 amnt 값을 -amnt로 변경
-    }else if(inOut ==='income'){
-      setAmnt(e.target.value);
-    }
+    const value = e.target.value;
+    // if(value===String){
+    //   alert("금액 란에는 숫자만 입력 가능합니다.")
+    // }
+    const numericValue = value.replace(/[^0-9]/g, ''); // 숫자 이외의 문자 제거
+
+  if (inOut === 'spending') {
+    setAmnt(-numericValue); // '지출'이 선택된 경우 음수로 설정
+  } else if (inOut === 'income') {
+    setAmnt(numericValue);
+  } else {
+    setAmnt('');
+  }
   }
 
   
@@ -114,9 +122,17 @@ const FormDialog = (props) => {
   
 
   const handleClose = (e) => {
+    if (selectedDate === null) {
+      alert("날짜를 선택하세요.");
+      return;
+    }
     setOpen(false);
+    localStorage.setItem('amnt', amnt);
+    localStorage.setItem('cntnt', cntnt);
+    console.log(selectedDate);
     
     const formattedDate = dayjs(selectedDate).format('YYYY-MM-DD');
+    
     amntList.push(amnt);
     cntntList.push(cntnt);
     dateList.push(formattedDate);
@@ -146,7 +162,7 @@ const FormDialog = (props) => {
     setG1('');
     setG2('')
     setInOut('');
-    setSelectedDate();
+    setSelectedDate(null);
   };
 
   const handleCloseDialog = () => {
@@ -192,17 +208,21 @@ const FormDialog = (props) => {
                 autoFocus
                 margin="dense"
                 id="name"
-                label="금액(원)"
+                label="금액(원) (숫자만 입력)"
                 type="amount"
                 fullWidth
                 variant="standard"
                 //value={amount}
                 onChange={handleChangeAmnt}
+                inputProps={{
+                  pattern: '[0-9]*', // 숫자만 입력 가능하도록 설정
+                  inputMode: 'numeric', // 모바일 키보드 형식 설정
+                }}
             />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseDialog}>취소</Button>
-          <Button onClick={handleClose} disabled={disableSubmit}>입력</Button>
+          <Button onClick={handleClose} disabled={disableSubmit}>확인</Button>
         </DialogActions>
       </Dialog>
     </div>

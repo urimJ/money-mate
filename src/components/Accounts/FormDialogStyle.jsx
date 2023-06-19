@@ -3,7 +3,7 @@ import { bgColor, primaryColor } from '../../../GlobalStyle';
 
 // FormDialog와 관련된 styled component
 export const ButtonInput = styled.button`
-    margin : 0px 0px 20px 20px;
+    margin : 0px 0px 0px 20px;
     background-color: ${primaryColor};
     color: ${bgColor};
     width: 114px;
@@ -14,7 +14,7 @@ export const ButtonInput = styled.button`
     
     @media all and (max-width: 1280px) {
         width: ${(props) => (props.navToggle ? '100px' : '114px')};
-        margin : 0px 0px 10px 10px;
+        margin : 0px 0px 0px 20px;
     }
     @media (max-height: 450px) or (max-width: 980px) {
         width: 10vw;
