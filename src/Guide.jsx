@@ -194,10 +194,6 @@ const Guide = () => {
               다양한 통계 데이터를 통해 분석할 수 있어요.
             </Section3RightBox>
           </SecondSection3>
-          <GoToNextSection arrow={arrow}>
-            Scroll
-            <FontAwesomeIcon icon={faSortDown} />
-          </GoToNextSection>
         </GuideSecondScene>
         <GuideThirdScene>
           <InfoHeader ref={ref3} inView={inView3}>
@@ -312,10 +308,6 @@ const Guide = () => {
               </InfoRightSection>
             </InfoCard4>
           </InfoCardSection>
-          <GoToNextSection arrow={arrow}>
-            Scroll
-            <FontAwesomeIcon icon={faSortDown} />
-          </GoToNextSection>
         </GuideThirdScene>
         <GuideFourthScene>
           <ProposalGridBox ref={ref4} inView={inView4}>

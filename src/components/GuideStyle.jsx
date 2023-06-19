@@ -7,6 +7,9 @@ export const GuideContainer = styled.div`
   background-color: ${(props) => props.theme.bgColor};
   color: ${(props) => props.theme.textColor};
   overflow: hidden;
+  *::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 // First Scene-----------------------------------
