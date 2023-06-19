@@ -86,7 +86,7 @@ const AcountsStatistics = ({navToggle}) => {
 
   const handleClick = () => {
     setShowChart(false);
-    setIsVisible(true);
+    setIsVisible(false);
   }
 
   return (

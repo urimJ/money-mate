@@ -49,10 +49,10 @@ const DropdownGroup = ({ handleGroupSelect, selectedGroup }) => {
       </DropdownButton>
       {isOpen && (
         <DropdownMenu className="dropdown-menu">
-          <DropdownItem onClick={() => {handleSelect('Group1'); setIsOpen(false);}}>
+          <DropdownItem onClick={() => {handleSelect('Group1')}}>
             Group1
           </DropdownItem>
-          <DropdownItem onClick={() => {handleSelect('Group2'); setIsOpen(false);}}>
+          <DropdownItem onClick={() => {handleSelect('Group2')}}>
             Group2
           </DropdownItem>
         </DropdownMenu>
