@@ -3,6 +3,8 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { useContext } from 'react';
+import { Context } from '../../context/Context';
 
 const SelectVariantG = ({ handleGChange }) => {
   const [g1, setg1] = React.useState('');
@@ -11,9 +13,21 @@ const SelectVariantG = ({ handleGChange }) => {
     const selectedValue = event.target.value;
     setg1(selectedValue);
     handleGChange(selectedValue);
+    console.log(selectedValue);
   };
 
-  
+  const { themeMode, setThemeMode, category, setCategory } =
+  useContext(Context);
+
+  const categoryList = category?.map((c, idx) => {
+    return (
+      <MenuItem value={c.category} key={idx}>{c.category}</MenuItem>
+      // <MenuItem value={'b'}>교통비</MenuItem>
+      // <MenuItem value={'c'}>문화여가비</MenuItem>
+      // <MenuItem value={'d'}>유흥비</MenuItem>
+      // <MenuItem value={'e'}>교육비</MenuItem>
+    );
+  });  
 
   return (
     <div>
@@ -26,11 +40,7 @@ const SelectVariantG = ({ handleGChange }) => {
           onChange={handleChange}
           label="분류"
         >
-          <MenuItem value={'a'}>식비</MenuItem>
-          <MenuItem value={'b'}>교통비</MenuItem>
-          <MenuItem value={'c'}>문화여가비</MenuItem>
-          <MenuItem value={'d'}>유흥비</MenuItem>
-          <MenuItem value={'e'}>교육비</MenuItem>
+          {categoryList}
         </Select>
       </FormControl>
     </div>
