@@ -28,6 +28,12 @@ const FormDialog = (props) => {
   const [disableSubmit, setDisableSubmit] = useState(true); // 입력 버튼 비활성화 상태를 저장하는 변수
   const [selectedDate, setSelectedDate] = useState(null); // 선택한 날짜를 저장하는 상태 추가
 
+  const amntList = JSON.parse(localStorage.getItem('amntList')) || [];
+  const cntntList = JSON.parse(localStorage.getItem('cntntList')) || [];
+  const dateList = JSON.parse(localStorage.getItem('dateList')) || [];
+  const g1List = JSON.parse(localStorage.getItem('g1List')) || [];
+  const g2List = JSON.parse(localStorage.getItem('g2List')) || [];
+
   useEffect(() => {
     if (amnt && cntnt && inOut) {
       // inOut 값이 'spending'인 경우에만 g1 값이 존재해야 합니다.
@@ -69,7 +75,7 @@ const FormDialog = (props) => {
 
   const handleG2Change = (value) =>{
     let groupContent = value;
-
+    
     if (inOut === 'spending') {
       if (groupContent === 'a') {
         setG2('신한카드');
@@ -85,6 +91,7 @@ const FormDialog = (props) => {
     } else {
       setG2('-'); // 수입인 경우 그룹을 비웁니다.
     }
+    
   }
 
   const handleClickOpen = () => {
@@ -108,15 +115,19 @@ const FormDialog = (props) => {
 
   const handleClose = (e) => {
     setOpen(false);
-    localStorage.setItem('amnt', amnt);
-    localStorage.setItem('cntnt', cntnt);
-    console.log(selectedDate);
-    const formattedDate = dayjs(selectedDate).format('YYYY-MM-DD');
     
+    const formattedDate = dayjs(selectedDate).format('YYYY-MM-DD');
+    amntList.push(amnt);
+    cntntList.push(cntnt);
+    dateList.push(formattedDate);
+    g1List.push(g1);
+    g2List.push(g2);
 
-    localStorage.setItem('g1', g1);
-    localStorage.setItem('g2', g2);
-
+    localStorage.setItem('amntList', JSON.stringify(amntList));
+    localStorage.setItem('cntntList', JSON.stringify(cntntList));
+    localStorage.setItem('dateList', JSON.stringify(dateList));
+    localStorage.setItem('g1List', JSON.stringify(g1List));
+    localStorage.setItem('g2List', JSON.stringify(g2List));
 
     const newData = [
       ...props.tableData,
