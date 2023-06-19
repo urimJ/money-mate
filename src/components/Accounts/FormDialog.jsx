@@ -18,7 +18,7 @@ import dayjs from 'dayjs';
 import { useContext } from 'react';
 import { Context } from '../../context/Context';
 
-const FormDialog = (props) => {
+const FormDialog = ({ navToggle }) => {
   const [open, setOpen] = useState(false);
   const [amnt, setAmnt] = useState();
   const [cntnt, setCntnt] = useState();
@@ -182,7 +182,7 @@ const FormDialog = (props) => {
   return (
     <div>
 
-      <ButtonInput  onClick={handleClickOpen}>
+      <ButtonInput  onClick={handleClickOpen} navToggle={navToggle}>
         입력
       </ButtonInput>
       <Dialog open={open} onClose={handleCloseDialog}>
