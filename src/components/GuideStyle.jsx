@@ -543,7 +543,10 @@ export const ProposalGridBox = styled.div`
   grid-template-rows: 1fr 5fr;
   position: absolute;
   bottom: 0;
-  border: 5px solid black;
+  @media all and (max-width: 620px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 3fr 3fr;
+  }
 `;
 
 export const ProposalGridItem1 = styled.section`
@@ -551,30 +554,42 @@ export const ProposalGridItem1 = styled.section`
   grid-row: 1 / 2;
   padding: 5px;
   line-height: 1.2;
-  border: 1px solid black;
+  border: ${(props) => `1px solid ${props.theme.primaryColor}`};
 `;
 
 export const ProposalGridItem2 = styled.section`
   grid-column: 2 / 3;
   grid-row: 1 / 2;
-  border: 1px solid black;
+  border: ${(props) => `1px solid ${props.theme.primaryColor}`};
   padding: 5px;
+  line-height: 1.2;
+  @media all and (max-width: 620px) {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
 `;
 
 export const ProposalGridItem3 = styled.section`
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
-  border: 1px solid black;
+  border: ${(props) => `1px solid ${props.theme.primaryColor}`};
   padding: 5px;
+  @media all and (max-width: 620px) {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
 `;
 
 export const ProposalGridItem4 = styled.section`
   grid-column: 2 / 3;
   grid-row: 2 / 3;
-  border: 1px solid black;
+  border: ${(props) => `1px solid ${props.theme.primaryColor}`};
+  padding: 5px;
+  @media all and (max-width: 620px) {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+  }
 `;
 
-// FirstGridSection----------------------------
+// GridSection----------------------------
 export const ProposalHeader = styled.h1`
   width: 100%;
   font-family: 'GmarketSansTTFBold';
@@ -583,4 +598,53 @@ export const ProposalHeader = styled.h1`
 export const ProposalDescription = styled.span`
   width: 100%;
   font-size: 14px;
+`;
+
+//
+export const FunctionGrid = styled.div`
+  width: 100%;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  padding: 5px;
+`;
+
+export const FunctionBox = styled.section`
+  grid-column: ${(props) =>
+    props.num === 1
+      ? '1 / 2'
+      : props.num === 2
+      ? '2 / 3'
+      : props.num === 3
+      ? '3 / 4'
+      : props.num === 4
+      ? '4 / 5'
+      : props.num === 5
+      ? '1 / 2'
+      : props.num === 6
+      ? '2 / 3'
+      : props.num === 7
+      ? '3 / 4'
+      : props.num === 8
+      ? '4 / 5'
+      : ''};
+  grid-row: ${(props) =>
+    props.num <= 4 ? '1 / 2' : props.num <= 8 ? '2 / 3' : ''};
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.3);
+  line-height: 1.8;
+  padding: 7px;
+`;
+
+export const FunctionList = styled.ul`
+  font-size: 14px;
+  font-weight: 900;
+`;
+
+export const FunctionItem = styled.li`
+  font-size: 12px;
 `;

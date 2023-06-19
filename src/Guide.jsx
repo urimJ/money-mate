@@ -3,6 +3,10 @@ import Typewriter from 'typewriter-effect';
 import {
   FirstScenebackground1,
   FirstScenebackground2,
+  FunctionBox,
+  FunctionGrid,
+  FunctionItem,
+  FunctionList,
   GoToNextSection,
   GuideContainer,
   GuideFirstScene,
@@ -330,9 +334,82 @@ const Guide = () => {
               </ProposalDescription>
             </ProposalGridItem2>
             <ProposalGridItem3>
-              <ProposalHeader>페이지별 기능</ProposalHeader>
+              <ProposalHeader>프로젝트 기능</ProposalHeader>
+              <br />
+              <FunctionGrid>
+                <FunctionBox num={1}>
+                  <FunctionList>랜딩 페이지</FunctionList>
+                  <FunctionItem>사용자 이름 입력</FunctionItem>
+                </FunctionBox>
+                <FunctionBox num={2}>
+                  <FunctionList>가이드 페이지</FunctionList>
+                  <FunctionItem>
+                    서비스에 대한 전반적인 소개 페이지
+                  </FunctionItem>
+                  <FunctionItem>
+                    Typing Effect, animation, flex, grid 활용
+                  </FunctionItem>
+                </FunctionBox>
+                <FunctionBox num={3}>
+                  <FunctionList>가계부 페이지</FunctionList>
+                  <FunctionItem>
+                    사용자의 수입과 지출을 등록하고 관리
+                  </FunctionItem>
+                  <FunctionItem>
+                    날짜, 내용, 금액, 카테고리 분류를 입력
+                  </FunctionItem>
+                  <FunctionItem>
+                    기간 설정을 통해 필터링된 내역 확인
+                  </FunctionItem>
+                </FunctionBox>
+                <FunctionBox num={4}>
+                  <FunctionList>네비게이션 바</FunctionList>
+                  <FunctionItem>
+                    NEWS API 사용, 세계 시사 TOP 20 최신 뉴스 링크 연결
+                  </FunctionItem>
+                </FunctionBox>
+                <FunctionBox num={5}>
+                  <FunctionList>캘린더 페이지</FunctionList>
+                  <FunctionItem>
+                    가계부 작성 내용 바탕 해당 날짜 수입 지출 합계 확인
+                  </FunctionItem>
+                  <FunctionItem>
+                    리액트 Full Calendar 라이브러리 사용
+                  </FunctionItem>
+                </FunctionBox>
+                <FunctionBox num={6}>
+                  <FunctionList>통계 페이지</FunctionList>
+                  <FunctionItem>
+                    그룹별 카테고리 생성해 지출 또는 수입에 대한 통계 데이터
+                    가시화
+                  </FunctionItem>
+                  <FunctionItem>
+                    기간 필터링 통한 통계 데이터 세분화 확인 가능
+                  </FunctionItem>
+                </FunctionBox>
+                <FunctionBox num={7}>
+                  <FunctionList>마이 페이지</FunctionList>
+                  <FunctionItem>
+                    다크 모드 통한 서비스 커스터마이징 기능
+                  </FunctionItem>
+                  <FunctionItem>
+                    가계부 카테고리 추가 등록 및 삭제 기능
+                  </FunctionItem>
+                  <FunctionItem>
+                    프로필 이미지 추가 기능을 통한 개인 아이덴티티 부여 유도
+                  </FunctionItem>
+                </FunctionBox>
+                <FunctionBox num={8}>
+                  <FunctionList>NOT FOUNT 페이지</FunctionList>
+                  <FunctionItem>
+                    존재하지 않는 경로 이동 시 해당 페이지 이동 처리
+                  </FunctionItem>
+                </FunctionBox>
+              </FunctionGrid>
             </ProposalGridItem3>
-            <ProposalGridItem4></ProposalGridItem4>
+            <ProposalGridItem4>
+              <ProposalHeader>역할 분담</ProposalHeader>
+            </ProposalGridItem4>
           </ProposalGridBox>
         </GuideFourthScene>
       </GuideContainer>
