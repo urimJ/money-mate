@@ -121,7 +121,6 @@ const Calendar = () => {
           <ModalTitle>일정추가</ModalTitle>
           <ModalForm onSubmit={submitSchedule}>
             <TextField type="date" onChange={dateChange}></TextField>
-            <br />
             <TextField
               label="일정을 입력해주세요."
               variant="outlined"
