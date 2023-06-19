@@ -15,6 +15,8 @@ import { stepContentClasses } from '@mui/material';
 import SelectVariantG from './SelectVariantG';
 import SelectVariantG2 from './SelectVariantG2';
 import dayjs from 'dayjs';
+import { useContext } from 'react';
+import { Context } from '../../context/Context';
 
 const FormDialog = (props) => {
   const [open, setOpen] = useState(false);
@@ -33,6 +35,8 @@ const FormDialog = (props) => {
   const dateList = JSON.parse(localStorage.getItem('dateList')) || [];
   const g1List = JSON.parse(localStorage.getItem('g1List')) || [];
   const g2List = JSON.parse(localStorage.getItem('g2List')) || [];
+  const { themeMode, setThemeMode, category, setCategory } =
+    useContext(Context);
 
   useEffect(() => {
     if (amnt && cntnt && inOut) {
@@ -54,17 +58,18 @@ const FormDialog = (props) => {
     let groupContent = value;
 
     if (inOut === 'spending') {
-      if (groupContent === 'a') {
-        setG1('식비');
-      } else if (groupContent === 'b') {
-        setG1('교통비');
-      } else if (groupContent === 'c') {
-        setG1('문화여가비');
-      } else if (groupContent === 'd') {
-        setG1('유흥비');
-      } else if (groupContent === 'e') {
-        setG1('기타');
-      }
+      setG1(groupContent);
+      // if (groupContent === 'a') {
+      //   setG1('식비');
+      // } else if (groupContent === 'b') {
+      //   setG1('교통비');
+      // } else if (groupContent === 'c') {
+      //   setG1('문화여가비');
+      // } else if (groupContent === 'd') {
+      //   setG1('유흥비');
+      // } else if (groupContent === 'e') {
+      //   setG1('기타');
+      // }
     } else {
       setG1('-'); // 수입인 경우 그룹을 비웁니다.
     }
