@@ -24,13 +24,15 @@ import dayjs from 'dayjs';
 const Calendar = () => {
   const userName = localStorage.getItem('username');
   const schedule = JSON.parse(localStorage.getItem('schedule'));
+  const account = JSON.parse(localStorage.getItem('account'));
   const [list, setList] = useState([]);
   const [eventList, setEventList] = useState([]);
 
   // useEffect--------------------------------------------------------------------------------------------
   useEffect(() => {
+    console.log(eventList);
     setList(schedule);
-    setEventList((prev) => prev.concat(schedule));
+    setEventList((prev) => prev.concat(schedule, accountList));
   }, []);
 
   useEffect(() => {
@@ -93,6 +95,28 @@ const Calendar = () => {
     setList(newSchedule);
   };
 
+  // 지출, 수입 불러와 합산 후 달력에 표시 관련 함수------------------------------------------------------------
+  const accountList = account.reduce((result, item) => {
+    const { date, amount, inout } = item;
+    const existingEntry = result.find(
+      (entry) => entry.date == date && entry.inout == inout
+    );
+    if (existingEntry) {
+      existingEntry['title'] += amount;
+      existingEntry['color'] = inout == '수입' ? 'green' : 'pink';
+      result[result.indexOf(existingEntry)] = existingEntry;
+      return result;
+    } else {
+      return result.concat([
+        {
+          date: date,
+          title: amount,
+          inout: inout,
+          color: inout == '수입' ? '#71d876' : '#e38383',
+        },
+      ]);
+    }
+  }, []);
   return (
     <>
       <PageContainer>
