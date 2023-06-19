@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { bgColor, primaryColor, secondaryColor } from '../../GlobalStyle';
 
 // Layout 컴포넌트와 관련된 styled component
 export const Container = styled.div`
@@ -9,30 +8,36 @@ export const Container = styled.div`
 
 export const HeaderSection = styled.section`
   width: 100%;
-  height: 8vh;
+  height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${primaryColor};
-  color: ${secondaryColor};
+  position: fixed;
+  top: 0;
+  background-color: ${(props) => props.theme.primaryColor};
+  color: ${(props) => props.theme.bgColor};
   font-family: 'Kaushan Script', cursive;
   font-size: 36px;
   border: none;
-  box-shadow: 0px 10px 55px -4px rgba(65, 120, 203, 0.75);
+  box-shadow: ${(props) =>
+    props.themeMode
+      ? `0px 10px 55px -4px rgba(255, 255, 255, 0.75);`
+      : `0px 10px 55px -4px rgba(65, 120, 203, 0.75);`};
   z-index: 1;
 `;
 
 export const HeaderText = styled.span`
+  font-size: 30px;
   transition: all 0.5s;
   cursor: pointer;
   &:hover {
-    font-size: 40px;
+    font-size: 35px;
   }
 `;
 
 export const LogoutButton = styled.button`
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,13 +46,16 @@ export const LogoutButton = styled.button`
   right: 5px;
   border: none;
   border-radius: 50%;
-  background-color: ${primaryColor};
-  color: ${bgColor};
-  transition: all 0.5s;
+  background-color: ${(props) => props.theme.primaryColor};
+  color: ${(props) => props.theme.bgColor};
+  transition: all 0.3s;
   cursor: pointer;
+  display: ${(props) => (props.isLoggedIn ? '' : 'none')};
   &:hover {
-    box-shadow: 0px 10px 55px -4px rgba(65, 120, 203, 0.75);
-    font-size: 16px;
+    box-shadow: ${(props) =>
+      props.themeMode
+        ? `0 0 15px -4px rgba(255, 255, 255, 0.75);`
+        : `0 0 15px -4px rgba(65, 120, 203, 0.75);`};
+    font-size: 15px;
   }
-  /* display: ${(props) => (props.auth ? '' : 'none')}; */
 `;

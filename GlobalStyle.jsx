@@ -1,4 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
+import AppleSDGothicNeoL from './src/fonts/AppleSDGothicNeoL.ttf';
+import AppleSDGothicNeoM from './src/fonts/AppleSDGothicNeoM.ttf';
+import AppleSDGothicNeoB from './src/fonts/AppleSDGothicNeoB.ttf';
+import KaushanScript from './src/fonts/KaushanScript-Regular.ttf';
+import GmarketSansTTFLight from './src/fonts/GmarketSansTTFLight.ttf';
+import GmarketSansTTFMedium from './src/fonts/GmarketSansTTFMedium.ttf';
+import GmarketSansTTFBold from './src/fonts/GmarketSansTTFBold.ttf';
 
 // 배경색, 글꼴 색
 export const bgColor = 'white';
@@ -60,25 +67,22 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
-  /* *::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-    background: ${bgColor};
+  /* 스크롤바 없애기 */
+  *::-webkit-scrollbar {
+    display: none;
   }
 
   *::-webkit-scrollbar-thumb {
     background: ${primaryColor};
-  } */
+  }
 
   *::selection {
-    color: ${bgColor};
-    background: ${primaryColor};
+    color: ${textColor};
+    background: #e1c489;
   }
   // 추가2. 가져온 폰트를 body태그 안에 있으면 다 적용
   body{
-    background-color: ${bgColor};
-    color: ${textColor};
-    font-family: "AppleSDGothicNeoM", 'Noto Sans KR Black';
+    font-family: "GmarketSansTTFLight";
   }
   // 추가3. 링크에 모든 밑줄 삭제
   a{
@@ -89,20 +93,33 @@ const GlobalStyle = createGlobalStyle`
   /* Animation declaration, Font-face Setting */
   @font-face {
     font-family: 'Kaushan Script';
-    src: url("./src/fonts/KaushanScript-Regular.ttf");
+    src: url(${KaushanScript});
   }
   @font-face {
     font-family: "AppleSDGothicNeoM";
-    src: url("./src/fonts/AppleSDGothicNeoM.ttf");
+    src: url(${AppleSDGothicNeoM});
   }
   @font-face {
     font-family: "AppleSDGothicNeoL";
-    src: url("./src/fonts/AppleSDGothicNeoL.ttf");
+    src: url(${AppleSDGothicNeoL});
   }
   @font-face {
     font-family: "AppleSDGothicNeoB";
-    src: url("./src/fonts/AppleSDGothicNeoB.ttf");
+    src: url(${AppleSDGothicNeoB});
   }
+  @font-face {
+    font-family: "GmarketSansTTFLight";
+    src: url(${GmarketSansTTFLight});
+  }
+  @font-face {
+    font-family: "GmarketSansTTFMedium";
+    src: url(${GmarketSansTTFMedium});
+  }
+  @font-face {
+    font-family: "GmarketSansTTFBold";
+    src: url(${GmarketSansTTFBold});
+  }
+
   @keyframes fadeIn {
     from {opacity: 0;}
     to {opacity: 1;}   

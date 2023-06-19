@@ -1,13 +1,14 @@
 import styled from 'styled-components';
-import { bgColor, primaryColor } from '../../GlobalStyle';
 
 // Landing 페이지와 관련된 styled component
 export const LandingContainer = styled.div`
   width: 100%;
-  height: 92vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: ${(props) => props.theme.bgColor};
+  color: ${(props) => props.theme.textColor};
 `;
 
 export const LandingTitle = styled.h1`
@@ -38,9 +39,9 @@ export const LandingForm = styled.form`
 export const LandingInputButton = styled.button`
   width: 50px;
   height: 100%;
-  background-color: ${primaryColor};
-  color: ${bgColor};
+  background-color: ${(props) => props.theme.primaryColor};
+  color: ${(props) => props.theme.bgColor};
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
 `;
