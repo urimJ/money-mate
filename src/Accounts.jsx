@@ -111,7 +111,7 @@ const Accounts = () => {
           ) : currentPage === 1 ? (
             '달력 페이지'
           ) : currentPage === 2 ? (
-            <AcountsStatistics/>
+            <AcountsStatistics navToggle={navToggle}/>
           ) : currentPage === 3 ? (
             <MypageComponent navToggle={navToggle} />
           ) : (

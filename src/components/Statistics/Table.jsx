@@ -1,27 +1,59 @@
-import { bgColor, primaryColor } from "../../../GlobalStyle.jsx";
-import { Chartdata1 } from "./Group1data.jsx";
-import { Chartdata2 } from "./Group2data.jsx";
+import styled from 'styled-components';
+import { bgColor, primaryColor } from '../../../GlobalStyle.jsx';
+import { Chartdata } from './ChartConfig.jsx';
+import { useLocalData, sumSpendByLabel } from './DataManagement.jsx';
 
-function ChartTable({ selectedGroup }) {
-  const Chartdata = selectedGroup === 'Group1' ? Chartdata1 : selectedGroup === 'Group2' ? Chartdata2 : null;
+const StyledTable = styled.table`
+  width: 100%;
+  height: 100%;
+  border: 1px ${(props) => props.theme.StatisticButtonColor};
+  border-collapse: collapse;
 
+  thead {
+    background-color: ${primaryColor};
+    color: ${(props) => props.theme.textrColor};
+  }
+
+  th, td {
+    border: 1px solid ${(props) => props.theme.textColor};
+    padding: 10px;
+  }
+
+  td {
+    border: 1px solid ${(props) => props.theme.textColor};
+    color: ${(props) => props.theme.textColor};
+  }
+`;
+
+function ChartTable(selectedGroup) {
+  const localData = useLocalData(selectedGroup);
+  const ReduceLabels = [...new Set(localData.Group)];
+  const startDate = localStorage.getItem('startDate');
+  const endDate = localStorage.getItem('endDate');
+  const SpendData = ReduceLabels.map(
+    (label) => sumSpendByLabel(startDate, endDate, localData)[label]
+  );
+  const labels = ReduceLabels;
+  const spendData = SpendData;
+  const data = Chartdata(labels, spendData);
+  
   return (
-    <table style={{ width: '100%', height: '100%', border: '1px solid gray', borderCollapse: 'collapse' }}>
-      <thead style={{ backgroundColor: primaryColor, color: bgColor }}>
+    <StyledTable>
+      <thead>
         <tr>
-          <th style={{ border: '1px solid black', padding: '10px' }}>카테고리</th>
-          <th style={{ border: '1px solid black', padding: '10px' }}>소비금액</th>
+          <th>카테고리</th>
+          <th>소비금액</th>
         </tr>
       </thead>
       <tbody>
-        {Chartdata && Chartdata.labels.map((label, index) => (
+        {data.labels.map((label, index) => (
           <tr key={label}>
-            <td style={{ border: '1px solid gray', padding: '10px' }}>{label}</td>
-            <td style={{ border: '1px solid gray', padding: '10px' }}>{Chartdata.datasets[0].data[index] || 0}원</td>
+            <td>{label}</td>
+            <td>{data.datasets[0].data[index] || 0}원</td>
           </tr>
         ))}
       </tbody>
-    </table>
+    </StyledTable>
   );
 }
 

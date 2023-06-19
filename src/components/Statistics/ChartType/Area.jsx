@@ -1,4 +1,5 @@
 import {
+  RadialLinearScale,
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
@@ -9,13 +10,12 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { Pie } from 'react-chartjs-2';
-import { useLocalData,sumSpendByLabel } from '../DataManagement';
+import { PolarArea } from 'react-chartjs-2';
+import { useLocalData, sumSpendByLabel } from '../DataManagement';
 import { Chartdata } from '../ChartConfig';
 
-
-
 ChartJS.register(
+  RadialLinearScale,
   CategoryScale,
   LinearScale,
   PointElement,
@@ -25,6 +25,7 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+
 export const options = {
   plugins: {
     legend: {
@@ -39,10 +40,18 @@ export const options = {
         family: "GmarketSansTTFLight",
       }
     }
-  }
+  },
+  
+  scale: {
+    ticks: {
+      font: {
+        family: "GmarketSansTTFLight",
+      }
+    },
+  },
 };
 
-export default function PieChart() {
+export default function PolarAreaChart() {
   const localData = useLocalData();
   const ReduceLabels = [...new Set(localData.Group)];
   const startDate = localStorage.getItem('startDate');
@@ -53,11 +62,10 @@ export default function PieChart() {
   const labels = ReduceLabels;
   const spendData = SpendData;
   const data = Chartdata(labels, spendData);
-  
 
   return (
     <>
-      <Pie data={data} options={options} />
+      <PolarArea data={data} options={options} />
     </>
   );
 }
