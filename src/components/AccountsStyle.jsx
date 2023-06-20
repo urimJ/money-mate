@@ -385,13 +385,13 @@ export const AccountsContHeader = styled.div`
 export const AccountsGroupFromTo = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  //justify-content: center;
   align-items: center;
-  margin: 0px 170px 20px 0px;
+  margin: 0px 200px 20px 170px;
 
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
-    margin: ${(props) => (props.navToggle ? '0 10px 20px 0' : '0 170px 20px 0')};
+    margin: ${(props) => (props.navToggle ? '0 10px 20px 170px' : '0 170px 20px 170px')};
   }
   @media (max-height: 450px) or (max-width: 980px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '70vw')};
@@ -415,11 +415,11 @@ export const AccountsBtnSearch = styled.button`
   cursor: pointer;
 
   @media all and (max-width: 1280px) {
-    width: ${(props) => (props.navToggle ? '80%' : '10vw')};
+    width: ${(props) => (props.navToggle ? '30%' : '10vw')};
     }
   @media (max-height: 450px) or (max-width: 980px) {
     width: 30px;  
-    width: ${(props) => (props.navToggle ? '80%' : '30px')};
+    width: ${(props) => (props.navToggle ? '15%' : '30px')};
   }
 `;
 
@@ -553,12 +553,10 @@ export const Group = styled.div`
   margin: 0px 405px 0px 0px;
 
   @media all and (max-width: 1280px) {
-    width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
-    margin: ${(props) => (props.navToggle ? '0px 0px 0px 10px;' : '0px 405px 0px 0px;')};
+    margin: ${(props) => (props.navToggle ? '0px 10px 0px 10px;' : '0px 405px 0px 0px;')};
   }
   @media (max-height: 450px) or (max-width: 980px) {
-    width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '70vw')};
-    margin : 0px 0px 0px 10px;
+    margin : 0px 10px 0px 10px;
   }
 `;
 
