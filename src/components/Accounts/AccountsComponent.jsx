@@ -97,7 +97,7 @@ const AccountsComponent = ({ navToggle }) => {
     const [tableData, setTableData] = useState(
         JSON.parse(localStorage.getItem('tableData')) || []
     );
-    
+
     const updateTableData = useCallback((newData) => {
         const sortedData = newData.sort((a, b) => {
             const dateA = dayjs(a.date);
@@ -125,30 +125,30 @@ const AccountsComponent = ({ navToggle }) => {
                 <Group navToggle={navToggle}>
                 {!isTableUpdated && (
                 <>
-                <DatePickerWrapper>
-                
+                {tableData.length > 0 && (
+                <>
+                    <DatePickerWrapper>
                     <DatePicker
-                    //className={btnFrom.datePicker}
-                    label='시작 날짜'
-                    value={startDate}
-                    onDateChange={handleStartDateChange}
+                        label="시작 날짜"
+                        value={startDate}
+                        onDateChange={handleStartDateChange}
                     />
-                    
-                </DatePickerWrapper>
+                    </DatePickerWrapper>
                     <AccountsSorting navToggle={navToggle}>부터</AccountsSorting>
-                <DatePickerWrapper>
+                    <DatePickerWrapper>
                     <DatePicker
-                    //className={btnTo.datePicker}
-                    label='종료 날짜'
-                    value={endDate}
-                    onDateChange={handleEndDateChange}
-                    minDate={startDate} 
+                        label="종료 날짜"
+                        value={endDate}
+                        onDateChange={handleEndDateChange}
+                        minDate={startDate}
                     />
-                </DatePickerWrapper>
+                    </DatePickerWrapper>
                     <AccountsSorting navToggle={navToggle}>까지</AccountsSorting>
-                    <AccountsBtnSearch navToggle={navToggle} onClick={handleSearch} >
+                    <AccountsBtnSearch navToggle={navToggle} onClick={handleSearch}>
                     보기
                     </AccountsBtnSearch>
+                </>
+                )}
                 </>
                 )}
                 
