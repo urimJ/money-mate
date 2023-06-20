@@ -25,22 +25,6 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-export const options = {
-  plugins: {
-    legend: {
-      labels: {
-        font: {
-          family: "GmarketSansTTFLight",
-        }
-      }
-    },
-    tooltip: {
-      bodyFont: {
-        family: "GmarketSansTTFLight",
-      }
-    }
-  }
-};
 
 export default function PieChart() {
   const localData = useLocalData();
@@ -53,6 +37,27 @@ export default function PieChart() {
   const labels = ReduceLabels;
   const spendData = SpendData;
   const data = Chartdata(labels, spendData);
+
+  const theme = localStorage.getItem('theme') === 'true';
+
+  const options = {
+    plugins: {
+      legend: {
+        labels: {
+          color: theme ? 'white' : 'black',
+          font: {
+            family: "GmarketSansTTFLight",
+          }
+        }
+      },
+      tooltip: {
+        color: theme ? 'white' : 'black',
+        bodyFont: {
+          family: "GmarketSansTTFLight",
+        }
+      }
+    }
+  };
   
 
   return (

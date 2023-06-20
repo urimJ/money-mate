@@ -30,7 +30,6 @@ import BarChart from './components/Statistics/ChartType/Bar';
 
 const AcountsStatistics = ({navToggle}) => {
   const userName = localStorage.getItem('username');
-  console.log(navToggle);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [selectedChart, setSelectedChart] = useState(null);
