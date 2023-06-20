@@ -13,10 +13,11 @@ export const ButtonInput = styled.button`
     cursor: pointer;
     
     @media all and (max-width: 1280px) {
-    width: ${(props) => (props.navToggle ? '80px' : '10vw')};
+    width: ${(props) => (props.navToggle ? '80%' : '10vw')};
     }
-    @media (max-height: 450px) or (max-width: 678px) {
-        width: 60%
+    @media (max-height: 450px) or (max-width: 980px) {
+        width: 80%;
+        width: ${(props) => (props.navToggle ? '80%' : '10vw')};
     }
 `;
 

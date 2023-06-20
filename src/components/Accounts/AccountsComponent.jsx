@@ -128,7 +128,7 @@ const AccountsComponent = ({ navToggle }) => {
                 <>
                 {tableData.length > 0 && (
                 <>
-                    <DatePickerWrapper>
+                    <DatePickerWrapper navToggle={navToggle}>
                     <DatePicker
                         label="시작 날짜"
                         value={startDate}
@@ -136,7 +136,7 @@ const AccountsComponent = ({ navToggle }) => {
                     />
                     </DatePickerWrapper>
                     <AccountsSorting navToggle={navToggle}>부터</AccountsSorting>
-                    <DatePickerWrapper>
+                    <DatePickerWrapper navToggle={navToggle}>
                     <DatePicker
                         label="종료 날짜"
                         value={endDate}

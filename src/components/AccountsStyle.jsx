@@ -391,10 +391,11 @@ export const AccountsGroupFromTo = styled.div`
 
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
+    margin: ${(props) => (props.navToggle ? '0 10px 20px 0' : '0 170px 20px 0')};
   }
-  @media (max-height: 450px) or (max-width: 678px) {
+  @media (max-height: 450px) or (max-width: 980px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '70vw')};
-    margin : 0px 0px 0px 10px;
+    margin : 0px 0px 20px 10px;
   }
 `;
 
@@ -414,10 +415,11 @@ export const AccountsBtnSearch = styled.button`
   cursor: pointer;
 
   @media all and (max-width: 1280px) {
-    width: ${(props) => (props.navToggle ? '80px' : '10vw')};
-  }
-  @media (max-height: 450px) or (max-width: 678px) {
-    width: 60%
+    width: ${(props) => (props.navToggle ? '80%' : '10vw')};
+    }
+  @media (max-height: 450px) or (max-width: 980px) {
+    width: 30px;  
+    width: ${(props) => (props.navToggle ? '80%' : '30px')};
   }
 `;
 
@@ -430,9 +432,11 @@ export const AccountsContBody = styled.div`
 
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
+    margin: ${(props) => (props.navToggle ? '0 10px' : '0 160px')};
   }
-  @media (max-height: 450px) or (max-width: 678px) {
-    width: 100%;
+  @media (max-height: 450px) or (max-width: 980px) {
+    width: 70%;
+    margin: 0px 10px;
   }
 `;
 
@@ -445,6 +449,16 @@ export const AccountsTable = styled.table`
   width: 100%;
   border-spacing: 5px;
   border-collapse: collapse;
+  margin: 0px;
+
+  @media all and (max-width: 1280px) {
+    width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
+    //margin: ${(props) => (props.navToggle ? '0 10px' : '0 160px')};
+  }
+  @media (max-height: 450px) or (max-width: 980px) {
+    width: 100%;
+    //margin: ${(props) => (props.navToggle ? '0 10px' : '0 160px')};
+  }
 `;
 
 export const AccountsTableHeadTh = styled.th`
@@ -493,6 +507,14 @@ export const AccountsBtnClose = styled.button`
   border: 0px solid ${(props) => props.theme.primaryColor};
   border-radius: 10px;
   cursor: pointer;
+
+  @media all and (max-width: 1280px) {
+    width: ${(props) => (props.navToggle ? '80px' : '114px')};
+  }
+  @media (max-height: 450px) or (max-width: 980px) {
+    width: 60%
+  }
+
 `
 
 export const EmptyTable = styled.div`
@@ -514,12 +536,12 @@ export const DatePickerWrapper = styled.div`
     color: ${(props) => props.theme.textColor};
 
     @media all and (max-width: 1280px) {
-        width: ${(props) => (props.navToggle ? '100px' : '200px')};
+        width: ${(props) => (props.navToggle ? '10vw' : '200px')};
         margin : 0px 0px 0px 20px;
     }
     @media (max-height: 450px) or (max-width: 980px) {
         width: 10vw;
-        margin : 0px 0px 10px 10px;
+        margin : 0px 0px 0px 10px;
     }
 `;
 
@@ -531,12 +553,13 @@ export const Group = styled.div`
   margin: 0px 405px 0px 0px;
 
   @media all and (max-width: 1280px) {
-    margin-right: ${(props) => (props.navToggle ? '10px' : '405px')};
-    
-    }
-    @media (max-height: 450px) or (max-width: 980px) {
-      margin : 0px 10px 0px 0px;
-    }
+    width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
+    margin: ${(props) => (props.navToggle ? '0px 0px 0px 10px;' : '0px 405px 0px 0px;')};
+  }
+  @media (max-height: 450px) or (max-width: 980px) {
+    width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '70vw')};
+    margin : 0px 0px 0px 10px;
+  }
 `;
 
 export const GroupDiv = styled.div`
