@@ -12,7 +12,7 @@ export const blink = keyframes`
 
 export const AccountsContainer = styled.div`
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   position: relative;
   background: ${(props) => props.theme.bgColor};
 `;

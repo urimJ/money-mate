@@ -39,16 +39,6 @@ const AccountsComponent = ({ navToggle }) => {
     const [isTableUpdated, setIsTableUpdated] = useState(false);
     const prevTableDataRef = useRef();
 
-    const handleThemeLight = () => {
-        setThemeMode(false);
-        localStorage.setItem('theme', false);
-    };
-
-    const handleThemeDark = () => {
-        setThemeMode(true);
-        localStorage.setItem('theme', true);
-    };
-
     const handleStartDateChange = (date) => {
         const formattedStartDate = dayjs(date).format('YYYY-MM-DD');
         console.log(formattedStartDate);
@@ -107,6 +97,7 @@ const AccountsComponent = ({ navToggle }) => {
     const [tableData, setTableData] = useState(
         JSON.parse(localStorage.getItem('tableData')) || []
     );
+    
     const updateTableData = useCallback((newData) => {
         const sortedData = newData.sort((a, b) => {
             const dateA = dayjs(a.date);
