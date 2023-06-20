@@ -538,3 +538,7 @@ export const Group = styled.div`
       margin : 0px 10px 0px 0px;
     }
 `;
+
+export const GroupDiv = styled.div`
+  margin-top: 15vh;
+`

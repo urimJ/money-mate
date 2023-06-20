@@ -15,7 +15,8 @@ AccountsBtnClose,
 EmptyTable,
 EmptySpan,
 DatePickerWrapper, 
-Group
+Group,
+GroupDiv
 } from '../AccountsStyle';
 
 import DatePicker from './DatePickers';
@@ -164,8 +165,11 @@ const AccountsComponent = ({ navToggle }) => {
             <AccountsContBody navToggle={navToggle}>
                 {tableData.length === 0? (
                     <EmptyTable className = "emptyTableMessage" navToggle={navToggle}>
+                        <GroupDiv>
                         <FontAwesomeIcon icon={faBoxOpen} size="8x" color= {primaryColor} />
+                        </GroupDiv>
                         <EmptySpan>내용이 없습니다.</EmptySpan>
+                        
                     </EmptyTable>
                 ):(
                     <AccountsTable navToggle={navToggle}>
