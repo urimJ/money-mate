@@ -14,29 +14,24 @@ import {
   AccountsSection,
   MyPageNavigator,
   MypageTextBox,
-  
-
 } from './components/AccountsStyle';
-
 
 import React, { useEffect, useState } from 'react';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import NewsList from './components/Accounts/NewsList';
+import Calendar from './components/Calendar/Calendar';
 import AccountsComponent from './components/Accounts/AccountsComponent';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
 import MypageComponent from './components/MyPage/MypageComponent';
 import AcountsStatistics from './Statistics';
 
-
-
 const Accounts = () => {
   // 변수 관리-------------------------------------
   const userName = localStorage.getItem('username');
   const navigate = useNavigate();
-  
 
   // News API-------------------------------------
   const API_KEY = '06288e3f326849a5a788730118439d3c';
@@ -73,8 +68,6 @@ const Accounts = () => {
   const handleNavigator3 = useCallback(() => setCurrentPage(3), [currentPage]);
   const handleNavToHome = () => navigate('/guide');
 
-
-
   return (
     <>
       <AccountsContainer>
@@ -109,15 +102,14 @@ const Accounts = () => {
           {currentPage === 0 ? (
             <AccountsComponent navToggle={navToggle} />
           ) : currentPage === 1 ? (
-            '달력 페이지'
+            <Calendar />
           ) : currentPage === 2 ? (
-            <AcountsStatistics navToggle={navToggle}/>
+            <AcountsStatistics navToggle={navToggle} />
           ) : currentPage === 3 ? (
             <MypageComponent navToggle={navToggle} />
           ) : (
             ''
           )}
-
         </AccountsSection>
       </AccountsContainer>
     </>
