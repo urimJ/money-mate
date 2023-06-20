@@ -26,41 +26,6 @@ ChartJS.register(
   Legend
 );
 
-export const options = {
-  responsive: true,
-  scales: {
-    r: {
-      offset: true,
-      beginAtZero: true,
-      min: 0,
-      ticks: {
-        font: {
-          family: "GmarketSansTTFLight",
-        }
-      },
-      pointLabels: {
-        font: {
-          family: "GmarketSansTTFLight",
-        }
-    }
-    },
-    
-  },
-  plugins: {
-    legend: {
-      labels: {
-        font: {
-          family: "GmarketSansTTFLight",
-        }
-      }
-    },
-    tooltip: {
-      bodyFont: {
-        family: "GmarketSansTTFLight",
-      }
-    },
-  },
-};
 
 export default function RadarChart() {
   const localData = useLocalData();
@@ -73,6 +38,50 @@ export default function RadarChart() {
   const labels = ReduceLabels;
   const spendData = SpendData;
   const data = Chartdata(labels, spendData);
+
+  const theme = localStorage.getItem('theme') === 'true';
+
+
+  const options = {
+    responsive: true,
+    scales: {
+      r: {
+        offset: true,
+        beginAtZero: true,
+        min: 0,
+        ticks: {
+          display:!theme,
+          color: theme ? 'white' : 'black',
+          font: {
+            family: "GmarketSansTTFLight",
+          }
+        },
+        pointLabels: {
+          color: theme ? 'white' : 'black',
+          font: {
+            family: "GmarketSansTTFLight",
+          }
+      }
+      },
+      
+    },
+    plugins: {
+      legend: {
+        labels: {
+          color: theme ? 'white' : 'black',
+          font: {
+            family: "GmarketSansTTFLight",
+          }
+        }
+      },
+      tooltip: {
+        color: theme ? 'white' : 'black',
+        bodyFont: {
+          family: "GmarketSansTTFLight",
+        }
+      },
+    },
+  };
 
   return (
     <>

@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import { bgColor, primaryColor } from '../../GlobalStyle';
 
 export const Statisticscontainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
   background-color: ${(props) => props.theme.bgColor};
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   @media (max-width: 900px) {
     flex-direction: column;

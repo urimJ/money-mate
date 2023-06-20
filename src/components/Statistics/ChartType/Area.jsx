@@ -26,31 +26,6 @@ ChartJS.register(
   Legend
 );
 
-export const options = {
-  plugins: {
-    legend: {
-      labels: {
-        font: {
-          family: "GmarketSansTTFLight",
-        }
-      }
-    },
-    tooltip: {
-      bodyFont: {
-        family: "GmarketSansTTFLight",
-      }
-    }
-  },
-  
-  scale: {
-    ticks: {
-      font: {
-        family: "GmarketSansTTFLight",
-      }
-    },
-  },
-};
-
 export default function PolarAreaChart() {
   const localData = useLocalData();
   const ReduceLabels = [...new Set(localData.Group)];
@@ -62,6 +37,47 @@ export default function PolarAreaChart() {
   const labels = ReduceLabels;
   const spendData = SpendData;
   const data = Chartdata(labels, spendData);
+
+  const theme = localStorage.getItem('theme') === 'true';
+
+  const options = {
+    plugins: {
+      legend: {
+        labels: {
+          color: theme ? 'white' : 'black',
+          font: {
+            family: 'GmarketSansTTFLight',
+          },
+        },
+      },
+      tooltip: {
+        color: theme ? 'white' : 'black',
+        bodyFont: {
+          family: 'GmarketSansTTFLight',
+        },
+      },
+    },
+    scales: {
+      r: {
+        ticks: {
+          display:!theme,
+          color: theme ? 'white' : 'black',
+          font: {
+            family: "GmarketSansTTFLight",
+          }
+        },
+        pointLabels: {
+          display: true,
+          centerPointLabels: true,
+          color: theme ? 'white' : 'black',
+          font: {
+            family: 'GmarketSansTTFLight',
+          }
+        }
+      }
+    },
+
+    }
 
   return (
     <>

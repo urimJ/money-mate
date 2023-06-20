@@ -30,7 +30,6 @@ import BarChart from './components/Statistics/ChartType/Bar';
 
 const AcountsStatistics = ({navToggle}) => {
   const userName = localStorage.getItem('username');
-  console.log(navToggle);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [selectedChart, setSelectedChart] = useState(null);
@@ -78,6 +77,13 @@ const AcountsStatistics = ({navToggle}) => {
     }
     else if (!endDate) {
       alert('종료 날짜를 선택해주세요.');
+      return;
+    }
+    else if (!selectedGroup) {
+      alert('그룹을 선택해주세요.');
+      return;
+    } else if (!selectedChart) {
+      alert('차트를 선택해주세요.');
       return;
     }
     setShowChart(true);
