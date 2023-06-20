@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { bgColor } from '../../../GlobalStyle';
 
 const DropdownButton = styled.button`
   background-color: ${(props) => props.theme.bgColor};

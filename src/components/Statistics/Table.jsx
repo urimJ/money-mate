@@ -14,7 +14,8 @@ const StyledTable = styled.table`
     color: ${(props) => props.theme.textrColor};
   }
 
-  th, td {
+  th,
+  td {
     border: 1px solid ${(props) => props.theme.textColor};
     padding: 10px;
   }
@@ -36,7 +37,7 @@ function ChartTable(selectedGroup) {
   const labels = ReduceLabels;
   const spendData = SpendData;
   const data = Chartdata(labels, spendData);
-  
+
   return (
     <StyledTable>
       <thead>
@@ -49,7 +50,26 @@ function ChartTable(selectedGroup) {
         {data.labels.map((label, index) => (
           <tr key={label}>
             <td>{label}</td>
-            <td>{data.datasets[0].data[index] || 0}원</td>
+            <td>
+              {data.datasets[0].data[index] > 100000000
+                ? `${Math.floor(data.datasets[0].data[index] / 100000000)}억 ${
+                    data.datasets[0].data[index] % 100000000 > 10000
+                      ? `${Math.floor(
+                          (data.datasets[0].data[index] % 100000000) / 10000
+                        )}만`
+                      : ''
+                  }`
+                : data.datasets[0].data[index] > 10000
+                ? `${Math.floor(data.datasets[0].data[index] / 10000)}만 ${
+                    data.datasets[0].data[index] % 10000 !== 0
+                      ? `${Math.floor(
+                          (data.datasets[0].data[index] % 10000) / 1000
+                        )}천`
+                      : ''
+                  }`
+                : `${Math.floor(data.datasets[0].data[index] / 1000) || 0}천`}
+              원
+            </td>
           </tr>
         ))}
       </tbody>

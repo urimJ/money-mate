@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { bgColor, primaryColor } from '../../GlobalStyle';
 
 export const Statisticscontainer = styled.div`
   width: 100%;
