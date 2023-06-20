@@ -23,16 +23,16 @@ import dayjs from 'dayjs';
 
 const Calendar = () => {
   const userName = localStorage.getItem('username');
-  const schedule = JSON.parse(localStorage.getItem('schedule'));
+  // const schedule = JSON.parse(localStorage.getItem('schedule'));
   const account = JSON.parse(localStorage.getItem('tableData'));
   const [list, setList] = useState([]);
   const [eventList, setEventList] = useState([]);
 
   // useEffect--------------------------------------------------------------------------------------------
   useEffect(() => {
-    setList(schedule);
+    // setList(schedule);
     setEventList(accountList);
-    setEventList((prev) => prev.concat(schedule));
+    setEventList((prev) => prev.concat(getSchduleFromLocalStorage));
   }, []);
 
   useEffect(() => {
@@ -120,6 +120,20 @@ const Calendar = () => {
       ]);
     }
   }, []);
+
+  // ㅣlocal storage에서 데이터 불러오는 함수------------------------------------------------------------
+  const getSchduleFromLocalStorage = () => {
+    try {
+      const storedData = localStorage.getItem('schedule');
+      if (storedData) {
+        return JSON.parse(storedData);
+      }
+      return []; // Return an empty array if the stored data is null or undefined
+    } catch (error) {
+      console.error('Error retrieving data from local storage:', error);
+      return []; // Return an empty array in case of any errors
+    }
+  };
 
   return (
     <>
