@@ -27,6 +27,9 @@ const DropdownItem = styled.li`
   border-bottom: 1px solid ${(props) => props.theme.StatisticButtonColor};
   height: 50px;
   padding: 15px;
+  &:hover {
+    border: 1px solid black;
+  }
 `;
 
 const DropdownGroup = ({ handleGroupSelect, selectedGroup }) => {
