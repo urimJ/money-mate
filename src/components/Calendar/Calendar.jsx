@@ -31,7 +31,8 @@ const Calendar = () => {
   // useEffect--------------------------------------------------------------------------------------------
   useEffect(() => {
     setList(schedule);
-    setEventList((prev) => prev.concat(schedule, accountList));
+    setEventList(accountList);
+    setEventList((prev) => prev.concat(schedule));
   }, []);
 
   useEffect(() => {
@@ -146,7 +147,7 @@ const Calendar = () => {
         >
           <ModalTitle>일정추가</ModalTitle>
           <ModalForm onSubmit={submitSchedule}>
-            <TextField type="date" onChange={dateChange}></TextField>
+            <TextField type="date" required onChange={dateChange}></TextField>
             <TextField
               label="일정을 입력해주세요."
               variant="outlined"
