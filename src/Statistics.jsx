@@ -80,6 +80,13 @@ const AcountsStatistics = ({navToggle}) => {
       alert('종료 날짜를 선택해주세요.');
       return;
     }
+    else if (!selectedGroup) {
+      alert('그룹을 선택해주세요.');
+      return;
+    } else if (!selectedChart) {
+      alert('차트를 선택해주세요.');
+      return;
+    }
     setShowChart(true);
     setIsVisible(false);  
   };

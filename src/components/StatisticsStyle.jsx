@@ -6,6 +6,8 @@ export const Statisticscontainer = styled.div`
   height: 100%;
   display: flex;
   background-color: ${(props) => props.theme.bgColor};
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   @media (max-width: 900px) {
     flex-direction: column;
