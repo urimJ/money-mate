@@ -18,7 +18,7 @@ import dayjs from 'dayjs';
 import { useContext } from 'react';
 import { Context } from '../../context/Context';
 
-const FormDialog = (props) => {
+const FormDialog = (props, navToggle) => {
   const [open, setOpen] = useState(false);
   const [amnt, setAmnt] = useState();
   const [cntnt, setCntnt] = useState();
@@ -150,6 +150,10 @@ const FormDialog = (props) => {
     localStorage.setItem('g1List', JSON.stringify(g1List));
     localStorage.setItem('g2List', JSON.stringify(g2List));
 
+    localStorage.setItem('g1', g1);
+    localStorage.setItem('g2', g2);
+
+
     const newData = [
       ...props.tableData,
       {
@@ -182,7 +186,7 @@ const FormDialog = (props) => {
   return (
     <div>
 
-      <ButtonInput  onClick={handleClickOpen}>
+      <ButtonInput  onClick={handleClickOpen} navToggle={navToggle}>
         입력
       </ButtonInput>
       <Dialog open={open} onClose={handleCloseDialog}>

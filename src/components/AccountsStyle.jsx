@@ -12,8 +12,9 @@ export const blink = keyframes`
 
 export const AccountsContainer = styled.div`
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   position: relative;
+  background: ${(props) => props.theme.bgColor};
 `;
 
 export const SideNavBar = styled.section`
@@ -362,7 +363,7 @@ export const AccountsTitle = styled.p`
   font-family: 'Nanum Gothic', sans-serif;
   font-size: 30px;
   font-weight: bold;
-  color: ${primaryColor};
+  color: ${(props) => props.theme.primaryColor};;
   margin: 0px 20px 10px 160px;
   padding: 40px 0px 0px 0px;
 `;
@@ -371,12 +372,13 @@ export const AccountsContHeader = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  width: ${(props) => (props.navToggle ? `calc(100vw - 500px)` : '100vw')};
 
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
   }
   @media (max-height: 450px) or (max-width: 678px) {
-    width: 100%;
+    width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '80vw')};
   }
 `;
 
@@ -385,56 +387,61 @@ export const AccountsGroupFromTo = styled.div`
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  margin: 0px 160px 20px 0px;
+  margin: 0px 170px 20px 0px;
 
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
+    margin: ${(props) => (props.navToggle ? '0 10px 20px 0' : '0 170px 20px 0')};
   }
-  @media (max-height: 450px) or (max-width: 678px) {
-    width: 10vw;
-    margin : 0px 0px 10px 10px;
+  @media (max-height: 450px) or (max-width: 980px) {
+    width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '70vw')};
+    margin : 0px 0px 20px 10px;
   }
 `;
 
 export const AccountsSorting = styled.p`
   margin: 0px 15px 0px 10px;
+  color: ${(props) => props.theme.textColor}
 `;
 
 export const AccountsBtnSearch = styled.button`
   margin: 0px 0px 0px 20px;
-  background-color: ${primaryColor};
-  color: ${bgColor};
+  background-color: ${(props) => props.theme.primaryColor};
+  color: ${(props) => props.theme.bgColor};
   width: 114px;
   height: 50px;
-  border: 0px solid ${primaryColor};
+  border: 0px solid ${(props) => props.theme.primaryColor};
   border-radius: 10px;
   cursor: pointer;
 
   @media all and (max-width: 1280px) {
-    width: ${(props) => (props.navToggle ? '100px' : '114px')};
-  }
-  @media (max-height: 450px) or (max-width: 678px) {
-    width: 10vw;
+    width: ${(props) => (props.navToggle ? '80%' : '10vw')};
+    }
+  @media (max-height: 450px) or (max-width: 980px) {
+    width: 30px;  
+    width: ${(props) => (props.navToggle ? '80%' : '30px')};
   }
 `;
 
 export const AccountsContBody = styled.div`
   margin: 0px 160px;
   // background-color: rgb(33, 236, 169);
-  border: 3px solid ${primaryColor};
+  border: 3px solid ${(props) => props.theme.primaryColor};
   height: 450px;
   overflow: scroll;
 
   @media all and (max-width: 1280px) {
     width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
+    margin: ${(props) => (props.navToggle ? '0 10px' : '0 160px')};
   }
-  @media (max-height: 450px) or (max-width: 678px) {
-    width: 100%;
+  @media (max-height: 450px) or (max-width: 980px) {
+    width: 70%;
+    margin: 0px 10px;
   }
 `;
 
 export const AccountsTable = styled.table`
-  border: 1px solid ${primaryColor};
+  border: 1px solid ${(props) => props.theme.primaryColor};
   // font-family: 'Nanum Gothic', sans-serif;
   font-size: 18px;
   padding: 0 0px;
@@ -442,30 +449,42 @@ export const AccountsTable = styled.table`
   width: 100%;
   border-spacing: 5px;
   border-collapse: collapse;
+  margin: 0px;
+
+  @media all and (max-width: 1280px) {
+    width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
+    //margin: ${(props) => (props.navToggle ? '0 10px' : '0 160px')};
+  }
+  @media (max-height: 450px) or (max-width: 980px) {
+    width: 100%;
+    //margin: ${(props) => (props.navToggle ? '0 10px' : '0 160px')};
+  }
 `;
 
 export const AccountsTableHeadTh = styled.th`
-  border-bottom: 2px solid ${primaryColor};
-  border-left: 3px solid ${primaryColor};
-  border-right: 3px solid ${primaryColor};
+  border-bottom: 2px solid ${(props) => props.theme.primaryColor};
+  border-left: 3px solid ${(props) => props.theme.primaryColor};
+  border-right: 3px solid ${(props) => props.theme.primaryColor};
   padding: 10px 30px;
   border-collapse: collapse;
   font-weight: bold;
+  color: ${(props) => props.theme.textColor};
 `;
 
 export const AccountsTableBodyTd = styled.td`
   padding: 8px 30px;
-  border-left: 1px solid ${primaryColor};
-  border-right: 1px solid ${primaryColor};
+  border-left: 1px solid ${(props) => props.theme.primaryColor};
+  border-right: 1px solid ${(props) => props.theme.primaryColor};
   //border-bottom: 1px solid ${primaryColor};
   border-collapse: collapse;
+  color: ${(props) => props.theme.textColor}
 `;
 
 export const AccountsAmountColorSpending = styled.td`
   color: rgb(248, 77, 77);
   padding: 8px 30px;
-  border-left: 1px solid ${primaryColor};
-  border-right: 1px solid ${primaryColor};
+  border-left: 1px solid ${(props) => props.theme.primaryColor};
+  border-right: 1px solid ${(props) => props.theme.primaryColor};
   //border-bottom: 1px solid ${primaryColor};
   border-collapse: collapse;
 `;
@@ -473,21 +492,29 @@ export const AccountsAmountColorSpending = styled.td`
 export const AccountsAmountColorIncome = styled.td`
   color: rgb(45, 103, 251);
   padding: 8px 30px;
-  border-left: 1px solid ${primaryColor};
-  border-right: 1px solid ${primaryColor};
+  border-left: 1px solid ${(props) => props.theme.primaryColor};
+  border-right: 1px solid ${(props) => props.theme.primaryColor};
   //border-bottom: 1px solid ${primaryColor};
   border-collapse: collapse;
 `;
 
 export const AccountsBtnClose = styled.button`
   margin: 0px 0px 0px 20px;
-  background-color:${primaryColor};
-  color: ${bgColor};
+  background-color:${(props) => props.theme.primaryColor};
+  color: ${(props) => props.theme.bgColor};
   width: 114px;
   height: 50px;
-  border: 0px solid ${primaryColor};
+  border: 0px solid ${(props) => props.theme.primaryColor};
   border-radius: 10px;
   cursor: pointer;
+
+  @media all and (max-width: 1280px) {
+    width: ${(props) => (props.navToggle ? '80px' : '114px')};
+  }
+  @media (max-height: 450px) or (max-width: 980px) {
+    width: 60%
+  }
+
 `
 
 export const EmptyTable = styled.div`
@@ -495,6 +522,7 @@ export const EmptyTable = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: ${(props) => props.theme.primaryColor};
 `
 
 export const EmptySpan = styled.span`
@@ -505,14 +533,15 @@ export const DatePickerWrapper = styled.div`
     margin: 0px 0px 0px 20px;
     width: 200px;
     height: 50px;
+    color: ${(props) => props.theme.textColor};
 
     @media all and (max-width: 1280px) {
-        width: ${(props) => (props.navToggle ? '100px' : '200px')};
+        width: ${(props) => (props.navToggle ? '10vw' : '200px')};
         margin : 0px 0px 0px 20px;
     }
     @media (max-height: 450px) or (max-width: 980px) {
         width: 10vw;
-        margin : 0px 0px 10px 10px;
+        margin : 0px 0px 0px 10px;
     }
 `;
 
@@ -524,11 +553,15 @@ export const Group = styled.div`
   margin: 0px 405px 0px 0px;
 
   @media all and (max-width: 1280px) {
-    margin-right: ${(props) => (props.navToggle ? '405px' : '105px')};
-        margin : 0px 405px 0px 0px;
-    }
-    @media (max-height: 450px) or (max-width: 980px) {
-      width: ${(props) => (props.navToggle ? '100px' : '200px')};
-        margin : 0px 105px 0px 0px;
-    }
+    width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '100vw')};
+    margin: ${(props) => (props.navToggle ? '0px 0px 0px 10px;' : '0px 405px 0px 0px;')};
+  }
+  @media (max-height: 450px) or (max-width: 980px) {
+    width: ${(props) => (props.navToggle ? 'calc(100vw - 300px)' : '70vw')};
+    margin : 0px 0px 0px 10px;
+  }
+`;
+
+export const GroupDiv = styled.div`
+  margin-top: 15vh;
 `
